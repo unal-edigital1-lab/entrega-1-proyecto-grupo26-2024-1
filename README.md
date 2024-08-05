@@ -222,7 +222,7 @@ El Tamagotchi operará a través de una serie de estados que reflejan las necesi
 
 **Feliz:**  Refleja el bienestar general de la mascota como resultado de satisfacer adecuadamente sus necesidades básicas.
 
-**Tieso:** Cuando todos los valores promedian un 0 el tamagotchi va a este modo y sin posibilidad de subir el resto de estados la única opción es volver a iniciar de cero.
+**Tieso:** Cuando todos los valores promedian un valor menor a 5 el tamagotchi va a este modo y sin posibilidad de subir el resto de estados la única opción es volver a iniciar de cero.
 
 #### 4.2.2 Transiciones
 
