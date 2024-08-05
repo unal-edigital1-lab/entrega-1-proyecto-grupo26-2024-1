@@ -1,5 +1,10 @@
 # Entrega 1 del proyecto WP01
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+
+=======
+
+>>>>>>> 78c18d18cfa49441c5ade361d4a019949d463a7f
 Juan Manuel barrero mendoza
 Brayan Daniel Saidiza Amaya
 David Camilo Valbuena Molano
