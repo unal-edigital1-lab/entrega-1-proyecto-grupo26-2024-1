@@ -17,7 +17,7 @@ Navegación (2): Permiten desplazarse entre pantallas(Estados) del Tamagotchi.En
 
 Selección : Al pulsarse permite al usuario unicamente aumentar el valor del sistema de puntos del respectivo estado (subir la puntuación) hasta el valor máximo y luego se detiene. En el modo test una vez que llega al máximo, si se vuelve a pulsar va al valor mínimo de la puntuación y empieza a aumentar (Puntuación rotativa).
 
-Acelerado de Tiempo (Acel): Al presionarse le permite al usuario aumentar el tiempo en el que transcurren los eventos del tamagotchi 
+Acelerado de Tiempo (Acel): Al presionarse le permite al usuario aumentar el tiempo en el que transcurren los eventos del tamagotchi. 
 
 
 ### 2.2 Sistema de Sensado
