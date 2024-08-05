@@ -150,11 +150,11 @@ Los pines de esta pantalla son los siguientes:
 ![](fig/maquina%20estados.png)
 
 
-### 3.2 
 
 
 
-### 3.3 Interfaces 
+
+### 3.x Interfaces 
 
 Comunicación entre la FPGA y la pantalla. Entradas digitales para los botones. Comunicación entre la FPGA y el sensor.
 
