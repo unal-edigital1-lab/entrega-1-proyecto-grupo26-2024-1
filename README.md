@@ -164,9 +164,15 @@ En los estados se podrá interactuar mediante el botón acción esta interacció
 
 
 
-### 3.x Interfaces 
+![](FIG/COMERFUNC.png)
 
-Comunicación entre la FPGA y la pantalla. Entradas digitales para los botones. Comunicación entre la FPGA y el sensor.
+
+![](FIG/DORMIRFUNC.png)
+
+![](FIG/JUGARFUNC.png)
+
+![](FIG/SALUDFUNC.png)
+
 
 
 ## 4 Especificaciones de Diseño Detalladas
