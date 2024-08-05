@@ -168,9 +168,7 @@ En los estados se podrá interactuar mediante el botón acción esta interacció
 
 ![](FIG/maquina%20estados.png)
 
-
-
-
+## FUNCIONALES POR SEPARADO (PROPUESTA INICIAL)
 
 
 ![](FIG/COMERFUNC.png)
