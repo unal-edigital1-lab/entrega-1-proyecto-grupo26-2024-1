@@ -1,5 +1,8 @@
 # Entrega 1 del proyecto WP01
 <<<<<<< Updated upstream
+Juan Manuel barrero mendoza
+Brayan Daniel Saidiza Amaya
+David Camilo Valbuena Molano
 ## 1.Objetivo 
 Desarrollar un sistema de Tamagotchi en FPGA (Field-Programmable Gate Array) que simule el cuidado de una mascota virtual. El diseño incorporará una lógica de estados para reflejar las diversas necesidades y condiciones de la mascota, junto con mecanismos de interacción a través de sensores y botones que permitan al usuario cuidar adecuadamente de ella.
 
@@ -139,8 +142,6 @@ Los pines de esta pantalla son los siguientes:
 ## 3. Arquitectura del Sistema
 
 ### 3.1 Diagramas de Bloques 
-
-
 #### 3.1.1 Caja Negra
 
 ![](FIG/BLOQUES%20TAMAGOTCHI.png)
@@ -187,14 +188,14 @@ Funcionalidad: Permite la navegación manual entre los estados del Tamagotchi, i
 #### 4.1.2 Modo Normal 
 El Modo Normal es el estado de operación estándar del Tamagotchi, donde la interacción y respuesta a las necesidades de la mascota virtual dependen enteramente de las acciones del usuario.
 
-Activación: El sistema arranca por defecto en el Modo Normal tras el encendido o reinicio del dispositivo. No requiere una secuencia de activación especial, ya que es el modo de funcionamiento predeterminado.
+**Activación:** El sistema arranca por defecto en el Modo Normal tras el encendido o reinicio del dispositivo. No requiere una secuencia de activación especial, ya que es el modo de funcionamiento predeterminado.
 
-Funcionalidad: Los usuarios interactúan con la mascota a través de botones y, potencialmente, sensores para satisfacer sus necesidades básicas. La mascota transita entre diferentes estados (por ejemplo, Hambriento, Feliz, Dormido, Enfermo) en respuesta a las acciones del usuario y al paso del tiempo. El sistema proporciona retroalimentación inmediata sobre las acciones mediante la visualización.
+**Funcionalidad:** Los usuarios interactúan con la mascota a través de botones y, potencialmente, sensores para satisfacer sus necesidades básicas. La mascota transita entre diferentes estados (por ejemplo, Hambriento, Feliz, Dormido, Enfermo) en respuesta a las acciones del usuario y al paso del tiempo. El sistema proporciona retroalimentación inmediata sobre las acciones mediante la visualización.
 
 #### 4.1.3 Modo Aceleración 
 El modo Aceleración incrementa la velocidad a la que transcurren los eventos y el paso del tiempo dentro de la simulación del Tamagotchi, permitiendo a los usuarios experimentar ciclos de vida más rápidos y evaluar cómo las interacciones afectan al estado de la mascota en un periodo comprimido.
 
-Activación: Se activa pulsando el botón dedicado a “Aceleración de Tiempo”, con cada pulsación aumentando la velocidad de simulación (por ejemplo, 2x, 4x, 8x, x16).
+**Activación:** Se activa pulsando el botón dedicado a “Aceleración de Tiempo”, con cada pulsación aumentando la velocidad de simulación (por ejemplo, 2x, 4x, 8x, x16).
 Funcionalidad: Todos los temporizadores internos y los ciclos de eventos operan a una velocidad incrementada, acelerando la necesidad de interacciones como alimentar, jugar o curar.
 
 ### 4.2 Estados y Transiciones
@@ -203,15 +204,15 @@ Funcionalidad: Todos los temporizadores internos y los ciclos de eventos operan 
 
 El Tamagotchi operará a través de una serie de estados que reflejan las necesidades físicas y emocionales de la mascota virtual, a saber:
 
-Hambriento: Este estado alerta sobre la necesidad de alimentar a la mascota. La falta de atención a esta necesidad puede desencadenar un estado de enfermedad.
+**Hambriento:**  Este estado alerta sobre la necesidad de alimentar a la mascota. La falta de atención a esta necesidad puede desencadenar un estado de enfermedad.
 
-Diversión: Denota la necesidad de entretenimiento de la mascota. La inactividad prolongada puede llevar a estados de aburrimiento o tristeza.
+**Diversión:** Denota la necesidad de entretenimiento de la mascota. La inactividad prolongada puede llevar a estados de aburrimiento o tristeza.
 
-Descansar: Identifica cuando la mascota requiere reposo para recuperar energía, especialmente después de períodos de actividad intensa o durante la noche, limitando la interacción del usuario durante estas fases.
+**Descansar:**  Identifica cuando la mascota requiere reposo para recuperar energía, especialmente después de períodos de actividad intensa o durante la noche, limitando la interacción del usuario durante estas fases.
 
-Salud: va a niveles de enfermo por el descuido en el cuidado de la mascota, requiriendo intervenciones específicas para su recuperación.
+**Salud:**  va a niveles de enfermo por el descuido en el cuidado de la mascota, requiriendo intervenciones específicas para su recuperación.
 
-Feliz: Refleja el bienestar general de la mascota como resultado de satisfacer adecuadamente sus necesidades básicas.
+**Feliz:**  Refleja el bienestar general de la mascota como resultado de satisfacer adecuadamente sus necesidades básicas.
 
 #### 4.2.2 Transiciones
 
