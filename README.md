@@ -5,8 +5,11 @@
 =======
 
 >>>>>>> 78c18d18cfa49441c5ade361d4a019949d463a7f
+## Nombres 
 Juan Manuel barrero mendoza
+
 Brayan Daniel Saidiza Amaya
+
 David Camilo Valbuena Molano
 ## 1.Objetivo 
 Desarrollar un sistema de Tamagotchi en FPGA (Field-Programmable Gate Array) que simule el cuidado de una mascota virtual. El diseño incorporará una lógica de estados para reflejar las diversas necesidades y condiciones de la mascota, junto con mecanismos de interacción a través de sensores y botones que permitan al usuario cuidar adecuadamente de ella.
