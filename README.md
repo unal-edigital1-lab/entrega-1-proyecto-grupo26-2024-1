@@ -34,7 +34,7 @@ El sensor a implementar será un sensor de color con el que se generarán las di
 
 Este módulo tiene una matriz de fotodiodos de 8 × 8. Dieciséis fotodiodos tienen filtros azules, 16 fotodiodos tienen filtros verdes, 16 fotodiodos tienen filtros rojos y 16 fotodiodos son transparentes sin filtros. Cada grupo de fotodiodos se activará por separado para identificar cada componente de la luz incidente. Mediante un conversor de corriente a frecuencia integrado, se convierte la señal de los fotodiodos en una señal cuadrada de frecuencia directamente proporcional a la intensidad de luz irradiada
 
-![](/FIG//SENSOR.png)
+![](FIG/SENSOR.png)
 
 ### ENTRADAS DE CONFIGURACION DEL SENSOR DE COLOR
 #### S0 Y S1 
@@ -68,7 +68,7 @@ Permite habilitar o deshabilitar la salida del sensor de color.
 ### DRIVER 
 Se debe generar un controlador que entregue un valor independiente de cada componente de color (ROJO ,VERDE Y AZUL) apartir del sensado de varias señales de entrada 
 
-![](/FIG/C_N_drive_sensor.png)
+![](FIG/C_N_drive_sensor.png)
 
 
 Nuestro controlador debera contar con 5 salidas de control que permitan configurar el sensor de color;La escala de frecuencia (C-S0 y C-S1) sera estable por lo que siempre usaremos la escala de 100% manteniendo la frecuencia de salida del sensor entre 2 HZ ~ 500 KHZ pero usaremos estas ademas para salidas para activar o desactivar el sensor;
@@ -87,7 +87,7 @@ Un reloj que permita medir el tiempo entre cada franco de subida de la señal de
 
 las salidas seran 3 cada una representativa de un color ROJO VERDE AZUL cada una de 2 bits inicialmente 
 
-![](/FIG/DRIVER1.1.png)
+![](FIG/DRIVER1.1.png)
 
 Para facilitar el diseño de la maquina de estados y reducir entradas se implementa un comparador que 
 >>>>>>> Stashed changes
