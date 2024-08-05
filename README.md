@@ -103,6 +103,41 @@ La pantalla a utilizar sera una LCD 20X4 2004 ya que posee una mayor capacidad p
 
 ![](FIG/PANTALLALCD.png)
 
+Los pines de esta pantalla son los siguientes:
+
+
+**VSS (Pin 1):** Tierra (GND). Conectado a la referencia de tierra del sistema.
+
+**VDD (Pin 2):** Voltaje de alimentación positivo (VCC). Normalmente 5V DC.
+
+**VO (Pin 3):** Entrada de ajuste de contraste. Se conecta a un potenciómetro para ajustar el contraste de la pantalla.
+
+**RS (Pin 4):** Registro de selección (Register Select). Define si se envían datos o comandos al LCD.
+
+0: Modo comando
+
+1: Modo datos
+
+**RW (Pin 5):** Lectura/Escritura (Read/Write). Define si se está leyendo o escribiendo en el LCD.
+
+0: Modo escritura
+
+1: Modo lectura
+
+**E (Pin 6):** Habilitar (Enable). Permite al LCD captar los datos presentes en los pines de datos.
+
+**D0-D7 (Pines 7-14):** Pines de datos (Data Pins). Usados para enviar datos y comandos al LCD.
+
+**D0-D3 (Pines 7-10):** Pines de datos menos significativos (usados en modo de 8 bits).
+
+**D4-D7 (Pines 11-14):** Pines de datos más significativos (usados en modo de 4 bits o 8 bits).
+
+**A/VSS (Pin 15):** Anodo de retroiluminación (si está presente). Conectado a VCC a través de una resistencia limitadora de corriente.
+
+**K/VDD (Pin 16):** Cátodo de retroiluminación (si está presente). Conectado a GND.
+
+![](FIG/PINESPANTALLA.png)
+
 ## 3. Arquitectura del Sistema
 
 ### 3.1 Diagramas de Bloques 
