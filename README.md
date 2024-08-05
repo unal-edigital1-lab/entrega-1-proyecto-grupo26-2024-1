@@ -1,5 +1,5 @@
 # Entrega 1 del proyecto WP01
-<<<<<<< Updated upstream
+
 ## 1.Objetivo 
 Desarrollar un sistema de Tamagotchi en FPGA (Field-Programmable Gate Array) que simule el cuidado de una mascota virtual. El diseño incorporará una lógica de estados para reflejar las diversas necesidades y condiciones de la mascota, junto con mecanismos de interacción a través de sensores y botones que permitan al usuario cuidar adecuadamente de ella.
 
