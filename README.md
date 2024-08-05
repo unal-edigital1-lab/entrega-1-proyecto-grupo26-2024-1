@@ -10,15 +10,15 @@ Desarrollar un sistema de Tamagotchi en FPGA (Field-Programmable Gate Array) que
 
 La interacción usuario-sistema se realizará mediante los siguientes botones configurados:
 
-Reset: Reestablece el Tamagotchi a un estado inicial conocido al mantener pulsado el botón durante al menos 5 segundos. Este estado inicial simula el despertar de la mascota con salud óptima.
+**Reset:** Reestablece el Tamagotchi a un estado inicial conocido al mantener pulsado el botón durante al menos 5 segundos. Este estado inicial simula el despertar de la mascota con salud óptima.
 
-Test: Activa el modo de prueba al mantener pulsado por al menos 5 segundos, permitiendo al usuario navegar entre los diferentes estados del Tamagotchi con cada pulsación.
+**Test:** Activa el modo de prueba al mantener pulsado por al menos 5 segundos, permitiendo al usuario navegar entre los diferentes estados del Tamagotchi con cada pulsación.
 
-Navegación (2): Permiten desplazarse entre pantallas(Estados) del Tamagotchi.En el modo Test funcionan de la misma manera
+**Navegación (2):** Permiten desplazarse entre pantallas(Estados) del Tamagotchi.En el modo Test funcionan de la misma manera.
 
-Selección : Al pulsarse permite al usuario unicamente aumentar el valor del sistema de puntos del respectivo estado (subir la puntuación) hasta el valor máximo y luego se detiene. En el modo test una vez que llega al máximo, si se vuelve a pulsar va al valor mínimo de la puntuación y empieza a aumentar (Puntuación rotativa).
+**Selección:** Al pulsarse permite al usuario unicamente aumentar el valor del sistema de puntos del respectivo estado (subir la puntuación) hasta el valor máximo y luego se detiene. En el modo test una vez que llega al máximo, si se vuelve a pulsar, va al valor mínimo de la puntuación y empieza a aumentar nuevamente si se pulsa (Puntuación rotativa).
 
-Acelerado de Tiempo (Acel): Al presionarse le permite al usuario aumentar el tiempo en el que transcurren los eventos del tamagotchi. 
+Acelerador de Tiempo (Acel): Al presionarse le permite al usuario aumentar el tiempo en el que transcurren los eventos del tamagotchi en un determinado factor (x2,x4,x8,x16). 
 
 
 ### 2.2 Sistema de Sensado
@@ -27,6 +27,70 @@ Para integrar al Tamagotchi con el entorno real y enriquecer la experiencia de i
 
 Sensor de Color: Permite al Tamagotchi “alimentarse” de colores específicos presentes en su entorno, cada uno asociado a diferentes tipos de nutrientes o efectos:
 Nutrición Variada: La identificación de diferentes colores se traduce en una variedad de alimentos consumidos, impactando positiva o negativamente en la salud y el estado anímico del Tamagotchi.
+
+## SENSOR DE COLOR TCS3200
+
+El sensor a implementar será un sensor de color con el que se generarán las dinámicas entre el usuario y la mascota; se eligió el módulo TCS3200 por su bajo costo y fácil obtención en el mercado.
+
+Este módulo tiene una matriz de fotodiodos de 8 × 8. Dieciséis fotodiodos tienen filtros azules, 16 fotodiodos tienen filtros verdes, 16 fotodiodos tienen filtros rojos y 16 fotodiodos son transparentes sin filtros. Cada grupo de fotodiodos se activará por separado para identificar cada componente de la luz incidente. Mediante un conversor de corriente a frecuencia integrado, se convierte la señal de los fotodiodos en una señal cuadrada de frecuencia directamente proporcional a la intensidad de luz irradiada
+
+![](/FIG//SENSOR.png)
+
+### ENTRADAS DE CONFIGURACION DEL SENSOR DE COLOR
+#### S0 Y S1 
+permiten escalar la frecuencia de salida entre los valores de 2% 20% y 100%.
+El rango de la frecuencia de salida típica es de 2 HZ ~ 500 KHZ.
+
+| S0  | S1 | ESCALADO DE FRECUENCIA |
+| ------------- | ------------- | ------------- |
+| 0 | 0  | OFF |
+| 0 | 1  | 2%  |
+| 1 | 0  | 20%  |
+| 1 | 1  | 100%  |
+
+#### S2 Y S3 
+Permite seleccionar el color a detectar ya que contiene fotodiodos con diferentes filtros ROJO VERDE AZUL Y SIN FILTRO se selecciona el color a leer mediante las entradas S2 y S3
+| S2  | S3 | COLOR |
+| ------------- | ------------- | ------------- | 
+| 0 | 0  | ROJO  |
+| 0 | 1  | AZUL  |
+| 1 | 0  | SIN FILTRO  |
+| 1 | 1  | VERDE |
+
+#### OE
+Permite habilitar o deshabilitar la salida del sensor de color. 
+
+| OE  | ESTADO |
+| ------------- | ------------- |
+| 0  | activa el sensor de color  |
+| 1  | desactiva el sensor de color |
+
+### DRIVER 
+Se debe generar un controlador que entregue un valor independiente de cada componente de color (ROJO ,VERDE Y AZUL) apartir del sensado de varias señales de entrada 
+
+![](/FIG/C_N_drive_sensor.png)
+
+
+Nuestro controlador debera contar con 5 salidas de control que permitan configurar el sensor de color;La escala de frecuencia (C-S0 y C-S1) sera estable por lo que siempre usaremos la escala de 100% manteniendo la frecuencia de salida del sensor entre 2 HZ ~ 500 KHZ pero usaremos estas ademas para salidas para activar o desactivar el sensor;
+
+La salida C-OE se encargara de habilitar o deshabilitar la señal de salida del sensor de color (activo en 0),por lo que la mantendremos en 1 hasta el momento que se decida sensar para que este no genere ruido.
+
+Las salidas C-S2 y C-S3 se modificaran cuando se decida censar pasando por los cuatro posibles valores para conocer la intensidad de luz incidente y la de los componentes de color por aparte 
+
+La entrada de datos es de un bit pues la salida del sensor es una onda cuadrada y con la entrada serial podemos calcular su frecuencia mediante un contador y asi posteriormente determinar el color que se esta leyendo.
+
+Se realizaran mediciones aplicando cada uno de los filtros y se almacena el valor de la frecuencia en un banco de registros pues luego tienen que ser comparados los valores de color con el de referencia o sin filtro.la frecuencia de las señales de (ROJO VERDE AZUL) dependera de la proporcion de color pues 
+
+
+
+Un reloj que permita medir el tiempo entre cada franco de subida de la señal de salida del sensor.
+
+las salidas seran 3 cada una representativa de un color ROJO VERDE AZUL cada una de 2 bits inicialmente 
+
+![](/FIG/DRIVER1.1.png)
+
+Para facilitar el diseño de la maquina de estados y reducir entradas se implementa un comparador que 
+>>>>>>> Stashed changes
 
 
 ### 2.3 Sistema de Visualización
@@ -109,69 +173,4 @@ Se desarrollará un sistema de niveles o puntuación que reflejará la calidad d
 
 
 
-## SENSOR DE COLOR TCS3200
 
-El sensor a implementar será un sensor de color con el que se generarán las dinámicas entre el usuario y la mascota; se eligió el módulo TCS3200 por su bajo costo y fácil obtención en el mercado.
-
-Este módulo tiene una matriz de fotodiodos de 8 × 8. Dieciséis fotodiodos tienen filtros azules, 16 fotodiodos tienen filtros verdes, 16 fotodiodos tienen filtros rojos y 16 fotodiodos son transparentes sin filtros. Cada grupo de fotodiodos se activará por separado para identificar cada componente de la luz incidente. Mediante un conversor de corriente a frecuencia integrado, se convierte la señal de los fotodiodos en una señal cuadrada de frecuencia directamente proporcional a la intensidad de luz irradiada
-
-
-
-![](/FIG//SENSOR.png)
-
-
-### ENTRADAS DE CONFIGURACION DEL SENSOR DE COLOR
-#### S0 Y S1 
-permiten escalar la frecuencia de salida entre los valores de 2% 20% y 100%.
-El rango de la frecuencia de salida típica es de 2 HZ ~ 500 KHZ.
-
-| S0  | S1 | ESCALADO DE FRECUENCIA |
-| ------------- | ------------- | ------------- |
-| 0 | 0  | OFF |
-| 0 | 1  | 2%  |
-| 1 | 0  | 20%  |
-| 1 | 1  | 100%  |
-
-#### S2 Y S3 
-Permite seleccionar el color a detectar ya que contiene fotodiodos con diferentes filtros ROJO VERDE AZUL Y SIN FILTRO se selecciona el color a leer mediante las entradas S2 y S3
-| S2  | S3 | COLOR |
-| ------------- | ------------- | ------------- | 
-| 0 | 0  | ROJO  |
-| 0 | 1  | AZUL  |
-| 1 | 0  | SIN FILTRO  |
-| 1 | 1  | VERDE |
-
-#### OE
-Permite habilitar o deshabilitar la salida del sensor de color. 
-
-| OE  | ESTADO |
-| ------------- | ------------- |
-| 0  | activa el sensor de color  |
-| 1  | desactiva el sensor de color |
-
-### DRIVER 
-Se debe generar un controlador que entregue un valor independiente de cada componente de color (ROJO ,VERDE Y AZUL) apartir del sensado de varias señales de entrada 
-
-![](/FIG/C_N_drive_sensor.png)
-
-
-Nuestro controlador debera contar con 5 salidas de control que permitan configurar el sensor de color;La escala de frecuencia (C-S0 y C-S1) sera estable por lo que siempre usaremos la escala de 100% manteniendo la frecuencia de salida del sensor entre 2 HZ ~ 500 KHZ pero usaremos estas ademas para salidas para activar o desactivar el sensor;
-
-La salida C-OE se encargara de habilitar o deshabilitar la señal de salida del sensor de color (activo en 0),por lo que la mantendremos en 1 hasta el momento que se decida sensar para que este no genere ruido.
-
-Las salidas C-S2 y C-S3 se modificaran cuando se decida censar pasando por los cuatro posibles valores para conocer la intensidad de luz incidente y la de los componentes de color por aparte 
-
-La entrada de datos es de un bit pues la salida del sensor es una onda cuadrada y con la entrada serial podemos calcular su frecuencia mediante un contador y asi posteriormente determinar el color que se esta leyendo.
-
-Se realizaran mediciones aplicando cada uno de los filtros y se almacena el valor de la frecuencia en un banco de registros pues luego tienen que ser comparados los valores de color con el de referencia o sin filtro.la frecuencia de las señales de (ROJO VERDE AZUL) dependera de la proporcion de color pues 
-
-
-
-Un reloj que permita medir el tiempo entre cada franco de subida de la señal de salida del sensor.
-
-las salidas seran 3 cada una representativa de un color ROJO VERDE AZUL cada una de 2 bits inicialmente 
-
-![](/FIG/DRIVER1.1.png)
-
-Para facilitar el diseño de la maquina de estados y reducir entradas se implementa un comparador que 
->>>>>>> Stashed changes
