@@ -143,11 +143,11 @@ Los pines de esta pantalla son los siguientes:
 ### 3.1 Diagramas de Bloques 
 #### 3.1.1 Caja Negra
 
-![](fig/BLOQUES%20TAMAGOTCHI.png)
+![](FIG/BLOQUES%20TAMAGOTCHI.png)
 
 #### 3.1.2 Maquina de estados
 
-![](fig/maquina%20estados.png)
+![](FIG/maquina%20estados.png)
 
 
 
