@@ -100,9 +100,7 @@ Las transiciones entre diferentes estados de la mascota se desencadenarán por i
 #### Sistema de Niveles o Puntos
 
 Se desarrollará un sistema de niveles o puntuación que reflejará la calidad del cuidado proporcionado al Tamagotchi. Aspectos como el nivel de hambre y felicidad fluctuarán en una escala de 1 a 5, donde acciones positivas como alimentar o interactuar con la mascota incrementarán dichos niveles, mientras que la inactividad o negligencia resultará en su disminución. Este mecanismo brindará retroalimentación constante al usuario sobre la condición actual de la mascota virtual.
-=======
 
-##
 
 
 
