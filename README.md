@@ -18,7 +18,7 @@ La interacción usuario-sistema se realizará mediante los siguientes botones co
 
 **Selección:** Al pulsarse permite al usuario unicamente aumentar el valor del sistema de puntos del respectivo estado (subir la puntuación) hasta el valor máximo y luego se detiene. En el modo test una vez que llega al máximo, si se vuelve a pulsar, va al valor mínimo de la puntuación y empieza a aumentar nuevamente si se pulsa (Puntuación rotativa).
 
-Acelerador de Tiempo (Acel): Al presionarse le permite al usuario aumentar el tiempo en el que transcurren los eventos del tamagotchi en un determinado factor (x2,x4,x8,x16). 
+**Acelerador de Tiempo (Acel):** Al presionarse le permite al usuario aumentar el tiempo en el que transcurren los eventos del tamagotchi en un determinado factor (x2,x4,x8,x16). 
 
 
 ### 2.2 Sistema de Sensado
@@ -95,7 +95,13 @@ Para facilitar el diseño de la maquina de estados y reducir entradas se impleme
 
 ### 2.3 Sistema de Visualización
 
-Pantalla LCD: Esencial para representar visualmente el estado actual del Tamagotchi, incluyendo emociones y necesidades básicas. También sirve para  mostrar niveles y puntuaciones específicas, como el nivel de hambre o felicidad.
+Pantalla LCD: Esencial para representar visualmente el estado actual del Tamagotchi, incluyendo emociones y necesidades básicas. También sirve para  mostrar niveles y puntuaciones específicas de la condición en la que se encuentra.
+
+## PANTALLA LCD 20X4 2004A 
+
+La pantalla a utilizar sera una LCD 20X4 2004 ya que posee una mayor capacidad para mostrar caracteres, animaciones y texto que una matriz 8x8 y los displays de 7 segmentos.Esta pantalla posee 4 lineas y 20 caracteres por cada una de estas y cada carácter ocupa una celda de 5x8 puntos también, utiliza un conector de 16 pines para su interfaz, donde se incluyen pines para alimentación, datos y control.
+
+![](FIG/PANTALLALCD.png)
 
 ## 3. Arquitectura del Sistema
 
