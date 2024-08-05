@@ -73,7 +73,7 @@ Se debe generar un controlador que entregue un valor independiente de cada compo
 
 Nuestro controlador debera contar con 5 salidas de control que permitan configurar el sensor de color;La escala de frecuencia (C-S0 y C-S1) sera estable por lo que siempre usaremos la escala de 100% manteniendo la frecuencia de salida del sensor entre 2 HZ ~ 500 KHZ pero usaremos estas ademas para salidas para activar o desactivar el sensor;
 
-La salida C-OE se encargara de habilitar o deshabilitar la señal de salida del sensor de color (activo en 0),por lo que la mantendremos en 1 hasta el momento que se decida sensar para que este no genere ruido.
+La salida LED se encargara de habilitar o deshabilitar los led de iluminación que están en el sensor se mantendrá en 0 hasta el momento en que se decida sensar 
 
 Las salidas C-S2 y C-S3 se modificaran cuando se decida censar pasando por los cuatro posibles valores para conocer la intensidad de luz incidente y la de los componentes de color por aparte 
 
@@ -89,9 +89,7 @@ las salidas seran 3 cada una representativa de un color ROJO VERDE AZUL cada una
 
 ![](FIG/DRIVER1.1.png)
 
-Para facilitar el diseño de la maquina de estados y reducir entradas se implementa un comparador que 
->>>>>>> Stashed changes
-
+Para facilitar el diseño de la maquina de estados y reducir entradas se implementa un comparador con una salida de 2 bits para la cual cada combinación sera un color 00 rojo, 01 azul,10 verde y 11 blanco.
 
 ### 2.3 Sistema de Visualización
 
@@ -141,11 +139,23 @@ Los pines de esta pantalla son los siguientes:
 ## 3. Arquitectura del Sistema
 
 ### 3.1 Diagramas de Bloques 
+
+
 #### 3.1.1 Caja Negra
 
 ![](FIG/BLOQUES%20TAMAGOTCHI.png)
 
 #### 3.1.2 Maquina de estados
+
+Se cuentan con 5 estados principales cada uno correspondiente a uno de los estados de nuestra mascota la transición entre cada uno estará dada por la señal selec_menu dada por los el controlador de botones al usuario presionar el boton derecho el valor de selec_menu aumenta en uno haciendo la transición al estado siguiente cuando llega al 5 estado se debe enviar una señal al controlador para reiniciar el valor de selec_menu y volver al estado de felicidad que seria la pantalla por defecto.
+
+Para el proceso de visualización se tienen dos señales: display_menu (que cambia según la pantalla que se visite) y display_valor (que cambia en función del valor del estado). Con la primera señal se indica el archivo que debe leer el módulo de visualización, en el cual se encuentran las diferentes caras de nuestra mascota. La cara que se verá en cada caso la determina la señal display_valor.
+
+En los estados se podrá interactuar mediante el botón acción esta interacción variara en función de estado a modificar.
+
+
+
+
 
 ![](FIG/maquina%20estados.png)
 
