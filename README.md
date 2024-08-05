@@ -13,7 +13,12 @@ Reset: Reestablece el Tamagotchi a un estado inicial conocido al mantener pulsad
 
 Test: Activa el modo de prueba al mantener pulsado por al menos 5 segundos, permitiendo al usuario navegar entre los diferentes estados del Tamagotchi con cada pulsación.
 
-Navegación (2) 
+Navegación (2): Permiten desplazarse entre pantallas(Estados) del Tamagotchi.En el modo Test funcionan de la misma manera
+
+Selección : Al pulsarse permite al usuario unicamente aumentar el valor del sistema de puntos del respectivo estado (subir la puntuación) hasta el valor máximo y luego se detiene. En el modo test una vez que llega al máximo, si se vuelve a pulsar va al valor mínimo de la puntuación y empieza a aumentar (Puntuación rotativa).
+
+Acelerado de Tiempo (Acel): Al presionarse le permite al usuario aumentar el tiempo en el que transcurren los eventos del tamagotchi 
+
 
 ### 2.2 Sistema de Sensado
 
