@@ -222,18 +222,20 @@ El Tamagotchi operará a través de una serie de estados que reflejan las necesi
 
 **Feliz:**  Refleja el bienestar general de la mascota como resultado de satisfacer adecuadamente sus necesidades básicas.
 
+**Tieso:** Cuando todos los valores promedian un 0 el tamagotchi va a este modo y sin posibilidad de subir el resto de estados la única opción es volver a iniciar de cero.
+
 #### 4.2.2 Transiciones
 
 #### Temporizadores
 Se implementarán temporizadores para simular el avance temporal, afectando las necesidades básicas del Tamagotchi. A medida que el tiempo progresa, ciertas necesidades como el hambre incrementarán de forma gradual, requiriendo intervención del usuario para suministrar alimento a la mascota y mantener su estado de salud óptimo.
 
-#### Interacciones y Eventos Aleatorios
+#### Interacciones 
 
 Las transiciones entre diferentes estados de la mascota se desencadenarán por interacciones directas del usuario, utilizando botones y sensores. Estas acciones permitirán al usuario influir activamente en el bienestar y comportamiento de la mascota virtual.
 
 #### Sistema de Niveles o Puntos
 
-Se desarrollará un sistema de niveles o puntuación que reflejará la calidad del cuidado proporcionado al Tamagotchi. Aspectos como el nivel de hambre y felicidad fluctuarán en una escala de 1 a 5, donde acciones positivas como alimentar o interactuar con la mascota incrementarán dichos niveles, mientras que la inactividad o negligencia resultará en su disminución. Este mecanismo brindará retroalimentación constante al usuario sobre la condición actual de la mascota virtual.
+Se desarrollará un sistema de niveles o puntuación que reflejará la calidad del cuidado proporcionado al Tamagotchi. Aspectos como el nivel de hambre y felicidad fluctuarán en una escala de 1 a 7, donde acciones positivas como alimentar o interactuar con la mascota incrementarán dichos niveles, mientras que la inactividad o negligencia resultará en su disminución. Este mecanismo brindará retroalimentación constante al usuario sobre la condición actual de la mascota virtual.
 
 
 
