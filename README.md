@@ -141,17 +141,16 @@ Los pines de esta pantalla son los siguientes:
 ## 3. Arquitectura del Sistema
 
 ### 3.1 Diagramas de Bloques 
-BORRAR (Incluiría un diagrama básico que muestre la FPGA, la pantalla, los botones de entrada y cualquier otro componente clave).
 #### 3.1.1 Caja Negra
 
+![](fig/BLOQUES%20TAMAGOTCHI.png)
+
+#### 3.1.2 Maquina de estados
+
+![](fig/maquina%20estados.png)
 
 
-
-#### 3.1.2 Funcional
-
-
-
-### 3.2 Descripción de Componentes
+### 3.2 
 
 
 
