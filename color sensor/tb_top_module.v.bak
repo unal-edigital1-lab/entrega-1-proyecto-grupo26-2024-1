@@ -1,0 +1,68 @@
+`timescale 1ns/1ps
+`include "top_module.v"
+module tb_top_module();
+
+    reg clk;               // Reloj de la simulación
+    reg rst;               // Reset del sistema
+    reg sensor_out;        // Señal simulada del sensor TCS3200
+    wire [2:0] color;      // Salida del color identificado
+    wire [1:0] s2_s3;      // Señal de control de filtro del sensor
+    wire [1:0] led_s0_s1;  // Señales LED (fijas en 00)
+
+    // Instancia del módulo top
+    top_module uut (
+        .clk(clk),
+        .rst(rst),
+        .sensor_out(sensor_out),
+        .color(color),
+        .s2_s3(s2_s3),
+        .led_s0_s1(led_s0_s1)
+    );
+
+    // Generación del reloj (periodo de 20ns)
+    always #10 clk = ~clk;
+
+    // Simulación de la señal del sensor
+    initial begin
+        // Inicialización
+        clk = 0;
+        rst = 1;
+        sensor_out = 0;
+
+        // Reset del sistema
+        #20;
+        rst = 0;
+        #20;
+
+        // Simulación de la señal del sensor para los diferentes colores
+        // Cambiamos el valor de sensor_out para simular diferentes frecuencias
+        #100 sensor_out = 1; // Filtro rojo
+        #100 sensor_out = 0;
+        
+        #100 sensor_out = 1; // Filtro verde
+        #100 sensor_out = 0;
+        
+        #100 sensor_out = 1; // Filtro azul
+        #100 sensor_out = 0;
+        
+        #100 sensor_out = 1; // Sin filtro (claro)
+        #100 sensor_out = 0;
+
+        // Terminar la simulación
+        #1000;
+        $finish;
+    end
+
+    // Monitor para observar los valores de salida
+    initial begin
+        $monitor("Time: %0dns, Color: %b, S2_S3: %b, LED_S0_S1: %b", 
+                 $time, color, s2_s3, led_s0_s1);
+    end
+    initial begin: TEST_CASE
+        $dumpfile("tb.vcd");
+        $dumpvars(-1,uut);
+        #(280000) $finish;
+		
+    end
+
+endmodule

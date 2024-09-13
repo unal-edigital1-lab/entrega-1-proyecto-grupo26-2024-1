@@ -1,0 +1,5 @@
+v1
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,color_sensor3:sensor_inst|lpm_mult:Mult0|mult_bft:auto_generated|mac_out4,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,color_sensor3:sensor_inst|lpm_mult:Mult0|mult_bft:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,color_sensor3:sensor_inst|lpm_mult:Mult1|mult_dft:auto_generated|mac_out4,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,color_sensor3:sensor_inst|lpm_mult:Mult1|mult_dft:auto_generated|mac_out2,

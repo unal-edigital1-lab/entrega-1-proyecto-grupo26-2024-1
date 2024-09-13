@@ -1,0 +1,14 @@
+**** module/scope: color_identifier1
+     Flip-Flops   : 0
+     Logic Gates  : 436
+     MAGNITUDE[16]: 12 units
+     MUX[2]: 24 slices
+     LOG[13]: 1 unaccounted
+     LOG[14]: 1 unaccounted
+**** TOTALS
+     Flip-Flops   : 0
+     Logic Gates  : 436
+     MAGNITUDE[16]: 12 units
+     MUX[2]: 24 slices
+     LOG[13]: 1 unaccounted
+     LOG[14]: 1 unaccounted

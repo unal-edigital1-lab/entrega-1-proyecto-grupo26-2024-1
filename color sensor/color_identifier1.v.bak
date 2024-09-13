@@ -1,0 +1,47 @@
+module color_identifier1(
+    input [15:0] red_norm,    // Valor normalizado del componente rojo
+    input [15:0] green_norm,  // Valor normalizado del componente verde
+    input [15:0] blue_norm,   // Valor normalizado del componente azul
+    output reg [2:0] color    // Salida de 3 bits que representa el color
+);
+
+    always @(*) 
+    begin
+        // Comparadores directos para identificar los colores
+        if (red_norm < 16'd100 && green_norm < 16'd55 && blue_norm < 16'd60) begin
+            color = 3'b000;  // Negro
+            end
+        
+        else if (red_norm > 16'd800 && green_norm > 16'd570 && blue_norm > 16'd610) begin
+            color = 3'b111;  // Blanco
+            end 
+        
+        else if (red_norm > 16'd800 ) begin
+            if(blue_norm > 16'd610) begin
+                color = 3'b101;  // Magenta (Rojo + Azul)
+            end
+            else if(green_norm > 16'd570)begin
+                color = 3'b110;  // Amarillo (Rojo + Verde) 
+            end
+            else begin
+            color = 3'b100;  // Rojo 
+            end
+            end 
+
+        else if (green_norm > 16'd570) begin
+            if(blue_norm > 16'd610)begin
+                color = 3'b011;  // Cyan (Verde + Azul)
+                end
+            else begin
+                color = 3'b010;  // Verde
+                end 
+            end 
+        
+        else if (blue_norm > 16'd610) begin
+            color = 3'b001;  // Azul
+            end 
+        
+    end
+
+endmodule
+

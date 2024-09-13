@@ -1,26 +1,18 @@
-**** module/scope: tb_fsm_mascota
-     Flip-Flops   : 0
-     Logic Gates  : 0
+**** module/scope: debounce
+     Flip-Flops   : 51
+     Logic Gates  : 1076
+     EQUALITY[32]: 2 units
+     MUX[2]: 461 slices
+     LPM[5]: 9 unaccounted
+     LPM[8]: 4 unaccounted
      LOG[13]: 1 unaccounted
      LOG[14]: 1 unaccounted
-**** module/scope: tb_fsm_mascota.TEST_CASE
-     Flip-Flops   : 0
-     Logic Gates  : 0
-**** module/scope: tb_fsm_mascota.uut
-     Flip-Flops   : 26
-     Logic Gates  : 685
-     ADDER[4]: 5 units
-     MUX[2]: 320 slices
-     LPM[5]: 15 unaccounted
-     LPM[40]: 2 unaccounted
-     LOG[13]: 8 unaccounted
-     LOG[14]: 1 unaccounted
 **** TOTALS
-     Flip-Flops   : 26
-     Logic Gates  : 685
-     ADDER[4]: 5 units
-     MUX[2]: 320 slices
-     LPM[5]: 15 unaccounted
-     LPM[40]: 2 unaccounted
-     LOG[13]: 9 unaccounted
-     LOG[14]: 2 unaccounted
+     Flip-Flops   : 51
+     Logic Gates  : 1076
+     EQUALITY[32]: 2 units
+     MUX[2]: 461 slices
+     LPM[5]: 9 unaccounted
+     LPM[8]: 4 unaccounted
+     LOG[13]: 1 unaccounted
+     LOG[14]: 1 unaccounted

@@ -1,0 +1,97 @@
+/*`include "fsm_mascota.v"
+`include "display_dec.v"
+
+module top_module (
+    input clk,         // Reloj
+    input rst,         // Reset
+    input A,           // Entrada para la FSM
+    input B,           // Entrada para la FSM
+    input C,           // Entrada para la FSM
+
+    input [1:0] time_control,  // Entrada de 2 bits para modificar el contador de tiempo en la FSM
+    output [0:6] sseg, // Salida a 7 segmentos
+    output [7:0] an,   // Salida registrada de cátodos
+    output led         // LED para el indicador de habilitación
+);
+
+    // Señales para conectar las salidas de la FSM con las entradas del display
+    wire [7:0] fsm_output1;  // Salida de 8 bits de la FSM
+    wire [3:0] fsm_output2;  // Salida de 4 bits de la FSM
+
+    // Instancia de la FSM
+    fsm_mascota fsm (
+        .clk(clk),
+        .reset(rst),
+        .A(A),
+        .B(B),
+        .C(C),
+        .test(test),
+        .luz(luz),
+        .time_control(time_control),
+        .output1(fsm_output1),
+        .output2(fsm_output2)
+    );
+
+    // Instancia del módulo de visualización
+    display_dec display (
+        .clk(clk),
+        .rst(rst),
+        .numA(fsm_output1),      // Conectando la salida de la FSM a numA del display
+        .numB({4'b0000, fsm_output2}),  // Conectando la salida de la FSM a numB del display, llenando con ceros los 4 bits superiores
+        .sseg(sseg),
+        .an(an),
+        .led(led)
+    );
+
+endmodule
+*/
+`include "fsm_mascota.v"
+`include "display_dec.v"
+
+module top_module (
+    input clk,         // Reloj
+    input rst,         // Reset
+    input A,           // Entrada para la FSM
+    input B,           // Entrada para la FSM
+    input C,           // Entrada para la FSM
+
+    output [0:6] sseg, // Salida a 7 segmentos
+    output [7:0] an,   // Salida registrada de cátodos
+    output led         // LED para el indicador de habilitación
+);
+
+    // Señales para conectar las salidas de la FSM con las entradas del display
+    wire [7:0] fsm_output1;  // Salida de 8 bits de la FSM
+    wire [3:0] fsm_output2;  // Salida de 4 bits de la FSM
+
+    // Señales internas con valores constantes
+    wire [1:0] time_control = 2'b01;  // Establecer valor fijo para el control del tiempo
+    wire luz = 1'b1;  // Establecer valor fijo para la señal luz
+    wire test = 1'b0; // Ejemplo de valor fijo para test (ajustar según necesidades)
+
+    // Instancia de la FSM
+    fsm_mascota fsm (
+        .clk(clk),
+        .reset(rst),
+        .A(A),
+        .B(B),
+        .C(C),
+        .test(test),
+        .luz(luz),
+        .time_control(time_control),
+        .output1(fsm_output1),
+        .output2(fsm_output2)
+    );
+    
+    // Instancia del módulo de visualización
+    display_dec display (
+        .clk(clk),
+        .rst(rst),
+        .numA(fsm_output1),      // Conectando la salida de la FSM a numA del display
+        .numB({4'b0000, fsm_output2}),  // Conectando la salida de la FSM a numB del display, llenando con ceros los 4 bits superiores
+        .sseg(sseg),
+        .an(an),
+        .led(led)
+    );
+
+endmodule

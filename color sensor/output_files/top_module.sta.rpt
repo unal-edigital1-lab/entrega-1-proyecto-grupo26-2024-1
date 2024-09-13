@@ -1,0 +1,1217 @@
+Timing Analyzer report for top_module
+Wed Sep 11 23:25:10 2024
+Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow 1200mV 85C Model Fmax Summary
+  6. Timing Closure Recommendations
+  7. Slow 1200mV 85C Model Setup Summary
+  8. Slow 1200mV 85C Model Hold Summary
+  9. Slow 1200mV 85C Model Recovery Summary
+ 10. Slow 1200mV 85C Model Removal Summary
+ 11. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 12. Slow 1200mV 85C Model Setup: 'clk'
+ 13. Slow 1200mV 85C Model Hold: 'clk'
+ 14. Slow 1200mV 85C Model Metastability Summary
+ 15. Slow 1200mV 0C Model Fmax Summary
+ 16. Slow 1200mV 0C Model Setup Summary
+ 17. Slow 1200mV 0C Model Hold Summary
+ 18. Slow 1200mV 0C Model Recovery Summary
+ 19. Slow 1200mV 0C Model Removal Summary
+ 20. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 21. Slow 1200mV 0C Model Setup: 'clk'
+ 22. Slow 1200mV 0C Model Hold: 'clk'
+ 23. Slow 1200mV 0C Model Metastability Summary
+ 24. Fast 1200mV 0C Model Setup Summary
+ 25. Fast 1200mV 0C Model Hold Summary
+ 26. Fast 1200mV 0C Model Recovery Summary
+ 27. Fast 1200mV 0C Model Removal Summary
+ 28. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 29. Fast 1200mV 0C Model Setup: 'clk'
+ 30. Fast 1200mV 0C Model Hold: 'clk'
+ 31. Fast 1200mV 0C Model Metastability Summary
+ 32. Multicorner Timing Analysis Summary
+ 33. Board Trace Model Assignments
+ 34. Input Transition Times
+ 35. Signal Integrity Metrics (Slow 1200mv 0c Model)
+ 36. Signal Integrity Metrics (Slow 1200mv 85c Model)
+ 37. Signal Integrity Metrics (Fast 1200mv 0c Model)
+ 38. Setup Transfers
+ 39. Hold Transfers
+ 40. Report TCCS
+ 41. Report RSKM
+ 42. Unconstrained Paths Summary
+ 43. Clock Status Summary
+ 44. Unconstrained Input Ports
+ 45. Unconstrained Output Ports
+ 46. Unconstrained Input Ports
+ 47. Unconstrained Output Ports
+ 48. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++--------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                        ;
++-----------------------+--------------------------------------------------------+
+; Quartus Prime Version ; Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                                 ;
+; Revision Name         ; top_module                                             ;
+; Device Family         ; Cyclone IV E                                           ;
+; Device Name           ; EP4CE6E22C8                                            ;
+; Timing Models         ; Final                                                  ;
+; Delay Model           ; Combined                                               ;
+; Rise/Fall Delays      ; Enabled                                                ;
++-----------------------+--------------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 8           ;
+;                            ;             ;
+; Average used               ; 3.03        ;
+; Maximum used               ; 8           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;  82.7%      ;
+;     Processor 3            ;  61.5%      ;
+;     Processor 4            ;  54.0%      ;
+;     Processors 5-8         ;   1.1%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                          ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary             ;
++----------+-----------------+------------+------+
+; Fmax     ; Restricted Fmax ; Clock Name ; Note ;
++----------+-----------------+------------+------+
+; 8.63 MHz ; 8.63 MHz        ; clk        ;      ;
++----------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++-------------------------------------+
+; Slow 1200mV 85C Model Setup Summary ;
++-------+----------+------------------+
+; Clock ; Slack    ; End Point TNS    ;
++-------+----------+------------------+
+; clk   ; -114.915 ; -4971.401        ;
++-------+----------+------------------+
+
+
++------------------------------------+
+; Slow 1200mV 85C Model Hold Summary ;
++-------+-------+--------------------+
+; Clock ; Slack ; End Point TNS      ;
++-------+-------+--------------------+
+; clk   ; 0.453 ; 0.000              ;
++-------+-------+--------------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
++-------+--------+----------------------------------+
+; Clock ; Slack  ; End Point TNS                    ;
++-------+--------+----------------------------------+
+; clk   ; -4.000 ; -510.326                         ;
++-------+--------+----------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'clk'                                                                                                                                    ;
++----------+-------------------------------------------+------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack    ; From Node                                 ; To Node                                  ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++----------+-------------------------------------------+------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -114.915 ; color_sensor3:sensor_inst|clear_count[20] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.402      ; 116.318    ;
+; -114.848 ; color_sensor3:sensor_inst|clear_count[18] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.402      ; 116.251    ;
+; -114.651 ; color_sensor3:sensor_inst|clear_count[16] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.402      ; 116.054    ;
+; -114.610 ; color_sensor3:sensor_inst|clear_count[17] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.417      ; 116.028    ;
+; -114.593 ; color_sensor3:sensor_inst|clear_count[19] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.417      ; 116.011    ;
+; -114.482 ; color_sensor3:sensor_inst|clear_count[15] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.402      ; 115.885    ;
+; -114.246 ; color_sensor3:sensor_inst|clear_count[14] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.417      ; 115.664    ;
+; -114.211 ; color_sensor3:sensor_inst|clear_count[13] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.402      ; 115.614    ;
+; -114.109 ; color_sensor3:sensor_inst|clear_count[9]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; -0.082     ; 115.028    ;
+; -114.107 ; color_sensor3:sensor_inst|clear_count[12] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.402      ; 115.510    ;
+; -113.817 ; color_sensor3:sensor_inst|clear_count[6]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; -0.082     ; 114.736    ;
+; -113.790 ; color_sensor3:sensor_inst|clear_count[10] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.402      ; 115.193    ;
+; -113.713 ; color_sensor3:sensor_inst|blue_count[0]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.384      ; 115.098    ;
+; -113.697 ; color_sensor3:sensor_inst|blue_count[3]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.390      ; 115.088    ;
+; -113.696 ; color_sensor3:sensor_inst|clear_count[7]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; -0.082     ; 114.615    ;
+; -113.650 ; color_sensor3:sensor_inst|clear_count[11] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.417      ; 115.068    ;
+; -113.203 ; color_sensor3:sensor_inst|clear_count[8]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.417      ; 114.621    ;
+; -113.182 ; color_sensor3:sensor_inst|blue_count[13]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.399      ; 114.582    ;
+; -113.112 ; color_sensor3:sensor_inst|blue_count[6]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.390      ; 114.503    ;
+; -113.097 ; color_sensor3:sensor_inst|blue_count[7]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.390      ; 114.488    ;
+; -113.079 ; color_sensor3:sensor_inst|blue_count[1]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.390      ; 114.470    ;
+; -113.021 ; color_sensor3:sensor_inst|blue_count[15]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.399      ; 114.421    ;
+; -112.970 ; color_sensor3:sensor_inst|blue_count[8]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.390      ; 114.361    ;
+; -112.959 ; color_sensor3:sensor_inst|blue_count[2]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.390      ; 114.350    ;
+; -112.950 ; color_sensor3:sensor_inst|blue_count[9]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.390      ; 114.341    ;
+; -112.935 ; color_sensor3:sensor_inst|blue_count[11]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.399      ; 114.335    ;
+; -112.927 ; color_sensor3:sensor_inst|blue_count[5]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.390      ; 114.318    ;
+; -112.882 ; color_sensor3:sensor_inst|blue_count[12]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.390      ; 114.273    ;
+; -112.824 ; color_sensor3:sensor_inst|blue_count[10]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.390      ; 114.215    ;
+; -112.812 ; color_sensor3:sensor_inst|blue_count[4]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.390      ; 114.203    ;
+; -112.802 ; color_sensor3:sensor_inst|blue_count[14]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.390      ; 114.193    ;
+; -112.734 ; color_sensor3:sensor_inst|clear_count[5]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.417      ; 114.152    ;
+; -112.590 ; color_sensor3:sensor_inst|blue_count[16]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.390      ; 113.981    ;
+; -112.361 ; color_sensor3:sensor_inst|blue_count[17]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.399      ; 113.761    ;
+; -112.230 ; color_sensor3:sensor_inst|blue_count[18]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.399      ; 113.630    ;
+; -112.213 ; color_sensor3:sensor_inst|blue_count[19]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.399      ; 113.613    ;
+; -112.073 ; color_sensor3:sensor_inst|blue_count[20]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.399      ; 113.473    ;
+; -111.437 ; color_sensor3:sensor_inst|clear_count[4]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; -0.099     ; 112.339    ;
+; -111.432 ; color_sensor3:sensor_inst|clear_count[2]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; -0.099     ; 112.334    ;
+; -111.038 ; color_sensor3:sensor_inst|clear_count[3]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; -0.099     ; 111.940    ;
+; -110.914 ; color_sensor3:sensor_inst|clear_count[20] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.399      ; 112.314    ;
+; -110.847 ; color_sensor3:sensor_inst|clear_count[18] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.399      ; 112.247    ;
+; -110.744 ; color_sensor3:sensor_inst|clear_count[0]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.399      ; 112.144    ;
+; -110.650 ; color_sensor3:sensor_inst|clear_count[16] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.399      ; 112.050    ;
+; -110.609 ; color_sensor3:sensor_inst|clear_count[17] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.414      ; 112.024    ;
+; -110.592 ; color_sensor3:sensor_inst|clear_count[19] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.414      ; 112.007    ;
+; -110.481 ; color_sensor3:sensor_inst|clear_count[15] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.399      ; 111.881    ;
+; -110.458 ; color_sensor3:sensor_inst|clear_count[1]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.399      ; 111.858    ;
+; -110.245 ; color_sensor3:sensor_inst|clear_count[14] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.414      ; 111.660    ;
+; -110.210 ; color_sensor3:sensor_inst|clear_count[13] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.399      ; 111.610    ;
+; -110.108 ; color_sensor3:sensor_inst|clear_count[9]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; -0.085     ; 111.024    ;
+; -110.106 ; color_sensor3:sensor_inst|clear_count[12] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.399      ; 111.506    ;
+; -109.816 ; color_sensor3:sensor_inst|clear_count[6]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; -0.085     ; 110.732    ;
+; -109.789 ; color_sensor3:sensor_inst|clear_count[10] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.399      ; 111.189    ;
+; -109.700 ; color_sensor3:sensor_inst|blue_count[0]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.393      ; 111.094    ;
+; -109.695 ; color_sensor3:sensor_inst|clear_count[7]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; -0.085     ; 110.611    ;
+; -109.684 ; color_sensor3:sensor_inst|blue_count[3]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.399      ; 111.084    ;
+; -109.649 ; color_sensor3:sensor_inst|clear_count[11] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.414      ; 111.064    ;
+; -109.202 ; color_sensor3:sensor_inst|clear_count[8]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.414      ; 110.617    ;
+; -109.169 ; color_sensor3:sensor_inst|blue_count[13]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.408      ; 110.578    ;
+; -109.099 ; color_sensor3:sensor_inst|blue_count[6]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.399      ; 110.499    ;
+; -109.084 ; color_sensor3:sensor_inst|blue_count[7]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.399      ; 110.484    ;
+; -109.066 ; color_sensor3:sensor_inst|blue_count[1]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.399      ; 110.466    ;
+; -109.008 ; color_sensor3:sensor_inst|blue_count[15]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.408      ; 110.417    ;
+; -108.957 ; color_sensor3:sensor_inst|blue_count[8]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.399      ; 110.357    ;
+; -108.946 ; color_sensor3:sensor_inst|blue_count[2]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.399      ; 110.346    ;
+; -108.937 ; color_sensor3:sensor_inst|blue_count[9]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.399      ; 110.337    ;
+; -108.922 ; color_sensor3:sensor_inst|blue_count[11]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.408      ; 110.331    ;
+; -108.914 ; color_sensor3:sensor_inst|blue_count[5]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.399      ; 110.314    ;
+; -108.869 ; color_sensor3:sensor_inst|blue_count[12]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.399      ; 110.269    ;
+; -108.811 ; color_sensor3:sensor_inst|blue_count[10]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.399      ; 110.211    ;
+; -108.799 ; color_sensor3:sensor_inst|blue_count[4]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.399      ; 110.199    ;
+; -108.789 ; color_sensor3:sensor_inst|blue_count[14]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.399      ; 110.189    ;
+; -108.733 ; color_sensor3:sensor_inst|clear_count[5]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.414      ; 110.148    ;
+; -108.577 ; color_sensor3:sensor_inst|blue_count[16]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.399      ; 109.977    ;
+; -108.348 ; color_sensor3:sensor_inst|blue_count[17]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.408      ; 109.757    ;
+; -108.217 ; color_sensor3:sensor_inst|blue_count[18]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.408      ; 109.626    ;
+; -108.200 ; color_sensor3:sensor_inst|blue_count[19]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.408      ; 109.609    ;
+; -108.060 ; color_sensor3:sensor_inst|blue_count[20]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.408      ; 109.469    ;
+; -107.424 ; color_sensor3:sensor_inst|clear_count[4]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; -0.090     ; 108.335    ;
+; -107.419 ; color_sensor3:sensor_inst|clear_count[2]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; -0.090     ; 108.330    ;
+; -107.025 ; color_sensor3:sensor_inst|clear_count[3]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; -0.090     ; 107.936    ;
+; -106.889 ; color_sensor3:sensor_inst|green_count[0]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.528      ; 108.418    ;
+; -106.889 ; color_sensor3:sensor_inst|green_count[1]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.528      ; 108.418    ;
+; -106.889 ; color_sensor3:sensor_inst|green_count[2]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.528      ; 108.418    ;
+; -106.889 ; color_sensor3:sensor_inst|green_count[3]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.528      ; 108.418    ;
+; -106.889 ; color_sensor3:sensor_inst|green_count[4]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.528      ; 108.418    ;
+; -106.889 ; color_sensor3:sensor_inst|green_count[5]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.528      ; 108.418    ;
+; -106.889 ; color_sensor3:sensor_inst|green_count[6]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.528      ; 108.418    ;
+; -106.889 ; color_sensor3:sensor_inst|green_count[7]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.528      ; 108.418    ;
+; -106.889 ; color_sensor3:sensor_inst|green_count[8]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.528      ; 108.418    ;
+; -106.889 ; color_sensor3:sensor_inst|green_count[9]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.528      ; 108.418    ;
+; -106.889 ; color_sensor3:sensor_inst|green_count[10] ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.528      ; 108.418    ;
+; -106.889 ; color_sensor3:sensor_inst|green_count[11] ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.528      ; 108.418    ;
+; -106.889 ; color_sensor3:sensor_inst|green_count[12] ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.528      ; 108.418    ;
+; -106.889 ; color_sensor3:sensor_inst|green_count[13] ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.528      ; 108.418    ;
+; -106.889 ; color_sensor3:sensor_inst|green_count[14] ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.528      ; 108.418    ;
+; -106.889 ; color_sensor3:sensor_inst|green_count[15] ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.528      ; 108.418    ;
+; -106.889 ; color_sensor3:sensor_inst|green_count[16] ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.528      ; 108.418    ;
+; -106.889 ; color_sensor3:sensor_inst|green_count[17] ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.528      ; 108.418    ;
++----------+-------------------------------------------+------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'clk'                                                                                                                                       ;
++-------+---------------------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                   ; To Node                                     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.453 ; color_sensor3:sensor_inst|s2_s3[1]          ; color_sensor3:sensor_inst|s2_s3[1]          ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; color_sensor3:sensor_inst|s2_s3[0]          ; color_sensor3:sensor_inst|s2_s3[0]          ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.500 ; color_sensor3:sensor_inst|blue_value[15]    ; color_sensor3:sensor_inst|blue_norm[15]     ; clk          ; clk         ; 0.000        ; 0.081      ; 0.793      ;
+; 0.502 ; color_sensor3:sensor_inst|red_value[9]      ; color_sensor3:sensor_inst|red_norm[9]       ; clk          ; clk         ; 0.000        ; 0.080      ; 0.794      ;
+; 0.502 ; color_sensor3:sensor_inst|red_value[10]     ; color_sensor3:sensor_inst|red_norm[10]      ; clk          ; clk         ; 0.000        ; 0.080      ; 0.794      ;
+; 0.503 ; color_sensor3:sensor_inst|green_value[7]    ; color_sensor3:sensor_inst|green_norm[7]     ; clk          ; clk         ; 0.000        ; 0.081      ; 0.796      ;
+; 0.505 ; color_sensor3:sensor_inst|green_value[11]   ; color_sensor3:sensor_inst|green_norm[11]    ; clk          ; clk         ; 0.000        ; 0.080      ; 0.797      ;
+; 0.508 ; color_sensor3:sensor_inst|state.000         ; color_sensor3:sensor_inst|state.S_GREEN     ; clk          ; clk         ; 0.000        ; 0.081      ; 0.801      ;
+; 0.509 ; color_sensor3:sensor_inst|clear_count[20]   ; color_sensor3:sensor_inst|clear_count[20]   ; clk          ; clk         ; 0.000        ; 0.081      ; 0.802      ;
+; 0.517 ; color_sensor3:sensor_inst|state.S_GREEN     ; color_sensor3:sensor_inst|state.S_BLUE      ; clk          ; clk         ; 0.000        ; 0.081      ; 0.810      ;
+; 0.517 ; color_sensor3:sensor_inst|state.S_GREEN     ; color_sensor3:sensor_inst|s2_s3[0]          ; clk          ; clk         ; 0.000        ; 0.081      ; 0.810      ;
+; 0.526 ; color_sensor3:sensor_inst|state.S_NORMALIZE ; color_sensor3:sensor_inst|state.000         ; clk          ; clk         ; 0.000        ; 0.081      ; 0.819      ;
+; 0.698 ; color_sensor3:sensor_inst|red_value[11]     ; color_sensor3:sensor_inst|red_norm[11]      ; clk          ; clk         ; 0.000        ; 0.080      ; 0.990      ;
+; 0.699 ; color_sensor3:sensor_inst|blue_value[10]    ; color_sensor3:sensor_inst|blue_norm[10]     ; clk          ; clk         ; 0.000        ; 0.080      ; 0.991      ;
+; 0.699 ; color_sensor3:sensor_inst|blue_value[12]    ; color_sensor3:sensor_inst|blue_norm[12]     ; clk          ; clk         ; 0.000        ; 0.081      ; 0.992      ;
+; 0.700 ; color_sensor3:sensor_inst|red_value[8]      ; color_sensor3:sensor_inst|red_norm[8]       ; clk          ; clk         ; 0.000        ; 0.080      ; 0.992      ;
+; 0.700 ; color_sensor3:sensor_inst|blue_value[9]     ; color_sensor3:sensor_inst|blue_norm[9]      ; clk          ; clk         ; 0.000        ; 0.082      ; 0.994      ;
+; 0.715 ; color_sensor3:sensor_inst|state.S_BLUE      ; color_sensor3:sensor_inst|state.S_CLEAR     ; clk          ; clk         ; 0.000        ; 0.081      ; 1.008      ;
+; 0.722 ; color_sensor3:sensor_inst|state.S_CLEAR     ; color_sensor3:sensor_inst|state.S_NORMALIZE ; clk          ; clk         ; 0.000        ; 0.081      ; 1.015      ;
+; 0.734 ; color_sensor3:sensor_inst|time_counter[3]   ; color_sensor3:sensor_inst|time_counter[3]   ; clk          ; clk         ; 0.000        ; 0.082      ; 1.028      ;
+; 0.735 ; color_sensor3:sensor_inst|time_counter[1]   ; color_sensor3:sensor_inst|time_counter[1]   ; clk          ; clk         ; 0.000        ; 0.082      ; 1.029      ;
+; 0.735 ; color_sensor3:sensor_inst|time_counter[5]   ; color_sensor3:sensor_inst|time_counter[5]   ; clk          ; clk         ; 0.000        ; 0.082      ; 1.029      ;
+; 0.737 ; color_sensor3:sensor_inst|time_counter[2]   ; color_sensor3:sensor_inst|time_counter[2]   ; clk          ; clk         ; 0.000        ; 0.082      ; 1.031      ;
+; 0.738 ; color_sensor3:sensor_inst|time_counter[4]   ; color_sensor3:sensor_inst|time_counter[4]   ; clk          ; clk         ; 0.000        ; 0.082      ; 1.032      ;
+; 0.753 ; color_sensor3:sensor_inst|state.S_BLUE      ; color_sensor3:sensor_inst|s2_s3[1]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.046      ;
+; 0.759 ; color_sensor3:sensor_inst|time_counter[15]  ; color_sensor3:sensor_inst|time_counter[15]  ; clk          ; clk         ; 0.000        ; 0.082      ; 1.053      ;
+; 0.760 ; color_sensor3:sensor_inst|time_counter[0]   ; color_sensor3:sensor_inst|time_counter[0]   ; clk          ; clk         ; 0.000        ; 0.082      ; 1.054      ;
+; 0.760 ; color_sensor3:sensor_inst|time_counter[11]  ; color_sensor3:sensor_inst|time_counter[11]  ; clk          ; clk         ; 0.000        ; 0.082      ; 1.054      ;
+; 0.760 ; color_sensor3:sensor_inst|time_counter[13]  ; color_sensor3:sensor_inst|time_counter[13]  ; clk          ; clk         ; 0.000        ; 0.082      ; 1.054      ;
+; 0.760 ; color_sensor3:sensor_inst|time_counter[19]  ; color_sensor3:sensor_inst|time_counter[19]  ; clk          ; clk         ; 0.000        ; 0.082      ; 1.054      ;
+; 0.761 ; color_sensor3:sensor_inst|time_counter[27]  ; color_sensor3:sensor_inst|time_counter[27]  ; clk          ; clk         ; 0.000        ; 0.082      ; 1.055      ;
+; 0.761 ; color_sensor3:sensor_inst|time_counter[17]  ; color_sensor3:sensor_inst|time_counter[17]  ; clk          ; clk         ; 0.000        ; 0.082      ; 1.055      ;
+; 0.761 ; color_sensor3:sensor_inst|time_counter[21]  ; color_sensor3:sensor_inst|time_counter[21]  ; clk          ; clk         ; 0.000        ; 0.082      ; 1.055      ;
+; 0.761 ; color_sensor3:sensor_inst|time_counter[29]  ; color_sensor3:sensor_inst|time_counter[29]  ; clk          ; clk         ; 0.000        ; 0.082      ; 1.055      ;
+; 0.762 ; color_sensor3:sensor_inst|time_counter[6]   ; color_sensor3:sensor_inst|time_counter[6]   ; clk          ; clk         ; 0.000        ; 0.082      ; 1.056      ;
+; 0.762 ; color_sensor3:sensor_inst|time_counter[7]   ; color_sensor3:sensor_inst|time_counter[7]   ; clk          ; clk         ; 0.000        ; 0.082      ; 1.056      ;
+; 0.762 ; color_sensor3:sensor_inst|time_counter[9]   ; color_sensor3:sensor_inst|time_counter[9]   ; clk          ; clk         ; 0.000        ; 0.082      ; 1.056      ;
+; 0.762 ; color_sensor3:sensor_inst|time_counter[16]  ; color_sensor3:sensor_inst|time_counter[16]  ; clk          ; clk         ; 0.000        ; 0.082      ; 1.056      ;
+; 0.762 ; color_sensor3:sensor_inst|time_counter[31]  ; color_sensor3:sensor_inst|time_counter[31]  ; clk          ; clk         ; 0.000        ; 0.082      ; 1.056      ;
+; 0.763 ; color_sensor3:sensor_inst|time_counter[12]  ; color_sensor3:sensor_inst|time_counter[12]  ; clk          ; clk         ; 0.000        ; 0.082      ; 1.057      ;
+; 0.763 ; color_sensor3:sensor_inst|time_counter[14]  ; color_sensor3:sensor_inst|time_counter[14]  ; clk          ; clk         ; 0.000        ; 0.082      ; 1.057      ;
+; 0.763 ; color_sensor3:sensor_inst|time_counter[18]  ; color_sensor3:sensor_inst|time_counter[18]  ; clk          ; clk         ; 0.000        ; 0.082      ; 1.057      ;
+; 0.763 ; color_sensor3:sensor_inst|time_counter[22]  ; color_sensor3:sensor_inst|time_counter[22]  ; clk          ; clk         ; 0.000        ; 0.082      ; 1.057      ;
+; 0.763 ; color_sensor3:sensor_inst|time_counter[23]  ; color_sensor3:sensor_inst|time_counter[23]  ; clk          ; clk         ; 0.000        ; 0.082      ; 1.057      ;
+; 0.763 ; color_sensor3:sensor_inst|time_counter[25]  ; color_sensor3:sensor_inst|time_counter[25]  ; clk          ; clk         ; 0.000        ; 0.082      ; 1.057      ;
+; 0.764 ; color_sensor3:sensor_inst|time_counter[8]   ; color_sensor3:sensor_inst|time_counter[8]   ; clk          ; clk         ; 0.000        ; 0.082      ; 1.058      ;
+; 0.764 ; color_sensor3:sensor_inst|time_counter[10]  ; color_sensor3:sensor_inst|time_counter[10]  ; clk          ; clk         ; 0.000        ; 0.082      ; 1.058      ;
+; 0.764 ; color_sensor3:sensor_inst|time_counter[20]  ; color_sensor3:sensor_inst|time_counter[20]  ; clk          ; clk         ; 0.000        ; 0.082      ; 1.058      ;
+; 0.764 ; color_sensor3:sensor_inst|time_counter[30]  ; color_sensor3:sensor_inst|time_counter[30]  ; clk          ; clk         ; 0.000        ; 0.082      ; 1.058      ;
+; 0.765 ; color_sensor3:sensor_inst|time_counter[24]  ; color_sensor3:sensor_inst|time_counter[24]  ; clk          ; clk         ; 0.000        ; 0.082      ; 1.059      ;
+; 0.765 ; color_sensor3:sensor_inst|time_counter[26]  ; color_sensor3:sensor_inst|time_counter[26]  ; clk          ; clk         ; 0.000        ; 0.082      ; 1.059      ;
+; 0.765 ; color_sensor3:sensor_inst|time_counter[28]  ; color_sensor3:sensor_inst|time_counter[28]  ; clk          ; clk         ; 0.000        ; 0.082      ; 1.059      ;
+; 0.767 ; color_sensor3:sensor_inst|clear_count[13]   ; color_sensor3:sensor_inst|clear_count[13]   ; clk          ; clk         ; 0.000        ; 0.081      ; 1.060      ;
+; 0.768 ; color_sensor3:sensor_inst|clear_count[15]   ; color_sensor3:sensor_inst|clear_count[15]   ; clk          ; clk         ; 0.000        ; 0.081      ; 1.061      ;
+; 0.770 ; color_sensor3:sensor_inst|clear_count[12]   ; color_sensor3:sensor_inst|clear_count[12]   ; clk          ; clk         ; 0.000        ; 0.081      ; 1.063      ;
+; 0.789 ; color_sensor3:sensor_inst|clear_count[18]   ; color_sensor3:sensor_inst|clear_count[18]   ; clk          ; clk         ; 0.000        ; 0.081      ; 1.082      ;
+; 0.793 ; color_sensor3:sensor_inst|state.000         ; color_sensor3:sensor_inst|s2_s3[1]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.086      ;
+; 0.794 ; color_sensor3:sensor_inst|clear_count[16]   ; color_sensor3:sensor_inst|clear_count[16]   ; clk          ; clk         ; 0.000        ; 0.081      ; 1.087      ;
+; 0.814 ; color_sensor3:sensor_inst|clear_count[0]    ; color_sensor3:sensor_inst|blue_value[3]     ; clk          ; clk         ; 0.000        ; 0.591      ; 1.617      ;
+; 0.815 ; color_sensor3:sensor_inst|clear_count[0]    ; color_sensor3:sensor_inst|blue_value[4]     ; clk          ; clk         ; 0.000        ; 0.591      ; 1.618      ;
+; 0.818 ; color_sensor3:sensor_inst|clear_count[0]    ; color_sensor3:sensor_inst|blue_value[5]     ; clk          ; clk         ; 0.000        ; 0.591      ; 1.621      ;
+; 0.842 ; color_sensor3:sensor_inst|state.000         ; color_sensor3:sensor_inst|s2_s3[0]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.135      ;
+; 0.853 ; color_sensor3:sensor_inst|clear_value[9]    ; color_sensor3:sensor_inst|luz               ; clk          ; clk         ; 0.000        ; 0.081      ; 1.146      ;
+; 0.882 ; color_sensor3:sensor_inst|clear_value[12]   ; color_sensor3:sensor_inst|luz               ; clk          ; clk         ; 0.000        ; 0.081      ; 1.175      ;
+; 0.936 ; color_sensor3:sensor_inst|red_value[12]     ; color_sensor3:sensor_inst|red_norm[12]      ; clk          ; clk         ; 0.000        ; 0.082      ; 1.230      ;
+; 0.972 ; color_sensor3:sensor_inst|green_value[3]    ; color_sensor3:sensor_inst|green_norm[3]     ; clk          ; clk         ; 0.000        ; -0.391     ; 0.793      ;
+; 0.974 ; color_sensor3:sensor_inst|red_value[3]      ; color_sensor3:sensor_inst|red_norm[3]       ; clk          ; clk         ; 0.000        ; -0.391     ; 0.795      ;
+; 0.975 ; color_sensor3:sensor_inst|green_value[15]   ; color_sensor3:sensor_inst|green_norm[15]    ; clk          ; clk         ; 0.000        ; -0.393     ; 0.794      ;
+; 0.975 ; color_sensor3:sensor_inst|red_value[2]      ; color_sensor3:sensor_inst|red_norm[2]       ; clk          ; clk         ; 0.000        ; -0.391     ; 0.796      ;
+; 0.975 ; color_sensor3:sensor_inst|red_value[7]      ; color_sensor3:sensor_inst|red_norm[7]       ; clk          ; clk         ; 0.000        ; -0.391     ; 0.796      ;
+; 0.976 ; color_sensor3:sensor_inst|red_value[14]     ; color_sensor3:sensor_inst|red_norm[14]      ; clk          ; clk         ; 0.000        ; -0.393     ; 0.795      ;
+; 0.976 ; color_sensor3:sensor_inst|blue_value[2]     ; color_sensor3:sensor_inst|blue_norm[2]      ; clk          ; clk         ; 0.000        ; -0.394     ; 0.794      ;
+; 0.976 ; color_sensor3:sensor_inst|blue_value[5]     ; color_sensor3:sensor_inst|blue_norm[5]      ; clk          ; clk         ; 0.000        ; -0.394     ; 0.794      ;
+; 0.977 ; color_sensor3:sensor_inst|red_value[15]     ; color_sensor3:sensor_inst|red_norm[15]      ; clk          ; clk         ; 0.000        ; -0.393     ; 0.796      ;
+; 0.977 ; color_sensor3:sensor_inst|blue_value[7]     ; color_sensor3:sensor_inst|blue_norm[7]      ; clk          ; clk         ; 0.000        ; -0.394     ; 0.795      ;
+; 0.977 ; color_sensor3:sensor_inst|blue_value[3]     ; color_sensor3:sensor_inst|blue_norm[3]      ; clk          ; clk         ; 0.000        ; -0.394     ; 0.795      ;
+; 1.016 ; color_sensor3:sensor_inst|green_value[10]   ; color_sensor3:sensor_inst|green_norm[10]    ; clk          ; clk         ; 0.000        ; -0.433     ; 0.795      ;
+; 1.016 ; color_sensor3:sensor_inst|green_value[5]    ; color_sensor3:sensor_inst|green_norm[5]     ; clk          ; clk         ; 0.000        ; -0.433     ; 0.795      ;
+; 1.024 ; color_sensor3:sensor_inst|clear_count[0]    ; color_sensor3:sensor_inst|blue_value[1]     ; clk          ; clk         ; 0.000        ; 0.591      ; 1.827      ;
+; 1.024 ; color_sensor3:sensor_inst|clear_count[0]    ; color_sensor3:sensor_inst|blue_value[2]     ; clk          ; clk         ; 0.000        ; 0.591      ; 1.827      ;
+; 1.024 ; color_sensor3:sensor_inst|clear_count[0]    ; color_sensor3:sensor_inst|blue_value[8]     ; clk          ; clk         ; 0.000        ; 0.591      ; 1.827      ;
+; 1.026 ; color_sensor3:sensor_inst|clear_count[0]    ; color_sensor3:sensor_inst|blue_value[6]     ; clk          ; clk         ; 0.000        ; 0.591      ; 1.829      ;
+; 1.028 ; color_sensor3:sensor_inst|clear_count[0]    ; color_sensor3:sensor_inst|blue_value[7]     ; clk          ; clk         ; 0.000        ; 0.591      ; 1.831      ;
+; 1.074 ; color_sensor3:sensor_inst|state.S_CLEAR     ; color_sensor3:sensor_inst|s2_s3[1]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.367      ;
+; 1.089 ; color_sensor3:sensor_inst|time_counter[1]   ; color_sensor3:sensor_inst|time_counter[2]   ; clk          ; clk         ; 0.000        ; 0.082      ; 1.383      ;
+; 1.089 ; color_sensor3:sensor_inst|time_counter[3]   ; color_sensor3:sensor_inst|time_counter[4]   ; clk          ; clk         ; 0.000        ; 0.082      ; 1.383      ;
+; 1.090 ; color_sensor3:sensor_inst|time_counter[5]   ; color_sensor3:sensor_inst|time_counter[6]   ; clk          ; clk         ; 0.000        ; 0.082      ; 1.384      ;
+; 1.098 ; color_sensor3:sensor_inst|time_counter[2]   ; color_sensor3:sensor_inst|time_counter[3]   ; clk          ; clk         ; 0.000        ; 0.082      ; 1.392      ;
+; 1.098 ; color_sensor3:sensor_inst|time_counter[0]   ; color_sensor3:sensor_inst|time_counter[1]   ; clk          ; clk         ; 0.000        ; 0.082      ; 1.392      ;
+; 1.099 ; color_sensor3:sensor_inst|time_counter[4]   ; color_sensor3:sensor_inst|time_counter[5]   ; clk          ; clk         ; 0.000        ; 0.082      ; 1.393      ;
+; 1.107 ; color_sensor3:sensor_inst|time_counter[0]   ; color_sensor3:sensor_inst|time_counter[2]   ; clk          ; clk         ; 0.000        ; 0.082      ; 1.401      ;
+; 1.107 ; color_sensor3:sensor_inst|time_counter[2]   ; color_sensor3:sensor_inst|time_counter[4]   ; clk          ; clk         ; 0.000        ; 0.082      ; 1.401      ;
+; 1.108 ; color_sensor3:sensor_inst|time_counter[4]   ; color_sensor3:sensor_inst|time_counter[6]   ; clk          ; clk         ; 0.000        ; 0.082      ; 1.402      ;
+; 1.115 ; color_sensor3:sensor_inst|time_counter[11]  ; color_sensor3:sensor_inst|time_counter[12]  ; clk          ; clk         ; 0.000        ; 0.082      ; 1.409      ;
+; 1.115 ; color_sensor3:sensor_inst|time_counter[13]  ; color_sensor3:sensor_inst|time_counter[14]  ; clk          ; clk         ; 0.000        ; 0.082      ; 1.409      ;
+; 1.115 ; color_sensor3:sensor_inst|time_counter[17]  ; color_sensor3:sensor_inst|time_counter[18]  ; clk          ; clk         ; 0.000        ; 0.082      ; 1.409      ;
+; 1.115 ; color_sensor3:sensor_inst|time_counter[19]  ; color_sensor3:sensor_inst|time_counter[20]  ; clk          ; clk         ; 0.000        ; 0.082      ; 1.409      ;
+; 1.116 ; color_sensor3:sensor_inst|time_counter[21]  ; color_sensor3:sensor_inst|time_counter[22]  ; clk          ; clk         ; 0.000        ; 0.082      ; 1.410      ;
+; 1.116 ; color_sensor3:sensor_inst|time_counter[7]   ; color_sensor3:sensor_inst|time_counter[8]   ; clk          ; clk         ; 0.000        ; 0.082      ; 1.410      ;
+; 1.116 ; color_sensor3:sensor_inst|time_counter[9]   ; color_sensor3:sensor_inst|time_counter[10]  ; clk          ; clk         ; 0.000        ; 0.082      ; 1.410      ;
++-------+---------------------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+-----------------------------------------------
+; Slow 1200mV 85C Model Metastability Summary ;
+-----------------------------------------------
+No synchronizer chains to report.
+
+
++------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary              ;
++----------+-----------------+------------+------+
+; Fmax     ; Restricted Fmax ; Clock Name ; Note ;
++----------+-----------------+------------+------+
+; 9.48 MHz ; 9.48 MHz        ; clk        ;      ;
++----------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------+
+; Slow 1200mV 0C Model Setup Summary ;
++-------+----------+-----------------+
+; Clock ; Slack    ; End Point TNS   ;
++-------+----------+-----------------+
+; clk   ; -104.489 ; -4547.888       ;
++-------+----------+-----------------+
+
+
++-----------------------------------+
+; Slow 1200mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; clk   ; 0.401 ; 0.000             ;
++-------+-------+-------------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; clk   ; -4.000 ; -509.147                        ;
++-------+--------+---------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'clk'                                                                                                                                     ;
++----------+-------------------------------------------+------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack    ; From Node                                 ; To Node                                  ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++----------+-------------------------------------------+------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -104.489 ; color_sensor3:sensor_inst|clear_count[20] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.382      ; 105.873    ;
+; -104.422 ; color_sensor3:sensor_inst|clear_count[18] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.382      ; 105.806    ;
+; -104.221 ; color_sensor3:sensor_inst|clear_count[16] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.382      ; 105.605    ;
+; -104.211 ; color_sensor3:sensor_inst|clear_count[17] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.396      ; 105.609    ;
+; -104.192 ; color_sensor3:sensor_inst|clear_count[19] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.396      ; 105.590    ;
+; -104.082 ; color_sensor3:sensor_inst|clear_count[15] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.382      ; 105.466    ;
+; -103.857 ; color_sensor3:sensor_inst|clear_count[14] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.396      ; 105.255    ;
+; -103.804 ; color_sensor3:sensor_inst|clear_count[13] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.382      ; 105.188    ;
+; -103.727 ; color_sensor3:sensor_inst|clear_count[9]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; -0.073     ; 104.656    ;
+; -103.727 ; color_sensor3:sensor_inst|clear_count[12] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.382      ; 105.111    ;
+; -103.432 ; color_sensor3:sensor_inst|clear_count[6]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; -0.073     ; 104.361    ;
+; -103.405 ; color_sensor3:sensor_inst|clear_count[10] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.382      ; 104.789    ;
+; -103.339 ; color_sensor3:sensor_inst|clear_count[7]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; -0.073     ; 104.268    ;
+; -103.305 ; color_sensor3:sensor_inst|clear_count[11] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.396      ; 104.703    ;
+; -103.282 ; color_sensor3:sensor_inst|blue_count[3]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.370      ; 104.654    ;
+; -103.241 ; color_sensor3:sensor_inst|blue_count[0]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.367      ; 104.610    ;
+; -102.887 ; color_sensor3:sensor_inst|clear_count[8]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.396      ; 104.285    ;
+; -102.709 ; color_sensor3:sensor_inst|blue_count[13]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.379      ; 104.090    ;
+; -102.658 ; color_sensor3:sensor_inst|blue_count[6]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.370      ; 104.030    ;
+; -102.594 ; color_sensor3:sensor_inst|blue_count[15]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.379      ; 103.975    ;
+; -102.543 ; color_sensor3:sensor_inst|blue_count[7]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.370      ; 103.915    ;
+; -102.537 ; color_sensor3:sensor_inst|blue_count[8]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.370      ; 103.909    ;
+; -102.532 ; color_sensor3:sensor_inst|blue_count[12]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.370      ; 103.904    ;
+; -102.527 ; color_sensor3:sensor_inst|blue_count[1]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.370      ; 103.899    ;
+; -102.524 ; color_sensor3:sensor_inst|blue_count[2]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.370      ; 103.896    ;
+; -102.446 ; color_sensor3:sensor_inst|clear_count[5]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.396      ; 103.844    ;
+; -102.440 ; color_sensor3:sensor_inst|blue_count[5]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.370      ; 103.812    ;
+; -102.438 ; color_sensor3:sensor_inst|blue_count[11]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.379      ; 103.819    ;
+; -102.431 ; color_sensor3:sensor_inst|blue_count[14]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.370      ; 103.803    ;
+; -102.416 ; color_sensor3:sensor_inst|blue_count[9]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.370      ; 103.788    ;
+; -102.411 ; color_sensor3:sensor_inst|blue_count[10]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.370      ; 103.783    ;
+; -102.398 ; color_sensor3:sensor_inst|blue_count[4]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.370      ; 103.770    ;
+; -102.239 ; color_sensor3:sensor_inst|blue_count[16]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.370      ; 103.611    ;
+; -101.907 ; color_sensor3:sensor_inst|blue_count[17]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.379      ; 103.288    ;
+; -101.897 ; color_sensor3:sensor_inst|blue_count[18]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.379      ; 103.278    ;
+; -101.778 ; color_sensor3:sensor_inst|blue_count[19]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.379      ; 103.159    ;
+; -101.758 ; color_sensor3:sensor_inst|blue_count[20]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.379      ; 103.139    ;
+; -101.180 ; color_sensor3:sensor_inst|clear_count[4]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; -0.092     ; 102.090    ;
+; -101.173 ; color_sensor3:sensor_inst|clear_count[2]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; -0.092     ; 102.083    ;
+; -100.833 ; color_sensor3:sensor_inst|clear_count[20] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.383      ; 102.218    ;
+; -100.820 ; color_sensor3:sensor_inst|clear_count[3]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; -0.092     ; 101.730    ;
+; -100.766 ; color_sensor3:sensor_inst|clear_count[18] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.383      ; 102.151    ;
+; -100.565 ; color_sensor3:sensor_inst|clear_count[16] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.383      ; 101.950    ;
+; -100.555 ; color_sensor3:sensor_inst|clear_count[17] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.397      ; 101.954    ;
+; -100.543 ; color_sensor3:sensor_inst|clear_count[0]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.379      ; 101.924    ;
+; -100.536 ; color_sensor3:sensor_inst|clear_count[19] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.397      ; 101.935    ;
+; -100.426 ; color_sensor3:sensor_inst|clear_count[15] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.383      ; 101.811    ;
+; -100.248 ; color_sensor3:sensor_inst|clear_count[1]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.379      ; 101.629    ;
+; -100.201 ; color_sensor3:sensor_inst|clear_count[14] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.397      ; 101.600    ;
+; -100.148 ; color_sensor3:sensor_inst|clear_count[13] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.383      ; 101.533    ;
+; -100.071 ; color_sensor3:sensor_inst|clear_count[9]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; -0.072     ; 101.001    ;
+; -100.071 ; color_sensor3:sensor_inst|clear_count[12] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.383      ; 101.456    ;
+; -99.776  ; color_sensor3:sensor_inst|clear_count[6]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; -0.072     ; 100.706    ;
+; -99.749  ; color_sensor3:sensor_inst|clear_count[10] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.383      ; 101.134    ;
+; -99.683  ; color_sensor3:sensor_inst|clear_count[7]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; -0.072     ; 100.613    ;
+; -99.649  ; color_sensor3:sensor_inst|clear_count[11] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.397      ; 101.048    ;
+; -99.616  ; color_sensor3:sensor_inst|blue_count[3]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.381      ; 100.999    ;
+; -99.575  ; color_sensor3:sensor_inst|blue_count[0]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.378      ; 100.955    ;
+; -99.231  ; color_sensor3:sensor_inst|clear_count[8]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.397      ; 100.630    ;
+; -99.043  ; color_sensor3:sensor_inst|blue_count[13]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.390      ; 100.435    ;
+; -98.992  ; color_sensor3:sensor_inst|blue_count[6]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.381      ; 100.375    ;
+; -98.928  ; color_sensor3:sensor_inst|blue_count[15]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.390      ; 100.320    ;
+; -98.877  ; color_sensor3:sensor_inst|blue_count[7]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.381      ; 100.260    ;
+; -98.871  ; color_sensor3:sensor_inst|blue_count[8]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.381      ; 100.254    ;
+; -98.866  ; color_sensor3:sensor_inst|blue_count[12]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.381      ; 100.249    ;
+; -98.861  ; color_sensor3:sensor_inst|blue_count[1]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.381      ; 100.244    ;
+; -98.858  ; color_sensor3:sensor_inst|blue_count[2]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.381      ; 100.241    ;
+; -98.790  ; color_sensor3:sensor_inst|clear_count[5]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.397      ; 100.189    ;
+; -98.774  ; color_sensor3:sensor_inst|blue_count[5]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.381      ; 100.157    ;
+; -98.772  ; color_sensor3:sensor_inst|blue_count[11]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.390      ; 100.164    ;
+; -98.765  ; color_sensor3:sensor_inst|blue_count[14]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.381      ; 100.148    ;
+; -98.750  ; color_sensor3:sensor_inst|blue_count[9]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.381      ; 100.133    ;
+; -98.745  ; color_sensor3:sensor_inst|blue_count[10]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.381      ; 100.128    ;
+; -98.732  ; color_sensor3:sensor_inst|blue_count[4]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.381      ; 100.115    ;
+; -98.573  ; color_sensor3:sensor_inst|blue_count[16]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.381      ; 99.956     ;
+; -98.241  ; color_sensor3:sensor_inst|blue_count[17]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.390      ; 99.633     ;
+; -98.231  ; color_sensor3:sensor_inst|blue_count[18]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.390      ; 99.623     ;
+; -98.112  ; color_sensor3:sensor_inst|blue_count[19]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.390      ; 99.504     ;
+; -98.092  ; color_sensor3:sensor_inst|blue_count[20]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.390      ; 99.484     ;
+; -97.514  ; color_sensor3:sensor_inst|clear_count[4]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; -0.081     ; 98.435     ;
+; -97.507  ; color_sensor3:sensor_inst|clear_count[2]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; -0.081     ; 98.428     ;
+; -97.154  ; color_sensor3:sensor_inst|clear_count[3]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; -0.081     ; 98.075     ;
+; -97.133  ; color_sensor3:sensor_inst|green_count[0]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.516      ; 98.651     ;
+; -97.133  ; color_sensor3:sensor_inst|green_count[1]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.516      ; 98.651     ;
+; -97.133  ; color_sensor3:sensor_inst|green_count[2]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.516      ; 98.651     ;
+; -97.133  ; color_sensor3:sensor_inst|green_count[3]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.516      ; 98.651     ;
+; -97.133  ; color_sensor3:sensor_inst|green_count[4]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.516      ; 98.651     ;
+; -97.133  ; color_sensor3:sensor_inst|green_count[5]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.516      ; 98.651     ;
+; -97.133  ; color_sensor3:sensor_inst|green_count[6]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.516      ; 98.651     ;
+; -97.133  ; color_sensor3:sensor_inst|green_count[7]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.516      ; 98.651     ;
+; -97.133  ; color_sensor3:sensor_inst|green_count[8]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.516      ; 98.651     ;
+; -97.133  ; color_sensor3:sensor_inst|green_count[9]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.516      ; 98.651     ;
+; -97.133  ; color_sensor3:sensor_inst|green_count[10] ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.516      ; 98.651     ;
+; -97.133  ; color_sensor3:sensor_inst|green_count[11] ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.516      ; 98.651     ;
+; -97.133  ; color_sensor3:sensor_inst|green_count[12] ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.516      ; 98.651     ;
+; -97.133  ; color_sensor3:sensor_inst|green_count[13] ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.516      ; 98.651     ;
+; -97.133  ; color_sensor3:sensor_inst|green_count[14] ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.516      ; 98.651     ;
+; -97.133  ; color_sensor3:sensor_inst|green_count[15] ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.516      ; 98.651     ;
+; -97.133  ; color_sensor3:sensor_inst|green_count[16] ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.516      ; 98.651     ;
+; -97.133  ; color_sensor3:sensor_inst|green_count[17] ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.516      ; 98.651     ;
++----------+-------------------------------------------+------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'clk'                                                                                                                                        ;
++-------+---------------------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                   ; To Node                                     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.401 ; color_sensor3:sensor_inst|s2_s3[1]          ; color_sensor3:sensor_inst|s2_s3[1]          ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; color_sensor3:sensor_inst|s2_s3[0]          ; color_sensor3:sensor_inst|s2_s3[0]          ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.469 ; color_sensor3:sensor_inst|clear_count[20]   ; color_sensor3:sensor_inst|clear_count[20]   ; clk          ; clk         ; 0.000        ; 0.073      ; 0.737      ;
+; 0.469 ; color_sensor3:sensor_inst|blue_value[15]    ; color_sensor3:sensor_inst|blue_norm[15]     ; clk          ; clk         ; 0.000        ; 0.073      ; 0.737      ;
+; 0.471 ; color_sensor3:sensor_inst|red_value[9]      ; color_sensor3:sensor_inst|red_norm[9]       ; clk          ; clk         ; 0.000        ; 0.072      ; 0.738      ;
+; 0.471 ; color_sensor3:sensor_inst|red_value[10]     ; color_sensor3:sensor_inst|red_norm[10]      ; clk          ; clk         ; 0.000        ; 0.072      ; 0.738      ;
+; 0.471 ; color_sensor3:sensor_inst|state.000         ; color_sensor3:sensor_inst|state.S_GREEN     ; clk          ; clk         ; 0.000        ; 0.073      ; 0.739      ;
+; 0.471 ; color_sensor3:sensor_inst|green_value[7]    ; color_sensor3:sensor_inst|green_norm[7]     ; clk          ; clk         ; 0.000        ; 0.073      ; 0.739      ;
+; 0.473 ; color_sensor3:sensor_inst|green_value[11]   ; color_sensor3:sensor_inst|green_norm[11]    ; clk          ; clk         ; 0.000        ; 0.072      ; 0.740      ;
+; 0.485 ; color_sensor3:sensor_inst|state.S_GREEN     ; color_sensor3:sensor_inst|state.S_BLUE      ; clk          ; clk         ; 0.000        ; 0.073      ; 0.753      ;
+; 0.485 ; color_sensor3:sensor_inst|state.S_GREEN     ; color_sensor3:sensor_inst|s2_s3[0]          ; clk          ; clk         ; 0.000        ; 0.073      ; 0.753      ;
+; 0.487 ; color_sensor3:sensor_inst|state.S_NORMALIZE ; color_sensor3:sensor_inst|state.000         ; clk          ; clk         ; 0.000        ; 0.073      ; 0.755      ;
+; 0.645 ; color_sensor3:sensor_inst|red_value[11]     ; color_sensor3:sensor_inst|red_norm[11]      ; clk          ; clk         ; 0.000        ; 0.072      ; 0.912      ;
+; 0.645 ; color_sensor3:sensor_inst|blue_value[12]    ; color_sensor3:sensor_inst|blue_norm[12]     ; clk          ; clk         ; 0.000        ; 0.073      ; 0.913      ;
+; 0.646 ; color_sensor3:sensor_inst|blue_value[10]    ; color_sensor3:sensor_inst|blue_norm[10]     ; clk          ; clk         ; 0.000        ; 0.072      ; 0.913      ;
+; 0.646 ; color_sensor3:sensor_inst|red_value[8]      ; color_sensor3:sensor_inst|red_norm[8]       ; clk          ; clk         ; 0.000        ; 0.072      ; 0.913      ;
+; 0.648 ; color_sensor3:sensor_inst|blue_value[9]     ; color_sensor3:sensor_inst|blue_norm[9]      ; clk          ; clk         ; 0.000        ; 0.073      ; 0.916      ;
+; 0.664 ; color_sensor3:sensor_inst|state.S_BLUE      ; color_sensor3:sensor_inst|state.S_CLEAR     ; clk          ; clk         ; 0.000        ; 0.073      ; 0.932      ;
+; 0.669 ; color_sensor3:sensor_inst|state.S_CLEAR     ; color_sensor3:sensor_inst|state.S_NORMALIZE ; clk          ; clk         ; 0.000        ; 0.073      ; 0.937      ;
+; 0.682 ; color_sensor3:sensor_inst|time_counter[3]   ; color_sensor3:sensor_inst|time_counter[3]   ; clk          ; clk         ; 0.000        ; 0.074      ; 0.951      ;
+; 0.682 ; color_sensor3:sensor_inst|time_counter[5]   ; color_sensor3:sensor_inst|time_counter[5]   ; clk          ; clk         ; 0.000        ; 0.074      ; 0.951      ;
+; 0.683 ; color_sensor3:sensor_inst|time_counter[1]   ; color_sensor3:sensor_inst|time_counter[1]   ; clk          ; clk         ; 0.000        ; 0.074      ; 0.952      ;
+; 0.687 ; color_sensor3:sensor_inst|time_counter[2]   ; color_sensor3:sensor_inst|time_counter[2]   ; clk          ; clk         ; 0.000        ; 0.074      ; 0.956      ;
+; 0.688 ; color_sensor3:sensor_inst|time_counter[4]   ; color_sensor3:sensor_inst|time_counter[4]   ; clk          ; clk         ; 0.000        ; 0.074      ; 0.957      ;
+; 0.691 ; color_sensor3:sensor_inst|clear_count[0]    ; color_sensor3:sensor_inst|blue_value[3]     ; clk          ; clk         ; 0.000        ; 0.556      ; 1.442      ;
+; 0.692 ; color_sensor3:sensor_inst|clear_count[0]    ; color_sensor3:sensor_inst|blue_value[4]     ; clk          ; clk         ; 0.000        ; 0.556      ; 1.443      ;
+; 0.695 ; color_sensor3:sensor_inst|clear_count[0]    ; color_sensor3:sensor_inst|blue_value[5]     ; clk          ; clk         ; 0.000        ; 0.556      ; 1.446      ;
+; 0.701 ; color_sensor3:sensor_inst|state.S_BLUE      ; color_sensor3:sensor_inst|s2_s3[1]          ; clk          ; clk         ; 0.000        ; 0.073      ; 0.969      ;
+; 0.703 ; color_sensor3:sensor_inst|time_counter[13]  ; color_sensor3:sensor_inst|time_counter[13]  ; clk          ; clk         ; 0.000        ; 0.074      ; 0.972      ;
+; 0.703 ; color_sensor3:sensor_inst|time_counter[15]  ; color_sensor3:sensor_inst|time_counter[15]  ; clk          ; clk         ; 0.000        ; 0.074      ; 0.972      ;
+; 0.704 ; color_sensor3:sensor_inst|time_counter[11]  ; color_sensor3:sensor_inst|time_counter[11]  ; clk          ; clk         ; 0.000        ; 0.074      ; 0.973      ;
+; 0.705 ; color_sensor3:sensor_inst|time_counter[19]  ; color_sensor3:sensor_inst|time_counter[19]  ; clk          ; clk         ; 0.000        ; 0.073      ; 0.973      ;
+; 0.705 ; color_sensor3:sensor_inst|time_counter[21]  ; color_sensor3:sensor_inst|time_counter[21]  ; clk          ; clk         ; 0.000        ; 0.073      ; 0.973      ;
+; 0.705 ; color_sensor3:sensor_inst|time_counter[29]  ; color_sensor3:sensor_inst|time_counter[29]  ; clk          ; clk         ; 0.000        ; 0.073      ; 0.973      ;
+; 0.706 ; color_sensor3:sensor_inst|time_counter[6]   ; color_sensor3:sensor_inst|time_counter[6]   ; clk          ; clk         ; 0.000        ; 0.074      ; 0.975      ;
+; 0.706 ; color_sensor3:sensor_inst|time_counter[27]  ; color_sensor3:sensor_inst|time_counter[27]  ; clk          ; clk         ; 0.000        ; 0.073      ; 0.974      ;
+; 0.706 ; color_sensor3:sensor_inst|time_counter[9]   ; color_sensor3:sensor_inst|time_counter[9]   ; clk          ; clk         ; 0.000        ; 0.074      ; 0.975      ;
+; 0.706 ; color_sensor3:sensor_inst|time_counter[17]  ; color_sensor3:sensor_inst|time_counter[17]  ; clk          ; clk         ; 0.000        ; 0.073      ; 0.974      ;
+; 0.707 ; color_sensor3:sensor_inst|time_counter[7]   ; color_sensor3:sensor_inst|time_counter[7]   ; clk          ; clk         ; 0.000        ; 0.074      ; 0.976      ;
+; 0.707 ; color_sensor3:sensor_inst|time_counter[22]  ; color_sensor3:sensor_inst|time_counter[22]  ; clk          ; clk         ; 0.000        ; 0.073      ; 0.975      ;
+; 0.707 ; color_sensor3:sensor_inst|time_counter[31]  ; color_sensor3:sensor_inst|time_counter[31]  ; clk          ; clk         ; 0.000        ; 0.073      ; 0.975      ;
+; 0.708 ; color_sensor3:sensor_inst|time_counter[14]  ; color_sensor3:sensor_inst|time_counter[14]  ; clk          ; clk         ; 0.000        ; 0.074      ; 0.977      ;
+; 0.708 ; color_sensor3:sensor_inst|time_counter[23]  ; color_sensor3:sensor_inst|time_counter[23]  ; clk          ; clk         ; 0.000        ; 0.073      ; 0.976      ;
+; 0.708 ; color_sensor3:sensor_inst|time_counter[25]  ; color_sensor3:sensor_inst|time_counter[25]  ; clk          ; clk         ; 0.000        ; 0.073      ; 0.976      ;
+; 0.709 ; color_sensor3:sensor_inst|clear_count[13]   ; color_sensor3:sensor_inst|clear_count[13]   ; clk          ; clk         ; 0.000        ; 0.073      ; 0.977      ;
+; 0.709 ; color_sensor3:sensor_inst|time_counter[10]  ; color_sensor3:sensor_inst|time_counter[10]  ; clk          ; clk         ; 0.000        ; 0.074      ; 0.978      ;
+; 0.709 ; color_sensor3:sensor_inst|time_counter[12]  ; color_sensor3:sensor_inst|time_counter[12]  ; clk          ; clk         ; 0.000        ; 0.074      ; 0.978      ;
+; 0.709 ; color_sensor3:sensor_inst|time_counter[16]  ; color_sensor3:sensor_inst|time_counter[16]  ; clk          ; clk         ; 0.000        ; 0.073      ; 0.977      ;
+; 0.710 ; color_sensor3:sensor_inst|time_counter[0]   ; color_sensor3:sensor_inst|time_counter[0]   ; clk          ; clk         ; 0.000        ; 0.074      ; 0.979      ;
+; 0.710 ; color_sensor3:sensor_inst|time_counter[8]   ; color_sensor3:sensor_inst|time_counter[8]   ; clk          ; clk         ; 0.000        ; 0.074      ; 0.979      ;
+; 0.710 ; color_sensor3:sensor_inst|time_counter[18]  ; color_sensor3:sensor_inst|time_counter[18]  ; clk          ; clk         ; 0.000        ; 0.073      ; 0.978      ;
+; 0.711 ; color_sensor3:sensor_inst|clear_count[15]   ; color_sensor3:sensor_inst|clear_count[15]   ; clk          ; clk         ; 0.000        ; 0.073      ; 0.979      ;
+; 0.711 ; color_sensor3:sensor_inst|time_counter[20]  ; color_sensor3:sensor_inst|time_counter[20]  ; clk          ; clk         ; 0.000        ; 0.073      ; 0.979      ;
+; 0.711 ; color_sensor3:sensor_inst|time_counter[26]  ; color_sensor3:sensor_inst|time_counter[26]  ; clk          ; clk         ; 0.000        ; 0.073      ; 0.979      ;
+; 0.711 ; color_sensor3:sensor_inst|time_counter[28]  ; color_sensor3:sensor_inst|time_counter[28]  ; clk          ; clk         ; 0.000        ; 0.073      ; 0.979      ;
+; 0.711 ; color_sensor3:sensor_inst|time_counter[30]  ; color_sensor3:sensor_inst|time_counter[30]  ; clk          ; clk         ; 0.000        ; 0.073      ; 0.979      ;
+; 0.712 ; color_sensor3:sensor_inst|time_counter[24]  ; color_sensor3:sensor_inst|time_counter[24]  ; clk          ; clk         ; 0.000        ; 0.073      ; 0.980      ;
+; 0.716 ; color_sensor3:sensor_inst|clear_count[12]   ; color_sensor3:sensor_inst|clear_count[12]   ; clk          ; clk         ; 0.000        ; 0.073      ; 0.984      ;
+; 0.732 ; color_sensor3:sensor_inst|clear_count[18]   ; color_sensor3:sensor_inst|clear_count[18]   ; clk          ; clk         ; 0.000        ; 0.073      ; 1.000      ;
+; 0.737 ; color_sensor3:sensor_inst|clear_count[16]   ; color_sensor3:sensor_inst|clear_count[16]   ; clk          ; clk         ; 0.000        ; 0.073      ; 1.005      ;
+; 0.739 ; color_sensor3:sensor_inst|state.000         ; color_sensor3:sensor_inst|s2_s3[1]          ; clk          ; clk         ; 0.000        ; 0.073      ; 1.007      ;
+; 0.771 ; color_sensor3:sensor_inst|clear_value[9]    ; color_sensor3:sensor_inst|luz               ; clk          ; clk         ; 0.000        ; 0.072      ; 1.038      ;
+; 0.788 ; color_sensor3:sensor_inst|state.000         ; color_sensor3:sensor_inst|s2_s3[0]          ; clk          ; clk         ; 0.000        ; 0.073      ; 1.056      ;
+; 0.828 ; color_sensor3:sensor_inst|clear_value[12]   ; color_sensor3:sensor_inst|luz               ; clk          ; clk         ; 0.000        ; 0.072      ; 1.095      ;
+; 0.854 ; color_sensor3:sensor_inst|red_value[12]     ; color_sensor3:sensor_inst|red_norm[12]      ; clk          ; clk         ; 0.000        ; 0.075      ; 1.124      ;
+; 0.876 ; color_sensor3:sensor_inst|clear_count[0]    ; color_sensor3:sensor_inst|blue_value[2]     ; clk          ; clk         ; 0.000        ; 0.556      ; 1.627      ;
+; 0.877 ; color_sensor3:sensor_inst|clear_count[0]    ; color_sensor3:sensor_inst|blue_value[1]     ; clk          ; clk         ; 0.000        ; 0.556      ; 1.628      ;
+; 0.877 ; color_sensor3:sensor_inst|clear_count[0]    ; color_sensor3:sensor_inst|blue_value[8]     ; clk          ; clk         ; 0.000        ; 0.556      ; 1.628      ;
+; 0.878 ; color_sensor3:sensor_inst|clear_count[0]    ; color_sensor3:sensor_inst|blue_value[6]     ; clk          ; clk         ; 0.000        ; 0.556      ; 1.629      ;
+; 0.880 ; color_sensor3:sensor_inst|clear_count[0]    ; color_sensor3:sensor_inst|blue_value[7]     ; clk          ; clk         ; 0.000        ; 0.556      ; 1.631      ;
+; 0.912 ; color_sensor3:sensor_inst|green_value[3]    ; color_sensor3:sensor_inst|green_norm[3]     ; clk          ; clk         ; 0.000        ; -0.370     ; 0.737      ;
+; 0.914 ; color_sensor3:sensor_inst|red_value[3]      ; color_sensor3:sensor_inst|red_norm[3]       ; clk          ; clk         ; 0.000        ; -0.370     ; 0.739      ;
+; 0.914 ; color_sensor3:sensor_inst|red_value[7]      ; color_sensor3:sensor_inst|red_norm[7]       ; clk          ; clk         ; 0.000        ; -0.370     ; 0.739      ;
+; 0.915 ; color_sensor3:sensor_inst|red_value[2]      ; color_sensor3:sensor_inst|red_norm[2]       ; clk          ; clk         ; 0.000        ; -0.370     ; 0.740      ;
+; 0.920 ; color_sensor3:sensor_inst|blue_value[2]     ; color_sensor3:sensor_inst|blue_norm[2]      ; clk          ; clk         ; 0.000        ; -0.377     ; 0.738      ;
+; 0.920 ; color_sensor3:sensor_inst|blue_value[5]     ; color_sensor3:sensor_inst|blue_norm[5]      ; clk          ; clk         ; 0.000        ; -0.377     ; 0.738      ;
+; 0.921 ; color_sensor3:sensor_inst|green_value[15]   ; color_sensor3:sensor_inst|green_norm[15]    ; clk          ; clk         ; 0.000        ; -0.378     ; 0.738      ;
+; 0.921 ; color_sensor3:sensor_inst|blue_value[7]     ; color_sensor3:sensor_inst|blue_norm[7]      ; clk          ; clk         ; 0.000        ; -0.377     ; 0.739      ;
+; 0.921 ; color_sensor3:sensor_inst|blue_value[3]     ; color_sensor3:sensor_inst|blue_norm[3]      ; clk          ; clk         ; 0.000        ; -0.377     ; 0.739      ;
+; 0.922 ; color_sensor3:sensor_inst|red_value[14]     ; color_sensor3:sensor_inst|red_norm[14]      ; clk          ; clk         ; 0.000        ; -0.378     ; 0.739      ;
+; 0.923 ; color_sensor3:sensor_inst|red_value[15]     ; color_sensor3:sensor_inst|red_norm[15]      ; clk          ; clk         ; 0.000        ; -0.378     ; 0.740      ;
+; 0.958 ; color_sensor3:sensor_inst|green_value[10]   ; color_sensor3:sensor_inst|green_norm[10]    ; clk          ; clk         ; 0.000        ; -0.414     ; 0.739      ;
+; 0.958 ; color_sensor3:sensor_inst|green_value[5]    ; color_sensor3:sensor_inst|green_norm[5]     ; clk          ; clk         ; 0.000        ; -0.414     ; 0.739      ;
+; 1.003 ; color_sensor3:sensor_inst|time_counter[0]   ; color_sensor3:sensor_inst|time_counter[1]   ; clk          ; clk         ; 0.000        ; 0.074      ; 1.272      ;
+; 1.004 ; color_sensor3:sensor_inst|time_counter[2]   ; color_sensor3:sensor_inst|time_counter[3]   ; clk          ; clk         ; 0.000        ; 0.074      ; 1.273      ;
+; 1.004 ; color_sensor3:sensor_inst|time_counter[3]   ; color_sensor3:sensor_inst|time_counter[4]   ; clk          ; clk         ; 0.000        ; 0.074      ; 1.273      ;
+; 1.004 ; color_sensor3:sensor_inst|time_counter[5]   ; color_sensor3:sensor_inst|time_counter[6]   ; clk          ; clk         ; 0.000        ; 0.074      ; 1.273      ;
+; 1.005 ; color_sensor3:sensor_inst|time_counter[4]   ; color_sensor3:sensor_inst|time_counter[5]   ; clk          ; clk         ; 0.000        ; 0.074      ; 1.274      ;
+; 1.007 ; color_sensor3:sensor_inst|time_counter[1]   ; color_sensor3:sensor_inst|time_counter[2]   ; clk          ; clk         ; 0.000        ; 0.074      ; 1.276      ;
+; 1.013 ; color_sensor3:sensor_inst|state.S_CLEAR     ; color_sensor3:sensor_inst|s2_s3[1]          ; clk          ; clk         ; 0.000        ; 0.073      ; 1.281      ;
+; 1.018 ; color_sensor3:sensor_inst|clear_count[1]    ; color_sensor3:sensor_inst|blue_value[3]     ; clk          ; clk         ; 0.000        ; 0.556      ; 1.769      ;
+; 1.018 ; color_sensor3:sensor_inst|clear_count[1]    ; color_sensor3:sensor_inst|blue_value[4]     ; clk          ; clk         ; 0.000        ; 0.556      ; 1.769      ;
+; 1.020 ; color_sensor3:sensor_inst|time_counter[0]   ; color_sensor3:sensor_inst|time_counter[2]   ; clk          ; clk         ; 0.000        ; 0.074      ; 1.289      ;
+; 1.021 ; color_sensor3:sensor_inst|time_counter[2]   ; color_sensor3:sensor_inst|time_counter[4]   ; clk          ; clk         ; 0.000        ; 0.074      ; 1.290      ;
+; 1.021 ; color_sensor3:sensor_inst|clear_count[1]    ; color_sensor3:sensor_inst|blue_value[5]     ; clk          ; clk         ; 0.000        ; 0.556      ; 1.772      ;
+; 1.022 ; color_sensor3:sensor_inst|time_counter[4]   ; color_sensor3:sensor_inst|time_counter[6]   ; clk          ; clk         ; 0.000        ; 0.074      ; 1.291      ;
+; 1.025 ; color_sensor3:sensor_inst|time_counter[13]  ; color_sensor3:sensor_inst|time_counter[14]  ; clk          ; clk         ; 0.000        ; 0.074      ; 1.294      ;
+; 1.025 ; color_sensor3:sensor_inst|time_counter[6]   ; color_sensor3:sensor_inst|time_counter[7]   ; clk          ; clk         ; 0.000        ; 0.074      ; 1.294      ;
+; 1.026 ; color_sensor3:sensor_inst|time_counter[14]  ; color_sensor3:sensor_inst|time_counter[15]  ; clk          ; clk         ; 0.000        ; 0.074      ; 1.295      ;
+; 1.026 ; color_sensor3:sensor_inst|time_counter[11]  ; color_sensor3:sensor_inst|time_counter[12]  ; clk          ; clk         ; 0.000        ; 0.074      ; 1.295      ;
++-------+---------------------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Slow 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++------------------------------------+
+; Fast 1200mV 0C Model Setup Summary ;
++-------+---------+------------------+
+; Clock ; Slack   ; End Point TNS    ;
++-------+---------+------------------+
+; clk   ; -49.944 ; -2020.865        ;
++-------+---------+------------------+
+
+
++-----------------------------------+
+; Fast 1200mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; clk   ; 0.186 ; 0.000             ;
++-------+-------+-------------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; clk   ; -3.000 ; -296.761                        ;
++-------+--------+---------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'clk'                                                                                                                                    ;
++---------+-------------------------------------------+------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack   ; From Node                                 ; To Node                                  ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++---------+-------------------------------------------+------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -49.944 ; color_sensor3:sensor_inst|clear_count[20] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.165      ; 51.096     ;
+; -49.906 ; color_sensor3:sensor_inst|clear_count[18] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.165      ; 51.058     ;
+; -49.833 ; color_sensor3:sensor_inst|clear_count[16] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.165      ; 50.985     ;
+; -49.798 ; color_sensor3:sensor_inst|clear_count[17] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.174      ; 50.959     ;
+; -49.786 ; color_sensor3:sensor_inst|clear_count[19] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.174      ; 50.947     ;
+; -49.767 ; color_sensor3:sensor_inst|clear_count[15] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.165      ; 50.919     ;
+; -49.647 ; color_sensor3:sensor_inst|clear_count[13] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.165      ; 50.799     ;
+; -49.642 ; color_sensor3:sensor_inst|clear_count[14] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.174      ; 50.803     ;
+; -49.609 ; color_sensor3:sensor_inst|clear_count[12] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.165      ; 50.761     ;
+; -49.602 ; color_sensor3:sensor_inst|clear_count[9]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; -0.029     ; 50.560     ;
+; -49.557 ; color_sensor3:sensor_inst|blue_count[3]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.155      ; 50.699     ;
+; -49.487 ; color_sensor3:sensor_inst|blue_count[0]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.154      ; 50.628     ;
+; -49.479 ; color_sensor3:sensor_inst|clear_count[6]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; -0.029     ; 50.437     ;
+; -49.470 ; color_sensor3:sensor_inst|clear_count[10] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.165      ; 50.622     ;
+; -49.432 ; color_sensor3:sensor_inst|clear_count[7]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; -0.029     ; 50.390     ;
+; -49.389 ; color_sensor3:sensor_inst|clear_count[11] ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.174      ; 50.550     ;
+; -49.329 ; color_sensor3:sensor_inst|blue_count[13]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.161      ; 50.477     ;
+; -49.273 ; color_sensor3:sensor_inst|blue_count[7]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.155      ; 50.415     ;
+; -49.260 ; color_sensor3:sensor_inst|blue_count[1]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.155      ; 50.402     ;
+; -49.251 ; color_sensor3:sensor_inst|blue_count[15]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.161      ; 50.399     ;
+; -49.222 ; color_sensor3:sensor_inst|blue_count[6]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.155      ; 50.364     ;
+; -49.209 ; color_sensor3:sensor_inst|clear_count[8]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.174      ; 50.370     ;
+; -49.205 ; color_sensor3:sensor_inst|blue_count[9]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.155      ; 50.347     ;
+; -49.201 ; color_sensor3:sensor_inst|blue_count[11]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.161      ; 50.349     ;
+; -49.195 ; color_sensor3:sensor_inst|blue_count[5]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.155      ; 50.337     ;
+; -49.155 ; color_sensor3:sensor_inst|blue_count[8]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.155      ; 50.297     ;
+; -49.150 ; color_sensor3:sensor_inst|blue_count[2]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.155      ; 50.292     ;
+; -49.097 ; color_sensor3:sensor_inst|blue_count[12]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.155      ; 50.239     ;
+; -49.087 ; color_sensor3:sensor_inst|blue_count[10]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.155      ; 50.229     ;
+; -49.079 ; color_sensor3:sensor_inst|blue_count[4]   ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.155      ; 50.221     ;
+; -49.049 ; color_sensor3:sensor_inst|blue_count[14]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.155      ; 50.191     ;
+; -49.009 ; color_sensor3:sensor_inst|clear_count[5]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.174      ; 50.170     ;
+; -48.962 ; color_sensor3:sensor_inst|blue_count[16]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.155      ; 50.104     ;
+; -48.929 ; color_sensor3:sensor_inst|blue_count[17]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.161      ; 50.077     ;
+; -48.859 ; color_sensor3:sensor_inst|blue_count[19]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.161      ; 50.007     ;
+; -48.814 ; color_sensor3:sensor_inst|blue_count[18]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.161      ; 49.962     ;
+; -48.734 ; color_sensor3:sensor_inst|blue_count[20]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.161      ; 49.882     ;
+; -48.455 ; color_sensor3:sensor_inst|clear_count[4]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; -0.042     ; 49.400     ;
+; -48.453 ; color_sensor3:sensor_inst|clear_count[2]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; -0.042     ; 49.398     ;
+; -48.280 ; color_sensor3:sensor_inst|clear_count[3]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; -0.042     ; 49.225     ;
+; -48.218 ; color_sensor3:sensor_inst|clear_count[20] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.160      ; 49.365     ;
+; -48.180 ; color_sensor3:sensor_inst|clear_count[18] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.160      ; 49.327     ;
+; -48.153 ; color_sensor3:sensor_inst|clear_count[0]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.161      ; 49.301     ;
+; -48.107 ; color_sensor3:sensor_inst|clear_count[16] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.160      ; 49.254     ;
+; -48.086 ; color_sensor3:sensor_inst|clear_count[1]  ; color_sensor3:sensor_inst|blue_value[0]  ; clk          ; clk         ; 1.000        ; 0.161      ; 49.234     ;
+; -48.072 ; color_sensor3:sensor_inst|clear_count[17] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.169      ; 49.228     ;
+; -48.060 ; color_sensor3:sensor_inst|clear_count[19] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.169      ; 49.216     ;
+; -48.041 ; color_sensor3:sensor_inst|clear_count[15] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.160      ; 49.188     ;
+; -47.921 ; color_sensor3:sensor_inst|clear_count[13] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.160      ; 49.068     ;
+; -47.916 ; color_sensor3:sensor_inst|clear_count[14] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.169      ; 49.072     ;
+; -47.883 ; color_sensor3:sensor_inst|clear_count[12] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.160      ; 49.030     ;
+; -47.876 ; color_sensor3:sensor_inst|clear_count[9]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; -0.034     ; 48.829     ;
+; -47.823 ; color_sensor3:sensor_inst|blue_count[3]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.158      ; 48.968     ;
+; -47.753 ; color_sensor3:sensor_inst|clear_count[6]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; -0.034     ; 48.706     ;
+; -47.753 ; color_sensor3:sensor_inst|blue_count[0]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.157      ; 48.897     ;
+; -47.744 ; color_sensor3:sensor_inst|clear_count[10] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.160      ; 48.891     ;
+; -47.706 ; color_sensor3:sensor_inst|clear_count[7]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; -0.034     ; 48.659     ;
+; -47.663 ; color_sensor3:sensor_inst|clear_count[11] ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.169      ; 48.819     ;
+; -47.595 ; color_sensor3:sensor_inst|blue_count[13]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.164      ; 48.746     ;
+; -47.539 ; color_sensor3:sensor_inst|blue_count[7]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.158      ; 48.684     ;
+; -47.526 ; color_sensor3:sensor_inst|blue_count[1]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.158      ; 48.671     ;
+; -47.517 ; color_sensor3:sensor_inst|blue_count[15]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.164      ; 48.668     ;
+; -47.488 ; color_sensor3:sensor_inst|blue_count[6]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.158      ; 48.633     ;
+; -47.483 ; color_sensor3:sensor_inst|clear_count[8]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.169      ; 48.639     ;
+; -47.471 ; color_sensor3:sensor_inst|blue_count[9]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.158      ; 48.616     ;
+; -47.467 ; color_sensor3:sensor_inst|blue_count[11]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.164      ; 48.618     ;
+; -47.461 ; color_sensor3:sensor_inst|blue_count[5]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.158      ; 48.606     ;
+; -47.421 ; color_sensor3:sensor_inst|blue_count[8]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.158      ; 48.566     ;
+; -47.416 ; color_sensor3:sensor_inst|blue_count[2]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.158      ; 48.561     ;
+; -47.363 ; color_sensor3:sensor_inst|blue_count[12]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.158      ; 48.508     ;
+; -47.353 ; color_sensor3:sensor_inst|blue_count[10]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.158      ; 48.498     ;
+; -47.345 ; color_sensor3:sensor_inst|blue_count[4]   ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.158      ; 48.490     ;
+; -47.315 ; color_sensor3:sensor_inst|blue_count[14]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.158      ; 48.460     ;
+; -47.283 ; color_sensor3:sensor_inst|clear_count[5]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.169      ; 48.439     ;
+; -47.228 ; color_sensor3:sensor_inst|blue_count[16]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.158      ; 48.373     ;
+; -47.195 ; color_sensor3:sensor_inst|blue_count[17]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.164      ; 48.346     ;
+; -47.125 ; color_sensor3:sensor_inst|blue_count[19]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.164      ; 48.276     ;
+; -47.080 ; color_sensor3:sensor_inst|blue_count[18]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.164      ; 48.231     ;
+; -47.000 ; color_sensor3:sensor_inst|blue_count[20]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.164      ; 48.151     ;
+; -46.721 ; color_sensor3:sensor_inst|clear_count[4]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; -0.039     ; 47.669     ;
+; -46.719 ; color_sensor3:sensor_inst|clear_count[2]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; -0.039     ; 47.667     ;
+; -46.546 ; color_sensor3:sensor_inst|clear_count[3]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; -0.039     ; 47.494     ;
+; -46.419 ; color_sensor3:sensor_inst|clear_count[0]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.164      ; 47.570     ;
+; -46.352 ; color_sensor3:sensor_inst|clear_count[1]  ; color_sensor3:sensor_inst|blue_value[1]  ; clk          ; clk         ; 1.000        ; 0.164      ; 47.503     ;
+; -46.299 ; color_sensor3:sensor_inst|clear_count[20] ; color_sensor3:sensor_inst|blue_value[2]  ; clk          ; clk         ; 1.000        ; 0.160      ; 47.446     ;
+; -46.261 ; color_sensor3:sensor_inst|clear_count[18] ; color_sensor3:sensor_inst|blue_value[2]  ; clk          ; clk         ; 1.000        ; 0.160      ; 47.408     ;
+; -46.251 ; color_sensor3:sensor_inst|green_count[0]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.203      ; 47.441     ;
+; -46.251 ; color_sensor3:sensor_inst|green_count[1]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.203      ; 47.441     ;
+; -46.251 ; color_sensor3:sensor_inst|green_count[2]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.203      ; 47.441     ;
+; -46.251 ; color_sensor3:sensor_inst|green_count[3]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.203      ; 47.441     ;
+; -46.251 ; color_sensor3:sensor_inst|green_count[4]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.203      ; 47.441     ;
+; -46.251 ; color_sensor3:sensor_inst|green_count[5]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.203      ; 47.441     ;
+; -46.251 ; color_sensor3:sensor_inst|green_count[6]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.203      ; 47.441     ;
+; -46.251 ; color_sensor3:sensor_inst|green_count[7]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.203      ; 47.441     ;
+; -46.251 ; color_sensor3:sensor_inst|green_count[8]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.203      ; 47.441     ;
+; -46.251 ; color_sensor3:sensor_inst|green_count[9]  ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.203      ; 47.441     ;
+; -46.251 ; color_sensor3:sensor_inst|green_count[10] ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.203      ; 47.441     ;
+; -46.251 ; color_sensor3:sensor_inst|green_count[11] ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.203      ; 47.441     ;
+; -46.251 ; color_sensor3:sensor_inst|green_count[12] ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.203      ; 47.441     ;
+; -46.251 ; color_sensor3:sensor_inst|green_count[13] ; color_sensor3:sensor_inst|green_value[2] ; clk          ; clk         ; 1.000        ; 0.203      ; 47.441     ;
++---------+-------------------------------------------+------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'clk'                                                                                                                                                              ;
++-------+--------------------------------------------------------+--------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                              ; To Node                                                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------------------------------+--------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.186 ; color_sensor3:sensor_inst|s2_s3[1]                     ; color_sensor3:sensor_inst|s2_s3[1]                     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; color_sensor3:sensor_inst|s2_s3[0]                     ; color_sensor3:sensor_inst|s2_s3[0]                     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.193 ; color_sensor3:sensor_inst|blue_value[15]               ; color_sensor3:sensor_inst|blue_norm[15]                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.313      ;
+; 0.194 ; color_sensor3:sensor_inst|red_value[9]                 ; color_sensor3:sensor_inst|red_norm[9]                  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.314      ;
+; 0.194 ; color_sensor3:sensor_inst|red_value[10]                ; color_sensor3:sensor_inst|red_norm[10]                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.314      ;
+; 0.195 ; color_sensor3:sensor_inst|green_value[7]               ; color_sensor3:sensor_inst|green_norm[7]                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.315      ;
+; 0.196 ; color_sensor3:sensor_inst|green_value[11]              ; color_sensor3:sensor_inst|green_norm[11]               ; clk          ; clk         ; 0.000        ; 0.036      ; 0.316      ;
+; 0.201 ; color_sensor3:sensor_inst|state.S_GREEN                ; color_sensor3:sensor_inst|state.S_BLUE                 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.322      ;
+; 0.201 ; color_sensor3:sensor_inst|state.S_GREEN                ; color_sensor3:sensor_inst|s2_s3[0]                     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.322      ;
+; 0.205 ; color_sensor3:sensor_inst|clear_count[20]              ; color_sensor3:sensor_inst|clear_count[20]              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.325      ;
+; 0.210 ; color_sensor3:sensor_inst|state.000                    ; color_sensor3:sensor_inst|state.S_GREEN                ; clk          ; clk         ; 0.000        ; 0.037      ; 0.331      ;
+; 0.219 ; color_sensor3:sensor_inst|state.S_NORMALIZE            ; color_sensor3:sensor_inst|state.000                    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.340      ;
+; 0.266 ; color_sensor3:sensor_inst|red_value[11]                ; color_sensor3:sensor_inst|red_norm[11]                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.386      ;
+; 0.267 ; color_sensor3:sensor_inst|blue_value[12]               ; color_sensor3:sensor_inst|blue_norm[12]                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.387      ;
+; 0.267 ; color_sensor3:sensor_inst|blue_value[10]               ; color_sensor3:sensor_inst|blue_norm[10]                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.387      ;
+; 0.267 ; color_sensor3:sensor_inst|red_value[8]                 ; color_sensor3:sensor_inst|red_norm[8]                  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.387      ;
+; 0.269 ; color_sensor3:sensor_inst|blue_value[9]                ; color_sensor3:sensor_inst|blue_norm[9]                 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.390      ;
+; 0.278 ; color_sensor3:sensor_inst|state.S_BLUE                 ; color_sensor3:sensor_inst|state.S_CLEAR                ; clk          ; clk         ; 0.000        ; 0.037      ; 0.399      ;
+; 0.279 ; color_sensor3:sensor_inst|state.S_CLEAR                ; color_sensor3:sensor_inst|state.S_NORMALIZE            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.400      ;
+; 0.293 ; color_sensor3:sensor_inst|time_counter[1]              ; color_sensor3:sensor_inst|time_counter[1]              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.413      ;
+; 0.293 ; color_sensor3:sensor_inst|time_counter[3]              ; color_sensor3:sensor_inst|time_counter[3]              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.413      ;
+; 0.293 ; color_sensor3:sensor_inst|time_counter[5]              ; color_sensor3:sensor_inst|time_counter[5]              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.413      ;
+; 0.295 ; color_sensor3:sensor_inst|time_counter[2]              ; color_sensor3:sensor_inst|time_counter[2]              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.415      ;
+; 0.295 ; color_sensor3:sensor_inst|time_counter[4]              ; color_sensor3:sensor_inst|time_counter[4]              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.415      ;
+; 0.301 ; color_sensor3:sensor_inst|state.S_BLUE                 ; color_sensor3:sensor_inst|s2_s3[1]                     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.422      ;
+; 0.303 ; color_sensor3:sensor_inst|time_counter[15]             ; color_sensor3:sensor_inst|time_counter[15]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.423      ;
+; 0.304 ; color_sensor3:sensor_inst|time_counter[13]             ; color_sensor3:sensor_inst|time_counter[13]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.424      ;
+; 0.304 ; color_sensor3:sensor_inst|time_counter[31]             ; color_sensor3:sensor_inst|time_counter[31]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.424      ;
+; 0.305 ; color_sensor3:sensor_inst|time_counter[6]              ; color_sensor3:sensor_inst|time_counter[6]              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.425      ;
+; 0.305 ; color_sensor3:sensor_inst|time_counter[27]             ; color_sensor3:sensor_inst|time_counter[27]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.425      ;
+; 0.305 ; color_sensor3:sensor_inst|time_counter[0]              ; color_sensor3:sensor_inst|time_counter[0]              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.425      ;
+; 0.305 ; color_sensor3:sensor_inst|time_counter[7]              ; color_sensor3:sensor_inst|time_counter[7]              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.425      ;
+; 0.305 ; color_sensor3:sensor_inst|time_counter[11]             ; color_sensor3:sensor_inst|time_counter[11]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.425      ;
+; 0.305 ; color_sensor3:sensor_inst|time_counter[17]             ; color_sensor3:sensor_inst|time_counter[17]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.425      ;
+; 0.305 ; color_sensor3:sensor_inst|time_counter[19]             ; color_sensor3:sensor_inst|time_counter[19]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.425      ;
+; 0.305 ; color_sensor3:sensor_inst|time_counter[21]             ; color_sensor3:sensor_inst|time_counter[21]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.425      ;
+; 0.305 ; color_sensor3:sensor_inst|time_counter[29]             ; color_sensor3:sensor_inst|time_counter[29]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.425      ;
+; 0.306 ; color_sensor3:sensor_inst|time_counter[8]              ; color_sensor3:sensor_inst|time_counter[8]              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.426      ;
+; 0.306 ; color_sensor3:sensor_inst|time_counter[9]              ; color_sensor3:sensor_inst|time_counter[9]              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.426      ;
+; 0.306 ; color_sensor3:sensor_inst|time_counter[14]             ; color_sensor3:sensor_inst|time_counter[14]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.426      ;
+; 0.306 ; color_sensor3:sensor_inst|time_counter[16]             ; color_sensor3:sensor_inst|time_counter[16]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.426      ;
+; 0.306 ; color_sensor3:sensor_inst|time_counter[22]             ; color_sensor3:sensor_inst|time_counter[22]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.426      ;
+; 0.306 ; color_sensor3:sensor_inst|time_counter[23]             ; color_sensor3:sensor_inst|time_counter[23]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.426      ;
+; 0.306 ; color_sensor3:sensor_inst|time_counter[25]             ; color_sensor3:sensor_inst|time_counter[25]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.426      ;
+; 0.307 ; color_sensor3:sensor_inst|time_counter[10]             ; color_sensor3:sensor_inst|time_counter[10]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.427      ;
+; 0.307 ; color_sensor3:sensor_inst|time_counter[12]             ; color_sensor3:sensor_inst|time_counter[12]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.427      ;
+; 0.307 ; color_sensor3:sensor_inst|time_counter[18]             ; color_sensor3:sensor_inst|time_counter[18]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.427      ;
+; 0.307 ; color_sensor3:sensor_inst|time_counter[20]             ; color_sensor3:sensor_inst|time_counter[20]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.427      ;
+; 0.307 ; color_sensor3:sensor_inst|time_counter[24]             ; color_sensor3:sensor_inst|time_counter[24]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.427      ;
+; 0.307 ; color_sensor3:sensor_inst|time_counter[30]             ; color_sensor3:sensor_inst|time_counter[30]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.427      ;
+; 0.308 ; color_sensor3:sensor_inst|clear_count[15]              ; color_sensor3:sensor_inst|clear_count[15]              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.428      ;
+; 0.308 ; color_sensor3:sensor_inst|clear_count[13]              ; color_sensor3:sensor_inst|clear_count[13]              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.428      ;
+; 0.308 ; color_sensor3:sensor_inst|time_counter[26]             ; color_sensor3:sensor_inst|time_counter[26]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.428      ;
+; 0.308 ; color_sensor3:sensor_inst|time_counter[28]             ; color_sensor3:sensor_inst|time_counter[28]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.428      ;
+; 0.310 ; color_sensor3:sensor_inst|clear_count[12]              ; color_sensor3:sensor_inst|clear_count[12]              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.430      ;
+; 0.315 ; color_sensor3:sensor_inst|clear_count[0]               ; color_sensor3:sensor_inst|blue_value[3]                ; clk          ; clk         ; 0.000        ; 0.245      ; 0.644      ;
+; 0.315 ; color_sensor3:sensor_inst|clear_count[0]               ; color_sensor3:sensor_inst|blue_value[4]                ; clk          ; clk         ; 0.000        ; 0.245      ; 0.644      ;
+; 0.318 ; color_sensor3:sensor_inst|clear_count[0]               ; color_sensor3:sensor_inst|blue_value[5]                ; clk          ; clk         ; 0.000        ; 0.245      ; 0.647      ;
+; 0.318 ; color_sensor3:sensor_inst|clear_count[18]              ; color_sensor3:sensor_inst|clear_count[18]              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.438      ;
+; 0.320 ; color_sensor3:sensor_inst|state.000                    ; color_sensor3:sensor_inst|s2_s3[1]                     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.441      ;
+; 0.322 ; color_sensor3:sensor_inst|clear_count[16]              ; color_sensor3:sensor_inst|clear_count[16]              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.442      ;
+; 0.340 ; color_sensor3:sensor_inst|state.000                    ; color_sensor3:sensor_inst|s2_s3[0]                     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.461      ;
+; 0.343 ; color_sensor3:sensor_inst|clear_value[9]               ; color_sensor3:sensor_inst|luz                          ; clk          ; clk         ; 0.000        ; 0.036      ; 0.463      ;
+; 0.343 ; color_sensor3:sensor_inst|red_value[12]                ; color_sensor3:sensor_inst|red_norm[12]                 ; clk          ; clk         ; 0.000        ; 0.038      ; 0.465      ;
+; 0.350 ; color_sensor3:sensor_inst|clear_value[12]              ; color_sensor3:sensor_inst|luz                          ; clk          ; clk         ; 0.000        ; 0.036      ; 0.470      ;
+; 0.385 ; color_sensor3:sensor_inst|blue_value[2]                ; color_sensor3:sensor_inst|blue_norm[2]                 ; clk          ; clk         ; 0.000        ; -0.155     ; 0.314      ;
+; 0.385 ; color_sensor3:sensor_inst|blue_value[5]                ; color_sensor3:sensor_inst|blue_norm[5]                 ; clk          ; clk         ; 0.000        ; -0.155     ; 0.314      ;
+; 0.385 ; color_sensor3:sensor_inst|green_value[3]               ; color_sensor3:sensor_inst|green_norm[3]                ; clk          ; clk         ; 0.000        ; -0.156     ; 0.313      ;
+; 0.385 ; color_sensor3:sensor_inst|green_value[15]              ; color_sensor3:sensor_inst|green_norm[15]               ; clk          ; clk         ; 0.000        ; -0.155     ; 0.314      ;
+; 0.386 ; color_sensor3:sensor_inst|blue_value[7]                ; color_sensor3:sensor_inst|blue_norm[7]                 ; clk          ; clk         ; 0.000        ; -0.155     ; 0.315      ;
+; 0.386 ; color_sensor3:sensor_inst|blue_value[3]                ; color_sensor3:sensor_inst|blue_norm[3]                 ; clk          ; clk         ; 0.000        ; -0.155     ; 0.315      ;
+; 0.387 ; color_sensor3:sensor_inst|red_value[3]                 ; color_sensor3:sensor_inst|red_norm[3]                  ; clk          ; clk         ; 0.000        ; -0.156     ; 0.315      ;
+; 0.387 ; color_sensor3:sensor_inst|red_value[14]                ; color_sensor3:sensor_inst|red_norm[14]                 ; clk          ; clk         ; 0.000        ; -0.155     ; 0.316      ;
+; 0.387 ; color_sensor3:sensor_inst|red_value[15]                ; color_sensor3:sensor_inst|red_norm[15]                 ; clk          ; clk         ; 0.000        ; -0.155     ; 0.316      ;
+; 0.387 ; color_sensor3:sensor_inst|red_value[7]                 ; color_sensor3:sensor_inst|red_norm[7]                  ; clk          ; clk         ; 0.000        ; -0.156     ; 0.315      ;
+; 0.388 ; color_sensor3:sensor_inst|red_value[2]                 ; color_sensor3:sensor_inst|red_norm[2]                  ; clk          ; clk         ; 0.000        ; -0.156     ; 0.316      ;
+; 0.396 ; color_sensor3:sensor_inst|clear_count[0]               ; color_sensor3:sensor_inst|blue_value[2]                ; clk          ; clk         ; 0.000        ; 0.245      ; 0.725      ;
+; 0.397 ; color_sensor3:sensor_inst|green_value[5]               ; color_sensor3:sensor_inst|green_norm[5]                ; clk          ; clk         ; 0.000        ; -0.166     ; 0.315      ;
+; 0.397 ; color_sensor3:sensor_inst|clear_count[0]               ; color_sensor3:sensor_inst|blue_value[8]                ; clk          ; clk         ; 0.000        ; 0.245      ; 0.726      ;
+; 0.398 ; color_sensor3:sensor_inst|green_value[10]              ; color_sensor3:sensor_inst|green_norm[10]               ; clk          ; clk         ; 0.000        ; -0.166     ; 0.316      ;
+; 0.398 ; color_sensor3:sensor_inst|clear_count[0]               ; color_sensor3:sensor_inst|blue_value[1]                ; clk          ; clk         ; 0.000        ; 0.245      ; 0.727      ;
+; 0.399 ; color_sensor3:sensor_inst|clear_count[0]               ; color_sensor3:sensor_inst|blue_value[6]                ; clk          ; clk         ; 0.000        ; 0.245      ; 0.728      ;
+; 0.401 ; color_sensor3:sensor_inst|clear_count[0]               ; color_sensor3:sensor_inst|blue_value[7]                ; clk          ; clk         ; 0.000        ; 0.245      ; 0.730      ;
+; 0.426 ; color_sensor3:sensor_inst|state.S_CLEAR                ; color_sensor3:sensor_inst|s2_s3[1]                     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.547      ;
+; 0.442 ; color_sensor3:sensor_inst|time_counter[1]              ; color_sensor3:sensor_inst|time_counter[2]              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.562      ;
+; 0.442 ; color_sensor3:sensor_inst|time_counter[3]              ; color_sensor3:sensor_inst|time_counter[4]              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.562      ;
+; 0.442 ; color_sensor3:sensor_inst|time_counter[5]              ; color_sensor3:sensor_inst|time_counter[6]              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.562      ;
+; 0.446 ; color_sensor3:sensor_inst|green_count[18]~_Duplicate_1 ; color_sensor3:sensor_inst|green_count[18]~_Duplicate_1 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.566      ;
+; 0.446 ; color_sensor3:sensor_inst|red_count[20]~_Duplicate_1   ; color_sensor3:sensor_inst|red_count[20]~_Duplicate_1   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.567      ;
+; 0.446 ; color_sensor3:sensor_inst|red_count[19]~_Duplicate_1   ; color_sensor3:sensor_inst|red_count[19]~_Duplicate_1   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.567      ;
+; 0.446 ; color_sensor3:sensor_inst|red_count[18]~_Duplicate_1   ; color_sensor3:sensor_inst|red_count[18]~_Duplicate_1   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.567      ;
+; 0.448 ; color_sensor3:sensor_inst|green_count[4]~_Duplicate_1  ; color_sensor3:sensor_inst|green_count[4]~_Duplicate_1  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.568      ;
+; 0.448 ; color_sensor3:sensor_inst|green_count[2]~_Duplicate_1  ; color_sensor3:sensor_inst|green_count[2]~_Duplicate_1  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.568      ;
+; 0.448 ; color_sensor3:sensor_inst|red_count[3]~_Duplicate_1    ; color_sensor3:sensor_inst|red_count[3]~_Duplicate_1    ; clk          ; clk         ; 0.000        ; 0.036      ; 0.568      ;
+; 0.449 ; color_sensor3:sensor_inst|green_count[16]~_Duplicate_1 ; color_sensor3:sensor_inst|green_count[16]~_Duplicate_1 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.569      ;
+; 0.449 ; color_sensor3:sensor_inst|green_count[8]~_Duplicate_1  ; color_sensor3:sensor_inst|green_count[8]~_Duplicate_1  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.569      ;
+; 0.449 ; color_sensor3:sensor_inst|red_count[13]~_Duplicate_1   ; color_sensor3:sensor_inst|red_count[13]~_Duplicate_1   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.570      ;
+; 0.450 ; color_sensor3:sensor_inst|green_count[13]~_Duplicate_1 ; color_sensor3:sensor_inst|green_count[13]~_Duplicate_1 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.570      ;
+; 0.452 ; color_sensor3:sensor_inst|green_count[6]~_Duplicate_1  ; color_sensor3:sensor_inst|green_count[6]~_Duplicate_1  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.572      ;
+; 0.452 ; color_sensor3:sensor_inst|red_count[10]~_Duplicate_1   ; color_sensor3:sensor_inst|red_count[10]~_Duplicate_1   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.573      ;
++-------+--------------------------------------------------------+--------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Fast 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++---------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                             ;
++------------------+-----------+-------+----------+---------+---------------------+
+; Clock            ; Setup     ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+-----------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -114.915  ; 0.186 ; N/A      ; N/A     ; -4.000              ;
+;  clk             ; -114.915  ; 0.186 ; N/A      ; N/A     ; -4.000              ;
+; Design-wide TNS  ; -4971.401 ; 0.0   ; 0.0      ; 0.0     ; -510.326            ;
+;  clk             ; -4971.401 ; 0.000 ; N/A      ; N/A     ; -510.326            ;
++------------------+-----------+-------+----------+---------+---------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; color[0]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; color[1]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; color[2]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; s2_s3[0]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; s2_s3[1]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; led_s0_s1[0]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; led_s0_s1[1]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; led_s0_s1[2]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; luz           ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++----------------------------------------------------------------------------+
+; Input Transition Times                                                     ;
++-------------------------+--------------+-----------------+-----------------+
+; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------------------------+--------------+-----------------+-----------------+
+; clk                     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; sensor_out              ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_ASDO_DATA1~     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_DATA0~          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++-------------------------+--------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; color[0]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.8e-09 V                    ; 2.37 V              ; -0.00373 V          ; 0.104 V                              ; 0.011 V                              ; 4.34e-10 s                  ; 3.82e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.8e-09 V                   ; 2.37 V             ; -0.00373 V         ; 0.104 V                             ; 0.011 V                             ; 4.34e-10 s                 ; 3.82e-10 s                 ; Yes                       ; Yes                       ;
+; color[1]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.8e-09 V                    ; 2.37 V              ; -0.00373 V          ; 0.104 V                              ; 0.011 V                              ; 4.34e-10 s                  ; 3.82e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.8e-09 V                   ; 2.37 V             ; -0.00373 V         ; 0.104 V                             ; 0.011 V                             ; 4.34e-10 s                 ; 3.82e-10 s                 ; Yes                       ; Yes                       ;
+; color[2]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.8e-09 V                    ; 2.37 V              ; -0.00373 V          ; 0.104 V                              ; 0.011 V                              ; 4.34e-10 s                  ; 3.82e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.8e-09 V                   ; 2.37 V             ; -0.00373 V         ; 0.104 V                             ; 0.011 V                             ; 4.34e-10 s                 ; 3.82e-10 s                 ; Yes                       ; Yes                       ;
+; s2_s3[0]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.8e-09 V                    ; 2.37 V              ; -0.00373 V          ; 0.104 V                              ; 0.011 V                              ; 4.34e-10 s                  ; 3.82e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.8e-09 V                   ; 2.37 V             ; -0.00373 V         ; 0.104 V                             ; 0.011 V                             ; 4.34e-10 s                 ; 3.82e-10 s                 ; Yes                       ; Yes                       ;
+; s2_s3[1]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.8e-09 V                    ; 2.37 V              ; -0.00373 V          ; 0.104 V                              ; 0.011 V                              ; 4.34e-10 s                  ; 3.82e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.8e-09 V                   ; 2.37 V             ; -0.00373 V         ; 0.104 V                             ; 0.011 V                             ; 4.34e-10 s                 ; 3.82e-10 s                 ; Yes                       ; Yes                       ;
+; led_s0_s1[0]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.07e-09 V                   ; 2.38 V              ; -0.0073 V           ; 0.097 V                              ; 0.018 V                              ; 4.24e-10 s                  ; 3.65e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.07e-09 V                  ; 2.38 V             ; -0.0073 V          ; 0.097 V                             ; 0.018 V                             ; 4.24e-10 s                 ; 3.65e-10 s                 ; No                        ; Yes                       ;
+; led_s0_s1[1]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.07e-09 V                   ; 2.38 V              ; -0.0073 V           ; 0.097 V                              ; 0.018 V                              ; 4.24e-10 s                  ; 3.65e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.07e-09 V                  ; 2.38 V             ; -0.0073 V          ; 0.097 V                             ; 0.018 V                             ; 4.24e-10 s                 ; 3.65e-10 s                 ; No                        ; Yes                       ;
+; led_s0_s1[2]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.07e-09 V                   ; 2.36 V              ; -0.00737 V          ; 0.209 V                              ; 0.012 V                              ; 5.22e-10 s                  ; 5.33e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.07e-09 V                  ; 2.36 V             ; -0.00737 V         ; 0.209 V                             ; 0.012 V                             ; 5.22e-10 s                 ; 5.33e-10 s                 ; Yes                       ; Yes                       ;
+; luz           ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.07e-09 V                   ; 2.36 V              ; -0.00737 V          ; 0.209 V                              ; 0.012 V                              ; 5.22e-10 s                  ; 5.33e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.07e-09 V                  ; 2.36 V             ; -0.00737 V         ; 0.209 V                             ; 0.012 V                             ; 5.22e-10 s                 ; 5.33e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.74e-09 V                   ; 2.37 V              ; -0.0346 V           ; 0.198 V                              ; 0.094 V                              ; 3.14e-10 s                  ; 2.92e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.74e-09 V                  ; 2.37 V             ; -0.0346 V          ; 0.198 V                             ; 0.094 V                             ; 3.14e-10 s                 ; 2.92e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.57e-09 V                   ; 2.37 V              ; -0.00683 V          ; 0.171 V                              ; 0.018 V                              ; 4.97e-10 s                  ; 6.66e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.57e-09 V                  ; 2.37 V             ; -0.00683 V         ; 0.171 V                             ; 0.018 V                             ; 4.97e-10 s                 ; 6.66e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 85c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; color[0]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.85e-07 V                   ; 2.35 V              ; -0.0123 V           ; 0.144 V                              ; 0.042 V                              ; 4.81e-10 s                  ; 4.81e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.85e-07 V                  ; 2.35 V             ; -0.0123 V          ; 0.144 V                             ; 0.042 V                             ; 4.81e-10 s                 ; 4.81e-10 s                 ; Yes                       ; Yes                       ;
+; color[1]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.85e-07 V                   ; 2.35 V              ; -0.0123 V           ; 0.144 V                              ; 0.042 V                              ; 4.81e-10 s                  ; 4.81e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.85e-07 V                  ; 2.35 V             ; -0.0123 V          ; 0.144 V                             ; 0.042 V                             ; 4.81e-10 s                 ; 4.81e-10 s                 ; Yes                       ; Yes                       ;
+; color[2]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.85e-07 V                   ; 2.35 V              ; -0.0123 V           ; 0.144 V                              ; 0.042 V                              ; 4.81e-10 s                  ; 4.81e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.85e-07 V                  ; 2.35 V             ; -0.0123 V          ; 0.144 V                             ; 0.042 V                             ; 4.81e-10 s                 ; 4.81e-10 s                 ; Yes                       ; Yes                       ;
+; s2_s3[0]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.85e-07 V                   ; 2.35 V              ; -0.0123 V           ; 0.144 V                              ; 0.042 V                              ; 4.81e-10 s                  ; 4.81e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.85e-07 V                  ; 2.35 V             ; -0.0123 V          ; 0.144 V                             ; 0.042 V                             ; 4.81e-10 s                 ; 4.81e-10 s                 ; Yes                       ; Yes                       ;
+; s2_s3[1]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.85e-07 V                   ; 2.35 V              ; -0.0123 V           ; 0.144 V                              ; 0.042 V                              ; 4.81e-10 s                  ; 4.81e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.85e-07 V                  ; 2.35 V             ; -0.0123 V          ; 0.144 V                             ; 0.042 V                             ; 4.81e-10 s                 ; 4.81e-10 s                 ; Yes                       ; Yes                       ;
+; led_s0_s1[0]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.93e-07 V                   ; 2.35 V              ; -0.00834 V          ; 0.127 V                              ; 0.035 V                              ; 4.7e-10 s                   ; 4.64e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.93e-07 V                  ; 2.35 V             ; -0.00834 V         ; 0.127 V                             ; 0.035 V                             ; 4.7e-10 s                  ; 4.64e-10 s                 ; Yes                       ; Yes                       ;
+; led_s0_s1[1]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.93e-07 V                   ; 2.35 V              ; -0.00834 V          ; 0.127 V                              ; 0.035 V                              ; 4.7e-10 s                   ; 4.64e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.93e-07 V                  ; 2.35 V             ; -0.00834 V         ; 0.127 V                             ; 0.035 V                             ; 4.7e-10 s                  ; 4.64e-10 s                 ; Yes                       ; Yes                       ;
+; led_s0_s1[2]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.93e-07 V                   ; 2.34 V              ; -0.00869 V          ; 0.14 V                               ; 0.046 V                              ; 6.89e-10 s                  ; 6.56e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.93e-07 V                  ; 2.34 V             ; -0.00869 V         ; 0.14 V                              ; 0.046 V                             ; 6.89e-10 s                 ; 6.56e-10 s                 ; Yes                       ; Yes                       ;
+; luz           ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.93e-07 V                   ; 2.34 V              ; -0.00869 V          ; 0.14 V                               ; 0.046 V                              ; 6.89e-10 s                  ; 6.56e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.93e-07 V                  ; 2.34 V             ; -0.00869 V         ; 0.14 V                              ; 0.046 V                             ; 6.89e-10 s                 ; 6.56e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.55e-07 V                   ; 2.35 V              ; -0.00221 V          ; 0.097 V                              ; 0.005 V                              ; 4.49e-10 s                  ; 3.85e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.55e-07 V                  ; 2.35 V             ; -0.00221 V         ; 0.097 V                             ; 0.005 V                             ; 4.49e-10 s                 ; 3.85e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.54e-07 V                   ; 2.34 V              ; -0.00774 V          ; 0.109 V                              ; 0.026 V                              ; 6.58e-10 s                  ; 8.24e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.54e-07 V                  ; 2.34 V             ; -0.00774 V         ; 0.109 V                             ; 0.026 V                             ; 6.58e-10 s                 ; 8.24e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Fast 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; color[0]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; color[1]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; color[2]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; s2_s3[0]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; s2_s3[1]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; led_s0_s1[0]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.73 V              ; -0.0384 V           ; 0.169 V                              ; 0.089 V                              ; 2.7e-10 s                   ; 2.62e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.73 V             ; -0.0384 V          ; 0.169 V                             ; 0.089 V                             ; 2.7e-10 s                  ; 2.62e-10 s                 ; Yes                       ; Yes                       ;
+; led_s0_s1[1]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.73 V              ; -0.0384 V           ; 0.169 V                              ; 0.089 V                              ; 2.7e-10 s                   ; 2.62e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.73 V             ; -0.0384 V          ; 0.169 V                             ; 0.089 V                             ; 2.7e-10 s                  ; 2.62e-10 s                 ; Yes                       ; Yes                       ;
+; led_s0_s1[2]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.71 V              ; -0.0317 V           ; 0.148 V                              ; 0.064 V                              ; 4.51e-10 s                  ; 4.15e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.71 V             ; -0.0317 V          ; 0.148 V                             ; 0.064 V                             ; 4.51e-10 s                 ; 4.15e-10 s                 ; No                        ; Yes                       ;
+; luz           ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.71 V              ; -0.0317 V           ; 0.148 V                              ; 0.064 V                              ; 4.51e-10 s                  ; 4.15e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.71 V             ; -0.0317 V          ; 0.148 V                             ; 0.064 V                             ; 4.51e-10 s                 ; 4.15e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.22e-08 V                   ; 2.74 V              ; -0.06 V             ; 0.158 V                              ; 0.08 V                               ; 2.68e-10 s                  ; 2.19e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 2.22e-08 V                  ; 2.74 V             ; -0.06 V            ; 0.158 V                             ; 0.08 V                              ; 2.68e-10 s                 ; 2.19e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.54e-08 V                   ; 2.7 V               ; -0.00943 V          ; 0.276 V                              ; 0.035 V                              ; 3.19e-10 s                  ; 4.99e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 3.54e-08 V                  ; 2.7 V              ; -0.00943 V         ; 0.276 V                             ; 0.035 V                             ; 3.19e-10 s                 ; 4.99e-10 s                 ; No                        ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Transfers                                                       ;
++------------+----------+--------------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths     ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+--------------+----------+----------+----------+
+; clk        ; clk      ; > 2147483647 ; 0        ; 0        ; 0        ;
++------------+----------+--------------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-----------------------------------------------------------------------+
+; Hold Transfers                                                        ;
++------------+----------+--------------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths     ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+--------------+----------+----------+----------+
+; clk        ; clk      ; > 2147483647 ; 0        ; 0        ; 0        ;
++------------+----------+--------------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 1     ; 1    ;
+; Unconstrained Input Port Paths  ; 127   ; 127  ;
+; Unconstrained Output Ports      ; 6     ; 6    ;
+; Unconstrained Output Port Paths ; 48    ; 48   ;
++---------------------------------+-------+------+
+
+
++-------------------------------------+
+; Clock Status Summary                ;
++--------+-------+------+-------------+
+; Target ; Clock ; Type ; Status      ;
++--------+-------+------+-------------+
+; clk    ; clk   ; Base ; Constrained ;
++--------+-------+------+-------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; sensor_out ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; color[0]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; color[1]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; color[2]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; luz         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; s2_s3[0]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; s2_s3[1]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; sensor_out ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; color[0]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; color[1]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; color[2]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; luz         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; s2_s3[0]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; s2_s3[1]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+    Info: Processing started: Wed Sep 11 23:24:56 2024
+Info: Command: quartus_sta top_module -c top_module
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'top_module.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -114.915
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):  -114.915           -4971.401 clk 
+Info (332146): Worst-case hold slack is 0.453
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.453               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -4.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -4.000            -510.326 clk 
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -104.489
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):  -104.489           -4547.888 clk 
+Info (332146): Worst-case hold slack is 0.401
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.401               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -4.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -4.000            -509.147 clk 
+Info: Analyzing Fast 1200mV 0C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -49.944
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):   -49.944           -2020.865 clk 
+Info (332146): Worst-case hold slack is 0.186
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.186               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000            -296.761 clk 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 4869 megabytes
+    Info: Processing ended: Wed Sep 11 23:25:10 2024
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:15
+
+

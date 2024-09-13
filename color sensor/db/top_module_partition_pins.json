@@ -1,0 +1,41 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "color[0]",
+					"strict" : false
+				},
+				{
+					"name" : "color[1]",
+					"strict" : false
+				},
+				{
+					"name" : "color[2]",
+					"strict" : false
+				},
+				{
+					"name" : "s2_s3[0]",
+					"strict" : false
+				},
+				{
+					"name" : "s2_s3[1]",
+					"strict" : false
+				},
+				{
+					"name" : "luz",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "sensor_out",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

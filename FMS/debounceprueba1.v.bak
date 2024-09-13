@@ -1,0 +1,53 @@
+// Verilog code for button debouncing on FPGA
+// Debouncing module without creating another clock domain
+// by using clock enable signal with two modes
+
+// D-flip-flop with clock enable signal for debouncing module 
+module my_dff_en(input DFF_CLOCK, clock_enable, D, output reg Q = 0);
+    always @ (posedge DFF_CLOCK) begin
+        if(clock_enable == 1)  // Solo actualiza Q cuando el reloj lento está habilitado
+            Q <= D;
+    end
+endmodule
+
+// Slow clock enable for debouncing button with two modes
+module clock_enable(
+    input Clk_50M,
+    input mode_select,          // Señal de selección de modo
+    output slow_clk_en);
+
+    reg [25:0] counter = 0;     // Contador para dividir la frecuencia del reloj
+    reg [25:0] counter_limit = 0;   // Límite del contador dependiendo del modo
+
+    always @(posedge Clk_50M) begin
+        if (mode_select)
+            counter_limit <= 45; // Modo 1: Contador más largo (2.5 ms para FPGA)
+        else
+            counter_limit <= 9;     // Modo 2: Contador más corto (útil para simulación)
+
+        counter <= (counter >= counter_limit) ? 0 : counter + 1;
+    end
+
+    // Genera la señal de habilitación de reloj lento cuando el contador alcanza el límite
+    assign slow_clk_en = (counter == counter_limit) ? 1'b1 : 1'b0;
+endmodule 
+
+// debounce module to filter out the button bouncing effect
+module debounce_better_version(input pb_1, clk, mode_select, output pb_out);
+    wire slow_clk_en;
+    wire Q1, Q2, Q2_bar, Q0;
+
+    // Instancia del módulo clock_enable para generar la señal de habilitación del reloj lento
+    clock_enable u1(clk, mode_select, slow_clk_en);
+
+    // Tres flip-flops tipo D con habilitación de reloj para almacenar el estado del botón
+    my_dff_en d0(clk, slow_clk_en, pb_1, Q0);
+    my_dff_en d1(clk, slow_clk_en, Q0, Q1);
+    my_dff_en d2(clk, slow_clk_en, Q1, Q2);
+
+    // Genera la señal invertida de Q2
+    assign Q2_bar = ~Q2;
+
+    // Salida debounced del botón (solo se activa cuando Q1 está alto y Q2 está bajo)
+    assign pb_out = Q1 & Q2_bar;
+endmodule
