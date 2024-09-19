@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top_module
-Mon Sep  9 09:55:20 2024
+Thu Sep 19 11:48:39 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -13,31 +13,34 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |top_module|fsm_mascota:fsm|next_state
-  9. State Machine - |top_module|fsm_mascota:fsm|current_state
- 10. State Machine - |top_module|debounce:db_C|state_reg
- 11. State Machine - |top_module|debounce:db_B|state_reg
- 12. State Machine - |top_module|debounce:db_A|state_reg
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. State Machine - |top_module|LCD1602_controller:u_lcd_controller|fsm_state
+ 10. State Machine - |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|state
+ 11. State Machine - |top_module|fsm_mascota:fsm|next_state
+ 12. State Machine - |top_module|fsm_mascota:fsm|current_state
  13. Registers Removed During Synthesis
  14. General Register Statistics
- 15. Multiplexer Restructuring Statistics (Restructuring Performed)
- 16. Parameter Settings for User Entity Instance: fsm_mascota:fsm
- 17. Parameter Settings for Inferred Entity Instance: display_dec:display|lpm_divide:Mod0
- 18. Parameter Settings for Inferred Entity Instance: display_dec:display|lpm_divide:Div0
- 19. Parameter Settings for Inferred Entity Instance: display_dec:display|lpm_divide:Mod1
- 20. Parameter Settings for Inferred Entity Instance: display_dec:display|lpm_divide:Div1
- 21. Parameter Settings for Inferred Entity Instance: display_dec:display|lpm_divide:Mod2
- 22. Parameter Settings for Inferred Entity Instance: display_dec:display|lpm_divide:Mod3
- 23. Parameter Settings for Inferred Entity Instance: display_dec:display|lpm_divide:Div2
- 24. Parameter Settings for Inferred Entity Instance: display_dec:display|lpm_divide:Mod4
- 25. Port Connectivity Checks: "display_dec:display"
- 26. Port Connectivity Checks: "fsm_mascota:fsm"
- 27. Port Connectivity Checks: "debounce:db_C"
- 28. Port Connectivity Checks: "debounce:db_B"
- 29. Port Connectivity Checks: "debounce:db_A"
- 30. Post-Synthesis Netlist Statistics for Top Partition
- 31. Elapsed Time Per Partition
- 32. Analysis & Synthesis Messages
+ 15. Inverted Register Statistics
+ 16. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 17. Parameter Settings for User Entity Instance: fsm_mascota:fsm
+ 18. Parameter Settings for User Entity Instance: LCD1602_controller:u_lcd_controller
+ 19. Parameter Settings for Inferred Entity Instance: display_dec:display|lpm_divide:Mod0
+ 20. Parameter Settings for Inferred Entity Instance: display_dec:display|lpm_divide:Mod3
+ 21. Parameter Settings for Inferred Entity Instance: top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult0
+ 22. Parameter Settings for Inferred Entity Instance: top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div0
+ 23. Parameter Settings for Inferred Entity Instance: top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult1
+ 24. Parameter Settings for Inferred Entity Instance: top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div1
+ 25. Parameter Settings for Inferred Entity Instance: top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult2
+ 26. Parameter Settings for Inferred Entity Instance: top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div2
+ 27. lpm_mult Parameter Settings by Entity Instance
+ 28. Port Connectivity Checks: "LCD1602_controller:u_lcd_controller"
+ 29. Port Connectivity Checks: "top_module_color:color_sensor|color_sensor3:sensor_inst"
+ 30. Port Connectivity Checks: "display_dec:display"
+ 31. Port Connectivity Checks: "fsm_mascota:fsm"
+ 32. Post-Synthesis Netlist Statistics for Top Partition
+ 33. Elapsed Time Per Partition
+ 34. Analysis & Synthesis Messages
+ 35. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -64,19 +67,19 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Sep  9 09:55:20 2024          ;
+; Analysis & Synthesis Status        ; Successful - Thu Sep 19 11:48:39 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; top_module                                     ;
 ; Top-level Entity Name              ; top_module                                     ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 540                                            ;
-;     Total combinational functions  ; 534                                            ;
-;     Dedicated logic registers      ; 181                                            ;
-; Total registers                    ; 181                                            ;
-; Total pins                         ; 20                                             ;
+; Total logic elements               ; 5,237                                          ;
+;     Total combinational functions  ; 5,156                                          ;
+;     Dedicated logic registers      ; 510                                            ;
+; Total registers                    ; 510                                            ;
+; Total pins                         ; 42                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
-; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 9                                              ;
 ; Total PLLs                         ; 0                                              ;
 +------------------------------------+------------------------------------------------+
 
@@ -180,208 +183,236 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processors 3-8         ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
+;     Processor 5            ;   0.1%      ;
+;     Processor 6            ;   0.1%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                          ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                      ; Library ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------+---------+
-; debounceprueba1.v                ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/debounceprueba1.v          ;         ;
-; top_module.v                     ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v               ;         ;
-; fsm_mascota.v                    ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v              ;         ;
-; display_dec.v                    ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v              ;         ;
-; BCDtoSSeg.v                      ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/BCDtoSSeg.v                ;         ;
-; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/lpm_divide.tdf                                              ;         ;
-; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/abs_divider.inc                                             ;         ;
-; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/sign_div_unsign.inc                                         ;         ;
-; aglobal231.inc                   ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/aglobal231.inc                                              ;         ;
-; db/lpm_divide_m9m.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/lpm_divide_m9m.tdf      ;         ;
-; db/sign_div_unsign_bkh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/sign_div_unsign_bkh.tdf ;         ;
-; db/alt_u_div_a4f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/alt_u_div_a4f.tdf       ;         ;
-; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/add_sub_7pc.tdf         ;         ;
-; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/add_sub_8pc.tdf         ;         ;
-; db/lpm_divide_jhm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/lpm_divide_jhm.tdf      ;         ;
-; db/lpm_divide_mhm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/lpm_divide_mhm.tdf      ;         ;
-; db/sign_div_unsign_ekh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/sign_div_unsign_ekh.tdf ;         ;
-; db/alt_u_div_g4f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/alt_u_div_g4f.tdf       ;         ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                 ;
++---------------------------------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                        ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                      ; Library ;
++---------------------------------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------+---------+
+; LCD1602_controller.v                                    ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v       ;         ;
+; top_module_color.v                                      ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module_color.v         ;         ;
+; color_sensor3.v                                         ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v            ;         ;
+; color_identifier1.v                                     ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_identifier1.v        ;         ;
+; debounceprueba1.v                                       ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/debounceprueba1.v          ;         ;
+; top_module.v                                            ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v               ;         ;
+; fsm_mascota.v                                           ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v              ;         ;
+; display_dec.v                                           ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v              ;         ;
+; BCDtoSSeg.v                                             ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/BCDtoSSeg.v                ;         ;
+; /users/brayan/desktop/2024-1/digital/lcd/texto/data.txt ; yes             ; Auto-Found File              ; /users/brayan/desktop/2024-1/digital/lcd/texto/data.txt                                           ;         ;
+; lpm_divide.tdf                                          ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/lpm_divide.tdf                                              ;         ;
+; abs_divider.inc                                         ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/abs_divider.inc                                             ;         ;
+; sign_div_unsign.inc                                     ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/sign_div_unsign.inc                                         ;         ;
+; aglobal231.inc                                          ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/aglobal231.inc                                              ;         ;
+; db/lpm_divide_m9m.tdf                                   ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/lpm_divide_m9m.tdf      ;         ;
+; db/sign_div_unsign_bkh.tdf                              ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/sign_div_unsign_bkh.tdf ;         ;
+; db/alt_u_div_a4f.tdf                                    ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/alt_u_div_a4f.tdf       ;         ;
+; db/add_sub_7pc.tdf                                      ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/add_sub_7pc.tdf         ;         ;
+; db/add_sub_8pc.tdf                                      ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/add_sub_8pc.tdf         ;         ;
+; lpm_mult.tdf                                            ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/lpm_mult.tdf                                                ;         ;
+; lpm_add_sub.inc                                         ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/lpm_add_sub.inc                                             ;         ;
+; multcore.inc                                            ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/multcore.inc                                                ;         ;
+; bypassff.inc                                            ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/bypassff.inc                                                ;         ;
+; altshift.inc                                            ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/altshift.inc                                                ;         ;
+; db/mult_9ft.tdf                                         ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/mult_9ft.tdf            ;         ;
+; db/lpm_divide_jkm.tdf                                   ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/lpm_divide_jkm.tdf      ;         ;
+; db/sign_div_unsign_bnh.tdf                              ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/sign_div_unsign_bnh.tdf ;         ;
+; db/alt_u_div_aaf.tdf                                    ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/alt_u_div_aaf.tdf       ;         ;
+; db/mult_bft.tdf                                         ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/mult_bft.tdf            ;         ;
+; db/lpm_divide_kkm.tdf                                   ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/lpm_divide_kkm.tdf      ;         ;
+; db/sign_div_unsign_cnh.tdf                              ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/sign_div_unsign_cnh.tdf ;         ;
+; db/alt_u_div_caf.tdf                                    ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/alt_u_div_caf.tdf       ;         ;
++---------------------------------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 540       ;
-;                                             ;           ;
-; Total combinational functions               ; 534       ;
-; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 184       ;
-;     -- 3 input functions                    ; 132       ;
-;     -- <=2 input functions                  ; 218       ;
-;                                             ;           ;
-; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 342       ;
-;     -- arithmetic mode                      ; 192       ;
-;                                             ;           ;
-; Total registers                             ; 181       ;
-;     -- Dedicated logic registers            ; 181       ;
-;     -- I/O registers                        ; 0         ;
-;                                             ;           ;
-; I/O pins                                    ; 20        ;
-;                                             ;           ;
-; Embedded Multiplier 9-bit elements          ; 0         ;
-;                                             ;           ;
-; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 165       ;
-; Total fan-out                               ; 2098      ;
-; Average fan-out                             ; 2.78      ;
-+---------------------------------------------+-----------+
++------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                    ;
++---------------------------------------------+--------------------------------------------------+
+; Resource                                    ; Usage                                            ;
++---------------------------------------------+--------------------------------------------------+
+; Estimated Total logic elements              ; 5,237                                            ;
+;                                             ;                                                  ;
+; Total combinational functions               ; 5156                                             ;
+; Logic element usage by number of LUT inputs ;                                                  ;
+;     -- 4 input functions                    ; 2676                                             ;
+;     -- 3 input functions                    ; 1866                                             ;
+;     -- <=2 input functions                  ; 614                                              ;
+;                                             ;                                                  ;
+; Logic elements by mode                      ;                                                  ;
+;     -- normal mode                          ; 3636                                             ;
+;     -- arithmetic mode                      ; 1520                                             ;
+;                                             ;                                                  ;
+; Total registers                             ; 510                                              ;
+;     -- Dedicated logic registers            ; 510                                              ;
+;     -- I/O registers                        ; 0                                                ;
+;                                             ;                                                  ;
+; I/O pins                                    ; 42                                               ;
+;                                             ;                                                  ;
+; Embedded Multiplier 9-bit elements          ; 9                                                ;
+;                                             ;                                                  ;
+; Maximum fan-out node                        ; LCD1602_controller:u_lcd_controller|Selector34~1 ;
+; Maximum fan-out                             ; 759                                              ;
+; Total fan-out                               ; 18895                                            ;
+; Average fan-out                             ; 3.28                                             ;
++---------------------------------------------+--------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                         ;
-+-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                             ; Entity Name         ; Library Name ;
-+-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |top_module                               ; 534 (0)             ; 181 (0)                   ; 0           ; 0            ; 0       ; 0         ; 20   ; 0            ; |top_module                                                                                                                     ; top_module          ; work         ;
-;    |debounce:db_A|                        ; 47 (47)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|debounce:db_A                                                                                                       ; debounce            ; work         ;
-;    |debounce:db_B|                        ; 47 (47)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|debounce:db_B                                                                                                       ; debounce            ; work         ;
-;    |debounce:db_C|                        ; 47 (47)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|debounce:db_C                                                                                                       ; debounce            ; work         ;
-;    |display_dec:display|                  ; 225 (52)            ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display                                                                                                 ; display_dec         ; work         ;
-;       |BCDtoSSeg:bcdtosseg|               ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display|BCDtoSSeg:bcdtosseg                                                                             ; BCDtoSSeg           ; work         ;
-;       |lpm_divide:Div0|                   ; 55 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
-;          |lpm_divide_jhm:auto_generated|  ; 55 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display|lpm_divide:Div0|lpm_divide_jhm:auto_generated                                                   ; lpm_divide_jhm      ; work         ;
-;             |sign_div_unsign_bkh:divider| ; 55 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display|lpm_divide:Div0|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider                       ; sign_div_unsign_bkh ; work         ;
-;                |alt_u_div_a4f:divider|    ; 55 (55)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display|lpm_divide:Div0|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider ; alt_u_div_a4f       ; work         ;
-;       |lpm_divide:Div1|                   ; 24 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display|lpm_divide:Div1                                                                                 ; lpm_divide          ; work         ;
-;          |lpm_divide_mhm:auto_generated|  ; 24 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display|lpm_divide:Div1|lpm_divide_mhm:auto_generated                                                   ; lpm_divide_mhm      ; work         ;
-;             |sign_div_unsign_ekh:divider| ; 24 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display|lpm_divide:Div1|lpm_divide_mhm:auto_generated|sign_div_unsign_ekh:divider                       ; sign_div_unsign_ekh ; work         ;
-;                |alt_u_div_g4f:divider|    ; 24 (24)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display|lpm_divide:Div1|lpm_divide_mhm:auto_generated|sign_div_unsign_ekh:divider|alt_u_div_g4f:divider ; alt_u_div_g4f       ; work         ;
-;       |lpm_divide:Div2|                   ; 5 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display|lpm_divide:Div2                                                                                 ; lpm_divide          ; work         ;
-;          |lpm_divide_jhm:auto_generated|  ; 5 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display|lpm_divide:Div2|lpm_divide_jhm:auto_generated                                                   ; lpm_divide_jhm      ; work         ;
-;             |sign_div_unsign_bkh:divider| ; 5 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display|lpm_divide:Div2|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider                       ; sign_div_unsign_bkh ; work         ;
-;                |alt_u_div_a4f:divider|    ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display|lpm_divide:Div2|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider ; alt_u_div_a4f       ; work         ;
-;       |lpm_divide:Mod0|                   ; 56 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
-;          |lpm_divide_m9m:auto_generated|  ; 56 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display|lpm_divide:Mod0|lpm_divide_m9m:auto_generated                                                   ; lpm_divide_m9m      ; work         ;
-;             |sign_div_unsign_bkh:divider| ; 56 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display|lpm_divide:Mod0|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider                       ; sign_div_unsign_bkh ; work         ;
-;                |alt_u_div_a4f:divider|    ; 56 (56)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display|lpm_divide:Mod0|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider ; alt_u_div_a4f       ; work         ;
-;       |lpm_divide:Mod1|                   ; 19 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display|lpm_divide:Mod1                                                                                 ; lpm_divide          ; work         ;
-;          |lpm_divide_m9m:auto_generated|  ; 19 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display|lpm_divide:Mod1|lpm_divide_m9m:auto_generated                                                   ; lpm_divide_m9m      ; work         ;
-;             |sign_div_unsign_bkh:divider| ; 19 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display|lpm_divide:Mod1|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider                       ; sign_div_unsign_bkh ; work         ;
-;                |alt_u_div_a4f:divider|    ; 19 (19)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display|lpm_divide:Mod1|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider ; alt_u_div_a4f       ; work         ;
-;       |lpm_divide:Mod3|                   ; 7 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display|lpm_divide:Mod3                                                                                 ; lpm_divide          ; work         ;
-;          |lpm_divide_m9m:auto_generated|  ; 7 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display|lpm_divide:Mod3|lpm_divide_m9m:auto_generated                                                   ; lpm_divide_m9m      ; work         ;
-;             |sign_div_unsign_bkh:divider| ; 7 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display|lpm_divide:Mod3|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider                       ; sign_div_unsign_bkh ; work         ;
-;                |alt_u_div_a4f:divider|    ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display|lpm_divide:Mod3|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider ; alt_u_div_a4f       ; work         ;
-;    |fsm_mascota:fsm|                      ; 168 (168)           ; 67 (67)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|fsm_mascota:fsm                                                                                                     ; fsm_mascota         ; work         ;
-+-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                      ;
++----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                       ; Entity Name         ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |top_module                                  ; 5156 (0)            ; 510 (0)                   ; 0           ; 9            ; 3       ; 3         ; 42   ; 0            ; |top_module                                                                                                                                                                               ; top_module          ; work         ;
+;    |LCD1602_controller:u_lcd_controller|     ; 2164 (2164)         ; 48 (48)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|LCD1602_controller:u_lcd_controller                                                                                                                                           ; LCD1602_controller  ; work         ;
+;    |antirebote:anti_A|                       ; 67 (67)             ; 31 (31)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|antirebote:anti_A                                                                                                                                                             ; antirebote          ; work         ;
+;    |antirebote:anti_B|                       ; 67 (67)             ; 31 (31)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|antirebote:anti_B                                                                                                                                                             ; antirebote          ; work         ;
+;    |antirebote:anti_C|                       ; 67 (67)             ; 31 (31)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|antirebote:anti_C                                                                                                                                                             ; antirebote          ; work         ;
+;    |antirebote:anti_rst|                     ; 67 (67)             ; 31 (31)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|antirebote:anti_rst                                                                                                                                                           ; antirebote          ; work         ;
+;    |display_dec:display|                     ; 43 (36)             ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display                                                                                                                                                           ; display_dec         ; work         ;
+;       |BCDtoSSeg:bcdtosseg|                  ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display|BCDtoSSeg:bcdtosseg                                                                                                                                       ; BCDtoSSeg           ; work         ;
+;    |fsm_mascota:fsm|                         ; 151 (151)           ; 67 (67)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|fsm_mascota:fsm                                                                                                                                                               ; fsm_mascota         ; work         ;
+;    |top_module_color:color_sensor|           ; 2530 (0)            ; 238 (0)                   ; 0           ; 9            ; 3       ; 3         ; 0    ; 0            ; |top_module|top_module_color:color_sensor                                                                                                                                                 ; top_module_color    ; work         ;
+;       |color_identifier1:identifier_inst|    ; 15 (15)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_identifier1:identifier_inst                                                                                                               ; color_identifier1   ; work         ;
+;       |color_sensor3:sensor_inst|            ; 2515 (208)          ; 238 (238)                 ; 0           ; 9            ; 3       ; 3         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst                                                                                                                       ; color_sensor3       ; work         ;
+;          |lpm_divide:Div0|                   ; 729 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div0                                                                                                       ; lpm_divide          ; work         ;
+;             |lpm_divide_jkm:auto_generated|  ; 729 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div0|lpm_divide_jkm:auto_generated                                                                         ; lpm_divide_jkm      ; work         ;
+;                |sign_div_unsign_bnh:divider| ; 729 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div0|lpm_divide_jkm:auto_generated|sign_div_unsign_bnh:divider                                             ; sign_div_unsign_bnh ; work         ;
+;                   |alt_u_div_aaf:divider|    ; 729 (728)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div0|lpm_divide_jkm:auto_generated|sign_div_unsign_bnh:divider|alt_u_div_aaf:divider                       ; alt_u_div_aaf       ; work         ;
+;                      |add_sub_8pc:add_sub_1| ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div0|lpm_divide_jkm:auto_generated|sign_div_unsign_bnh:divider|alt_u_div_aaf:divider|add_sub_8pc:add_sub_1 ; add_sub_8pc         ; work         ;
+;          |lpm_divide:Div1|                   ; 774 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div1                                                                                                       ; lpm_divide          ; work         ;
+;             |lpm_divide_kkm:auto_generated|  ; 774 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div1|lpm_divide_kkm:auto_generated                                                                         ; lpm_divide_kkm      ; work         ;
+;                |sign_div_unsign_cnh:divider| ; 774 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div1|lpm_divide_kkm:auto_generated|sign_div_unsign_cnh:divider                                             ; sign_div_unsign_cnh ; work         ;
+;                   |alt_u_div_caf:divider|    ; 774 (773)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div1|lpm_divide_kkm:auto_generated|sign_div_unsign_cnh:divider|alt_u_div_caf:divider                       ; alt_u_div_caf       ; work         ;
+;                      |add_sub_8pc:add_sub_1| ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div1|lpm_divide_kkm:auto_generated|sign_div_unsign_cnh:divider|alt_u_div_caf:divider|add_sub_8pc:add_sub_1 ; add_sub_8pc         ; work         ;
+;          |lpm_divide:Div2|                   ; 775 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div2                                                                                                       ; lpm_divide          ; work         ;
+;             |lpm_divide_kkm:auto_generated|  ; 775 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div2|lpm_divide_kkm:auto_generated                                                                         ; lpm_divide_kkm      ; work         ;
+;                |sign_div_unsign_cnh:divider| ; 775 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div2|lpm_divide_kkm:auto_generated|sign_div_unsign_cnh:divider                                             ; sign_div_unsign_cnh ; work         ;
+;                   |alt_u_div_caf:divider|    ; 775 (774)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div2|lpm_divide_kkm:auto_generated|sign_div_unsign_cnh:divider|alt_u_div_caf:divider                       ; alt_u_div_caf       ; work         ;
+;                      |add_sub_8pc:add_sub_1| ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div2|lpm_divide_kkm:auto_generated|sign_div_unsign_cnh:divider|alt_u_div_caf:divider|add_sub_8pc:add_sub_1 ; add_sub_8pc         ; work         ;
+;          |lpm_mult:Mult0|                    ; 9 (0)               ; 0 (0)                     ; 0           ; 3            ; 1       ; 1         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult0                                                                                                        ; lpm_mult            ; work         ;
+;             |mult_9ft:auto_generated|        ; 9 (9)               ; 0 (0)                     ; 0           ; 3            ; 1       ; 1         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult0|mult_9ft:auto_generated                                                                                ; mult_9ft            ; work         ;
+;          |lpm_mult:Mult1|                    ; 10 (0)              ; 0 (0)                     ; 0           ; 3            ; 1       ; 1         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult1                                                                                                        ; lpm_mult            ; work         ;
+;             |mult_bft:auto_generated|        ; 10 (10)             ; 0 (0)                     ; 0           ; 3            ; 1       ; 1         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult1|mult_bft:auto_generated                                                                                ; mult_bft            ; work         ;
+;          |lpm_mult:Mult2|                    ; 10 (0)              ; 0 (0)                     ; 0           ; 3            ; 1       ; 1         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult2                                                                                                        ; lpm_mult            ; work         ;
+;             |mult_bft:auto_generated|        ; 10 (10)             ; 0 (0)                     ; 0           ; 3            ; 1       ; 1         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult2|mult_bft:auto_generated                                                                                ; mult_bft            ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 3           ;
+; Simple Multipliers (18-bit)           ; 3           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 9           ;
+; Signed Embedded Multipliers           ; 0           ;
+; Unsigned Embedded Multipliers         ; 6           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
 Encoding Type:  One-Hot
-+-------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |top_module|fsm_mascota:fsm|next_state                                                                                          ;
-+----------------+---------------+----------------+---------------+---------------+---------------+---------------+---------------+---------------+
-; Name           ; next_state.S6 ; next_state.110 ; next_state.S5 ; next_state.S4 ; next_state.S3 ; next_state.S2 ; next_state.S1 ; next_state.S0 ;
-+----------------+---------------+----------------+---------------+---------------+---------------+---------------+---------------+---------------+
-; next_state.S0  ; 0             ; 0              ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ;
-; next_state.S1  ; 0             ; 0              ; 0             ; 0             ; 0             ; 0             ; 1             ; 1             ;
-; next_state.S2  ; 0             ; 0              ; 0             ; 0             ; 0             ; 1             ; 0             ; 1             ;
-; next_state.S3  ; 0             ; 0              ; 0             ; 0             ; 1             ; 0             ; 0             ; 1             ;
-; next_state.S4  ; 0             ; 0              ; 0             ; 1             ; 0             ; 0             ; 0             ; 1             ;
-; next_state.S5  ; 0             ; 0              ; 1             ; 0             ; 0             ; 0             ; 0             ; 1             ;
-; next_state.110 ; 0             ; 1              ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
-; next_state.S6  ; 1             ; 0              ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
-+----------------+---------------+----------------+---------------+---------------+---------------+---------------+---------------+---------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |top_module|LCD1602_controller:u_lcd_controller|fsm_state                                                                                                              ;
++-------------------+----------------+-------------------+----------------+-------------------+----------------+-------------------+----------------+----------------+-------------------+
+; Name              ; fsm_state.CMD4 ; fsm_state.DATA_3L ; fsm_state.CMD3 ; fsm_state.DATA_2L ; fsm_state.CMD2 ; fsm_state.DATA_1L ; fsm_state.CMD1 ; fsm_state.IDLE ; fsm_state.DATA_4L ;
++-------------------+----------------+-------------------+----------------+-------------------+----------------+-------------------+----------------+----------------+-------------------+
+; fsm_state.IDLE    ; 0              ; 0                 ; 0              ; 0                 ; 0              ; 0                 ; 0              ; 0              ; 0                 ;
+; fsm_state.CMD1    ; 0              ; 0                 ; 0              ; 0                 ; 0              ; 0                 ; 1              ; 1              ; 0                 ;
+; fsm_state.DATA_1L ; 0              ; 0                 ; 0              ; 0                 ; 0              ; 1                 ; 0              ; 1              ; 0                 ;
+; fsm_state.CMD2    ; 0              ; 0                 ; 0              ; 0                 ; 1              ; 0                 ; 0              ; 1              ; 0                 ;
+; fsm_state.DATA_2L ; 0              ; 0                 ; 0              ; 1                 ; 0              ; 0                 ; 0              ; 1              ; 0                 ;
+; fsm_state.CMD3    ; 0              ; 0                 ; 1              ; 0                 ; 0              ; 0                 ; 0              ; 1              ; 0                 ;
+; fsm_state.DATA_3L ; 0              ; 1                 ; 0              ; 0                 ; 0              ; 0                 ; 0              ; 1              ; 0                 ;
+; fsm_state.CMD4    ; 1              ; 0                 ; 0              ; 0                 ; 0              ; 0                 ; 0              ; 1              ; 0                 ;
+; fsm_state.DATA_4L ; 0              ; 0                 ; 0              ; 0                 ; 0              ; 0                 ; 0              ; 1              ; 1                 ;
++-------------------+----------------+-------------------+----------------+-------------------+----------------+-------------------+----------------+----------------+-------------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------+
+; State Machine - |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|state        ;
++-------------------+---------------+--------------+---------------+-----------+-------------------+
+; Name              ; state.S_CLEAR ; state.S_BLUE ; state.S_GREEN ; state.000 ; state.S_NORMALIZE ;
++-------------------+---------------+--------------+---------------+-----------+-------------------+
+; state.000         ; 0             ; 0            ; 0             ; 0         ; 0                 ;
+; state.S_GREEN     ; 0             ; 0            ; 1             ; 1         ; 0                 ;
+; state.S_BLUE      ; 0             ; 1            ; 0             ; 1         ; 0                 ;
+; state.S_CLEAR     ; 1             ; 0            ; 0             ; 1         ; 0                 ;
+; state.S_NORMALIZE ; 0             ; 0            ; 0             ; 1         ; 1                 ;
++-------------------+---------------+--------------+---------------+-----------+-------------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |top_module|fsm_mascota:fsm|next_state                                                                                             ;
++-----------------+---------------+----------------+---------------+---------------+---------------+---------------+---------------+-----------------+
+; Name            ; next_state.S6 ; next_state.110 ; next_state.S4 ; next_state.S3 ; next_state.S2 ; next_state.S1 ; next_state.S0 ; next_state.INIT ;
++-----------------+---------------+----------------+---------------+---------------+---------------+---------------+---------------+-----------------+
+; next_state.INIT ; 0             ; 0              ; 0             ; 0             ; 0             ; 0             ; 0             ; 0               ;
+; next_state.S0   ; 0             ; 0              ; 0             ; 0             ; 0             ; 0             ; 1             ; 1               ;
+; next_state.S1   ; 0             ; 0              ; 0             ; 0             ; 0             ; 1             ; 0             ; 1               ;
+; next_state.S2   ; 0             ; 0              ; 0             ; 0             ; 1             ; 0             ; 0             ; 1               ;
+; next_state.S3   ; 0             ; 0              ; 0             ; 1             ; 0             ; 0             ; 0             ; 1               ;
+; next_state.S4   ; 0             ; 0              ; 1             ; 0             ; 0             ; 0             ; 0             ; 1               ;
+; next_state.110  ; 0             ; 1              ; 0             ; 0             ; 0             ; 0             ; 0             ; 1               ;
+; next_state.S6   ; 1             ; 0              ; 0             ; 0             ; 0             ; 0             ; 0             ; 1               ;
++-----------------+---------------+----------------+---------------+---------------+---------------+---------------+---------------+-----------------+
 
 
 Encoding Type:  One-Hot
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; State Machine - |top_module|fsm_mascota:fsm|current_state                                                                                                                    ;
 +--------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+--------------------+
-; Name               ; current_state.S6 ; current_state.S0 ; current_state.S5 ; current_state.S4 ; current_state.S3 ; current_state.S2 ; current_state.S1 ; current_state.INIT ;
+; Name               ; current_state.S6 ; current_state.S5 ; current_state.S4 ; current_state.S3 ; current_state.S2 ; current_state.S1 ; current_state.S0 ; current_state.INIT ;
 +--------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+--------------------+
 ; current_state.INIT ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ;
-; current_state.S1   ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 1                  ;
-; current_state.S2   ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 1                  ;
-; current_state.S3   ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 1                  ;
-; current_state.S4   ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 1                  ;
-; current_state.S5   ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 1                  ;
-; current_state.S0   ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                  ;
+; current_state.S0   ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 1                  ;
+; current_state.S1   ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 1                  ;
+; current_state.S2   ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 1                  ;
+; current_state.S3   ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 1                  ;
+; current_state.S4   ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 1                  ;
+; current_state.S5   ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                  ;
 ; current_state.S6   ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                  ;
 +--------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+--------------------+
 
 
-Encoding Type:  One-Hot
-+--------------------------------------------------------------------------------------+
-; State Machine - |top_module|debounce:db_C|state_reg                                  ;
-+-----------------+-----------------+---------------+-----------------+----------------+
-; Name            ; state_reg.wait1 ; state_reg.one ; state_reg.wait0 ; state_reg.zero ;
-+-----------------+-----------------+---------------+-----------------+----------------+
-; state_reg.zero  ; 0               ; 0             ; 0               ; 0              ;
-; state_reg.wait0 ; 0               ; 0             ; 1               ; 1              ;
-; state_reg.one   ; 0               ; 1             ; 0               ; 1              ;
-; state_reg.wait1 ; 1               ; 0             ; 0               ; 1              ;
-+-----------------+-----------------+---------------+-----------------+----------------+
-
-
-Encoding Type:  One-Hot
-+--------------------------------------------------------------------------------------+
-; State Machine - |top_module|debounce:db_B|state_reg                                  ;
-+-----------------+-----------------+---------------+-----------------+----------------+
-; Name            ; state_reg.wait1 ; state_reg.one ; state_reg.wait0 ; state_reg.zero ;
-+-----------------+-----------------+---------------+-----------------+----------------+
-; state_reg.zero  ; 0               ; 0             ; 0               ; 0              ;
-; state_reg.wait0 ; 0               ; 0             ; 1               ; 1              ;
-; state_reg.one   ; 0               ; 1             ; 0               ; 1              ;
-; state_reg.wait1 ; 1               ; 0             ; 0               ; 1              ;
-+-----------------+-----------------+---------------+-----------------+----------------+
-
-
-Encoding Type:  One-Hot
-+--------------------------------------------------------------------------------------+
-; State Machine - |top_module|debounce:db_A|state_reg                                  ;
-+-----------------+-----------------+---------------+-----------------+----------------+
-; Name            ; state_reg.wait1 ; state_reg.one ; state_reg.wait0 ; state_reg.zero ;
-+-----------------+-----------------+---------------+-----------------+----------------+
-; state_reg.zero  ; 0               ; 0             ; 0               ; 0              ;
-; state_reg.wait0 ; 0               ; 0             ; 1               ; 1              ;
-; state_reg.one   ; 0               ; 1             ; 0               ; 1              ;
-; state_reg.wait1 ; 1               ; 0             ; 0               ; 1              ;
-+-----------------+-----------------+---------------+-----------------+----------------+
-
-
-+---------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                    ;
-+-----------------------------------------+---------------------------------------------+
-; Register name                           ; Reason for Removal                          ;
-+-----------------------------------------+---------------------------------------------+
-; debounce:db_C|q_reg_normal[0..22]       ; Stuck at GND due to stuck port clock_enable ;
-; debounce:db_C|q_reg_long[23..25]        ; Stuck at GND due to stuck port data_in      ;
-; debounce:db_B|q_reg_long[12..15,23..25] ; Lost fanout                                 ;
-; debounce:db_B|q_reg_long[0..11,16..22]  ; Stuck at GND due to stuck port clock_enable ;
-; debounce:db_A|q_reg_long[12..15,23..25] ; Lost fanout                                 ;
-; debounce:db_A|q_reg_long[0..11,16..22]  ; Stuck at GND due to stuck port clock_enable ;
-; fsm_mascota:fsm|next_state~2            ; Lost fanout                                 ;
-; fsm_mascota:fsm|next_state~3            ; Lost fanout                                 ;
-; fsm_mascota:fsm|next_state~4            ; Lost fanout                                 ;
-; fsm_mascota:fsm|current_state~4         ; Lost fanout                                 ;
-; fsm_mascota:fsm|current_state~5         ; Lost fanout                                 ;
-; fsm_mascota:fsm|current_state~6         ; Lost fanout                                 ;
-; debounce:db_C|state_reg~4               ; Lost fanout                                 ;
-; debounce:db_C|state_reg~5               ; Lost fanout                                 ;
-; debounce:db_B|state_reg~4               ; Lost fanout                                 ;
-; debounce:db_B|state_reg~5               ; Lost fanout                                 ;
-; debounce:db_A|state_reg~4               ; Lost fanout                                 ;
-; debounce:db_A|state_reg~5               ; Lost fanout                                 ;
-; display_dec:display|cfreq[17..31]       ; Lost fanout                                 ;
-; Total Number of Removed Registers = 105 ;                                             ;
-+-----------------------------------------+---------------------------------------------+
++------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                         ;
++-----------------------------------------------------------------+------------------------------------------+
+; Register name                                                   ; Reason for Removal                       ;
++-----------------------------------------------------------------+------------------------------------------+
+; LCD1602_controller:u_lcd_controller|fsm_state~2                 ; Lost fanout                              ;
+; LCD1602_controller:u_lcd_controller|fsm_state~3                 ; Lost fanout                              ;
+; LCD1602_controller:u_lcd_controller|fsm_state~4                 ; Lost fanout                              ;
+; top_module_color:color_sensor|color_sensor3:sensor_inst|state~4 ; Lost fanout                              ;
+; top_module_color:color_sensor|color_sensor3:sensor_inst|state~5 ; Lost fanout                              ;
+; fsm_mascota:fsm|next_state~2                                    ; Lost fanout                              ;
+; fsm_mascota:fsm|next_state~3                                    ; Lost fanout                              ;
+; fsm_mascota:fsm|next_state~4                                    ; Lost fanout                              ;
+; fsm_mascota:fsm|current_state~4                                 ; Lost fanout                              ;
+; fsm_mascota:fsm|current_state~5                                 ; Lost fanout                              ;
+; fsm_mascota:fsm|current_state~6                                 ; Lost fanout                              ;
+; LCD1602_controller:u_lcd_controller|counter[0]                  ; Merged with display_dec:display|cfreq[0] ;
+; display_dec:display|cfreq[17..31]                               ; Lost fanout                              ;
+; fsm_mascota:fsm|var_S3[2]                                       ; Stuck at VCC due to stuck port data_in   ;
+; fsm_mascota:fsm|var_S0[2]                                       ; Stuck at VCC due to stuck port data_in   ;
+; Total Number of Removed Registers = 29                          ;                                          ;
++-----------------------------------------------------------------+------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -389,39 +420,108 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 181   ;
-; Number of registers using Synchronous Clear  ; 32    ;
-; Number of registers using Synchronous Load   ; 69    ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Total registers                              ; 510   ;
+; Number of registers using Synchronous Clear  ; 156   ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 8     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 83    ;
+; Number of registers using Clock Enable       ; 228   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |top_module|fsm_mascota:fsm|var_S0[2]      ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |top_module|fsm_mascota:fsm|var_S3[2]      ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |top_module|fsm_mascota:fsm|var_S2[2]      ;
-; 16:1               ; 8 bits    ; 80 LEs        ; 40 LEs               ; 40 LEs                 ; Yes        ; |top_module|display_dec:display|an[6]      ;
-; 16:1               ; 4 bits    ; 40 LEs        ; 16 LEs               ; 24 LEs                 ; Yes        ; |top_module|display_dec:display|bcd[3]     ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |top_module|fsm_mascota:fsm|var_S1[2]      ;
-; 8:1                ; 23 bits   ; 115 LEs       ; 23 LEs               ; 92 LEs                 ; Yes        ; |top_module|debounce:db_A|q_reg_normal[3]  ;
-; 8:1                ; 23 bits   ; 115 LEs       ; 23 LEs               ; 92 LEs                 ; Yes        ; |top_module|debounce:db_B|q_reg_normal[22] ;
-; 8:1                ; 23 bits   ; 115 LEs       ; 23 LEs               ; 92 LEs                 ; Yes        ; |top_module|debounce:db_C|q_reg_long[21]   ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_module|fsm_mascota:fsm|var_S4[2]      ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |top_module|fsm_mascota:fsm|Selector15     ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |top_module|debounce:db_A|Selector1        ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |top_module|debounce:db_B|Selector1        ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |top_module|debounce:db_C|Selector3        ;
-; 10:1               ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |top_module|debounce:db_A|Selector0        ;
-; 10:1               ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |top_module|debounce:db_B|Selector0        ;
-; 10:1               ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |top_module|debounce:db_C|Selector2        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; antirebote:anti_rst|contador[7]         ; 2       ;
+; antirebote:anti_rst|contador[9]         ; 2       ;
+; antirebote:anti_rst|contador[12]        ; 2       ;
+; antirebote:anti_rst|contador[13]        ; 2       ;
+; antirebote:anti_rst|contador[15]        ; 2       ;
+; antirebote:anti_rst|contador[17]        ; 2       ;
+; antirebote:anti_rst|contador[18]        ; 2       ;
+; antirebote:anti_rst|contador[21]        ; 2       ;
+; antirebote:anti_rst|contador[22]        ; 2       ;
+; antirebote:anti_rst|contador[23]        ; 2       ;
+; antirebote:anti_rst|contador[25]        ; 2       ;
+; antirebote:anti_rst|contador[26]        ; 2       ;
+; antirebote:anti_rst|contador[27]        ; 2       ;
+; antirebote:anti_B|contador[7]           ; 2       ;
+; antirebote:anti_B|contador[9]           ; 2       ;
+; antirebote:anti_B|contador[12]          ; 2       ;
+; antirebote:anti_B|contador[13]          ; 2       ;
+; antirebote:anti_B|contador[15]          ; 2       ;
+; antirebote:anti_B|contador[17]          ; 2       ;
+; antirebote:anti_B|contador[18]          ; 2       ;
+; antirebote:anti_B|contador[21]          ; 2       ;
+; antirebote:anti_B|contador[22]          ; 2       ;
+; antirebote:anti_B|contador[23]          ; 2       ;
+; antirebote:anti_B|contador[25]          ; 2       ;
+; antirebote:anti_B|contador[26]          ; 2       ;
+; antirebote:anti_B|contador[27]          ; 2       ;
+; antirebote:anti_C|contador[7]           ; 2       ;
+; antirebote:anti_C|contador[9]           ; 2       ;
+; antirebote:anti_C|contador[12]          ; 2       ;
+; antirebote:anti_C|contador[13]          ; 2       ;
+; antirebote:anti_C|contador[15]          ; 2       ;
+; antirebote:anti_C|contador[17]          ; 2       ;
+; antirebote:anti_C|contador[18]          ; 2       ;
+; antirebote:anti_C|contador[21]          ; 2       ;
+; antirebote:anti_C|contador[22]          ; 2       ;
+; antirebote:anti_C|contador[23]          ; 2       ;
+; antirebote:anti_C|contador[25]          ; 2       ;
+; antirebote:anti_C|contador[26]          ; 2       ;
+; antirebote:anti_C|contador[27]          ; 2       ;
+; antirebote:anti_A|contador[7]           ; 2       ;
+; antirebote:anti_A|contador[9]           ; 2       ;
+; antirebote:anti_A|contador[12]          ; 2       ;
+; antirebote:anti_A|contador[13]          ; 2       ;
+; antirebote:anti_A|contador[15]          ; 2       ;
+; antirebote:anti_A|contador[17]          ; 2       ;
+; antirebote:anti_A|contador[18]          ; 2       ;
+; antirebote:anti_A|contador[21]          ; 2       ;
+; antirebote:anti_A|contador[22]          ; 2       ;
+; antirebote:anti_A|contador[23]          ; 2       ;
+; antirebote:anti_A|contador[25]          ; 2       ;
+; antirebote:anti_A|contador[26]          ; 2       ;
+; antirebote:anti_A|contador[27]          ; 2       ;
+; Total number of inverted registers = 52 ;         ;
++-----------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------+
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_module|fsm_mascota:fsm|var_S0[0]                                               ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_module|fsm_mascota:fsm|var_S3[1]                                               ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |top_module|fsm_mascota:fsm|timer[33]                                               ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |top_module|antirebote:anti_rst|contador[8]                                         ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |top_module|antirebote:anti_A|contador[1]                                           ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |top_module|antirebote:anti_B|contador[14]                                          ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |top_module|antirebote:anti_C|contador[1]                                           ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |top_module|fsm_mascota:fsm|var_S2[0]                                               ;
+; 16:1               ; 8 bits    ; 80 LEs        ; 40 LEs               ; 40 LEs                 ; Yes        ; |top_module|display_dec:display|an[1]                                               ;
+; 16:1               ; 4 bits    ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |top_module|display_dec:display|bcd[1]                                              ;
+; 5:1                ; 21 bits   ; 63 LEs        ; 21 LEs               ; 42 LEs                 ; Yes        ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|clear_count[13] ;
+; 6:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |top_module|LCD1602_controller:u_lcd_controller|data_counter[3]                     ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |top_module|fsm_mascota:fsm|var_S1[2]                                               ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_module|LCD1602_controller:u_lcd_controller|data[3]                             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_module|LCD1602_controller:u_lcd_controller|data[0]                             ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |top_module|fsm_mascota:fsm|var_S4[1]                                               ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |top_module|antirebote:anti_rst|contador[23]                                        ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |top_module|antirebote:anti_A|contador[22]                                          ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |top_module|antirebote:anti_B|contador[7]                                           ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |top_module|antirebote:anti_C|contador[18]                                          ;
+; 5:1                ; 21 bits   ; 63 LEs        ; 21 LEs               ; 42 LEs                 ; Yes        ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|green_count[1]  ;
+; 5:1                ; 21 bits   ; 63 LEs        ; 21 LEs               ; 42 LEs                 ; Yes        ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|blue_count[14]  ;
+; 5:1                ; 21 bits   ; 63 LEs        ; 21 LEs               ; 42 LEs                 ; Yes        ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|red_count[13]   ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_module|fsm_mascota:fsm|Selector14                                              ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |top_module|LCD1602_controller:u_lcd_controller|Selector31                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------+
@@ -429,113 +529,34 @@ Encoding Type:  One-Hot
 +----------------+----------------------------------+-----------------+
 ; Parameter Name ; Value                            ; Type            ;
 +----------------+----------------------------------+-----------------+
-; INIT           ; 6                                ; Signed Integer  ;
-; S0             ; 0                                ; Signed Integer  ;
-; S1             ; 1                                ; Signed Integer  ;
-; S2             ; 2                                ; Signed Integer  ;
-; S3             ; 3                                ; Signed Integer  ;
-; S4             ; 4                                ; Signed Integer  ;
-; S5             ; 5                                ; Signed Integer  ;
+; INIT           ; 0                                ; Signed Integer  ;
+; S0             ; 1                                ; Signed Integer  ;
+; S1             ; 2                                ; Signed Integer  ;
+; S2             ; 3                                ; Signed Integer  ;
+; S3             ; 4                                ; Signed Integer  ;
+; S4             ; 5                                ; Signed Integer  ;
+; S5             ; 6                                ; Signed Integer  ;
 ; S6             ; 7                                ; Signed Integer  ;
 ; BASE_INTERVAL  ; 11111111111111111111111111111111 ; Unsigned Binary ;
 +----------------+----------------------------------+-----------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LCD1602_controller:u_lcd_controller ;
++------------------+--------+------------------------------------------------------+
+; Parameter Name   ; Value  ; Type                                                 ;
++------------------+--------+------------------------------------------------------+
+; num_commands     ; 4      ; Signed Integer                                       ;
+; num_data_all     ; 5120   ; Signed Integer                                       ;
+; num_data_perline ; 20     ; Signed Integer                                       ;
+; COUNT_MAX        ; 800000 ; Signed Integer                                       ;
++------------------+--------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +--------------------------------------------------------------------------------------+
 ; Parameter Settings for Inferred Entity Instance: display_dec:display|lpm_divide:Mod0 ;
-+------------------------+----------------+--------------------------------------------+
-; Parameter Name         ; Value          ; Type                                       ;
-+------------------------+----------------+--------------------------------------------+
-; LPM_WIDTHN             ; 8              ; Untyped                                    ;
-; LPM_WIDTHD             ; 4              ; Untyped                                    ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
-; LPM_PIPELINE           ; 0              ; Untyped                                    ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                    ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                    ;
-; CBXI_PARAMETER         ; lpm_divide_m9m ; Untyped                                    ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                    ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                    ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                 ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                               ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                               ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                             ;
-+------------------------+----------------+--------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: display_dec:display|lpm_divide:Div0 ;
-+------------------------+----------------+--------------------------------------------+
-; Parameter Name         ; Value          ; Type                                       ;
-+------------------------+----------------+--------------------------------------------+
-; LPM_WIDTHN             ; 8              ; Untyped                                    ;
-; LPM_WIDTHD             ; 4              ; Untyped                                    ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
-; LPM_PIPELINE           ; 0              ; Untyped                                    ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                    ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                    ;
-; CBXI_PARAMETER         ; lpm_divide_jhm ; Untyped                                    ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                    ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                    ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                 ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                               ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                               ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                             ;
-+------------------------+----------------+--------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: display_dec:display|lpm_divide:Mod1 ;
-+------------------------+----------------+--------------------------------------------+
-; Parameter Name         ; Value          ; Type                                       ;
-+------------------------+----------------+--------------------------------------------+
-; LPM_WIDTHN             ; 8              ; Untyped                                    ;
-; LPM_WIDTHD             ; 4              ; Untyped                                    ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
-; LPM_PIPELINE           ; 0              ; Untyped                                    ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                    ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                    ;
-; CBXI_PARAMETER         ; lpm_divide_m9m ; Untyped                                    ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                    ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                    ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                 ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                               ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                               ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                             ;
-+------------------------+----------------+--------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: display_dec:display|lpm_divide:Div1 ;
-+------------------------+----------------+--------------------------------------------+
-; Parameter Name         ; Value          ; Type                                       ;
-+------------------------+----------------+--------------------------------------------+
-; LPM_WIDTHN             ; 8              ; Untyped                                    ;
-; LPM_WIDTHD             ; 7              ; Untyped                                    ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
-; LPM_PIPELINE           ; 0              ; Untyped                                    ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                    ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                    ;
-; CBXI_PARAMETER         ; lpm_divide_mhm ; Untyped                                    ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                    ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                    ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                 ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                               ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                               ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                             ;
-+------------------------+----------------+--------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: display_dec:display|lpm_divide:Mod2 ;
 +------------------------+----------------+--------------------------------------------+
 ; Parameter Name         ; Value          ; Type                                       ;
 +------------------------+----------------+--------------------------------------------+
@@ -580,50 +601,243 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: display_dec:display|lpm_divide:Div2 ;
-+------------------------+----------------+--------------------------------------------+
-; Parameter Name         ; Value          ; Type                                       ;
-+------------------------+----------------+--------------------------------------------+
-; LPM_WIDTHN             ; 8              ; Untyped                                    ;
-; LPM_WIDTHD             ; 4              ; Untyped                                    ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
-; LPM_PIPELINE           ; 0              ; Untyped                                    ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                    ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                    ;
-; CBXI_PARAMETER         ; lpm_divide_jhm ; Untyped                                    ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                    ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                    ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                 ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                               ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                               ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                             ;
-+------------------------+----------------+--------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult0 ;
++------------------------------------------------+--------------+---------------------------------------------------------+
+; Parameter Name                                 ; Value        ; Type                                                    ;
++------------------------------------------------+--------------+---------------------------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY                                              ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY                                            ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE                                            ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE                                          ;
+; LPM_WIDTHA                                     ; 21           ; Untyped                                                 ;
+; LPM_WIDTHB                                     ; 6            ; Untyped                                                 ;
+; LPM_WIDTHP                                     ; 27           ; Untyped                                                 ;
+; LPM_WIDTHR                                     ; 27           ; Untyped                                                 ;
+; LPM_WIDTHS                                     ; 1            ; Untyped                                                 ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped                                                 ;
+; LPM_PIPELINE                                   ; 0            ; Untyped                                                 ;
+; LATENCY                                        ; 0            ; Untyped                                                 ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped                                                 ;
+; INPUT_B_IS_CONSTANT                            ; YES          ; Untyped                                                 ;
+; USE_EAB                                        ; OFF          ; Untyped                                                 ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped                                                 ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                                                 ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped                                                 ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K                                     ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                                                 ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                                                 ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                                                 ;
+; CBXI_PARAMETER                                 ; mult_9ft     ; Untyped                                                 ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                                                 ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                                                 ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                                                 ;
++------------------------------------------------+--------------+---------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: display_dec:display|lpm_divide:Mod4 ;
-+------------------------+----------------+--------------------------------------------+
-; Parameter Name         ; Value          ; Type                                       ;
-+------------------------+----------------+--------------------------------------------+
-; LPM_WIDTHN             ; 8              ; Untyped                                    ;
-; LPM_WIDTHD             ; 4              ; Untyped                                    ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
-; LPM_PIPELINE           ; 0              ; Untyped                                    ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                    ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                    ;
-; CBXI_PARAMETER         ; lpm_divide_m9m ; Untyped                                    ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                    ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                    ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                 ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                               ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                               ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                             ;
-+------------------------+----------------+--------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div0 ;
++------------------------+----------------+--------------------------------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                                           ;
++------------------------+----------------+--------------------------------------------------------------------------------+
+; LPM_WIDTHN             ; 27             ; Untyped                                                                        ;
+; LPM_WIDTHD             ; 21             ; Untyped                                                                        ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                                        ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                                        ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                                        ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                                        ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                                        ;
+; CBXI_PARAMETER         ; lpm_divide_jkm ; Untyped                                                                        ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                                        ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                                        ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                                                     ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                                                   ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                                                   ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                                                 ;
++------------------------+----------------+--------------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult1 ;
++------------------------------------------------+--------------+---------------------------------------------------------+
+; Parameter Name                                 ; Value        ; Type                                                    ;
++------------------------------------------------+--------------+---------------------------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY                                              ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY                                            ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE                                            ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE                                          ;
+; LPM_WIDTHA                                     ; 21           ; Untyped                                                 ;
+; LPM_WIDTHB                                     ; 7            ; Untyped                                                 ;
+; LPM_WIDTHP                                     ; 28           ; Untyped                                                 ;
+; LPM_WIDTHR                                     ; 28           ; Untyped                                                 ;
+; LPM_WIDTHS                                     ; 1            ; Untyped                                                 ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped                                                 ;
+; LPM_PIPELINE                                   ; 0            ; Untyped                                                 ;
+; LATENCY                                        ; 0            ; Untyped                                                 ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped                                                 ;
+; INPUT_B_IS_CONSTANT                            ; YES          ; Untyped                                                 ;
+; USE_EAB                                        ; OFF          ; Untyped                                                 ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped                                                 ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                                                 ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped                                                 ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K                                     ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                                                 ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                                                 ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                                                 ;
+; CBXI_PARAMETER                                 ; mult_bft     ; Untyped                                                 ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                                                 ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                                                 ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                                                 ;
++------------------------------------------------+--------------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div1 ;
++------------------------+----------------+--------------------------------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                                           ;
++------------------------+----------------+--------------------------------------------------------------------------------+
+; LPM_WIDTHN             ; 28             ; Untyped                                                                        ;
+; LPM_WIDTHD             ; 21             ; Untyped                                                                        ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                                        ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                                        ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                                        ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                                        ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                                        ;
+; CBXI_PARAMETER         ; lpm_divide_kkm ; Untyped                                                                        ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                                        ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                                        ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                                                     ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                                                   ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                                                   ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                                                 ;
++------------------------+----------------+--------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult2 ;
++------------------------------------------------+--------------+---------------------------------------------------------+
+; Parameter Name                                 ; Value        ; Type                                                    ;
++------------------------------------------------+--------------+---------------------------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY                                              ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY                                            ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE                                            ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE                                          ;
+; LPM_WIDTHA                                     ; 21           ; Untyped                                                 ;
+; LPM_WIDTHB                                     ; 7            ; Untyped                                                 ;
+; LPM_WIDTHP                                     ; 28           ; Untyped                                                 ;
+; LPM_WIDTHR                                     ; 28           ; Untyped                                                 ;
+; LPM_WIDTHS                                     ; 1            ; Untyped                                                 ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped                                                 ;
+; LPM_PIPELINE                                   ; 0            ; Untyped                                                 ;
+; LATENCY                                        ; 0            ; Untyped                                                 ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped                                                 ;
+; INPUT_B_IS_CONSTANT                            ; YES          ; Untyped                                                 ;
+; USE_EAB                                        ; OFF          ; Untyped                                                 ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped                                                 ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                                                 ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped                                                 ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K                                     ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                                                 ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                                                 ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                                                 ;
+; CBXI_PARAMETER                                 ; mult_bft     ; Untyped                                                 ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                                                 ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                                                 ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                                                 ;
++------------------------------------------------+--------------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div2 ;
++------------------------+----------------+--------------------------------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                                           ;
++------------------------+----------------+--------------------------------------------------------------------------------+
+; LPM_WIDTHN             ; 28             ; Untyped                                                                        ;
+; LPM_WIDTHD             ; 21             ; Untyped                                                                        ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                                        ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                                        ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                                        ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                                        ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                                        ;
+; CBXI_PARAMETER         ; lpm_divide_kkm ; Untyped                                                                        ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                                        ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                                        ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                                                     ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                                                   ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                                                   ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                                                 ;
++------------------------+----------------+--------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                                                 ;
++---------------------------------------+------------------------------------------------------------------------+
+; Name                                  ; Value                                                                  ;
++---------------------------------------+------------------------------------------------------------------------+
+; Number of entity instances            ; 3                                                                      ;
+; Entity Instance                       ; top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 21                                                                     ;
+;     -- LPM_WIDTHB                     ; 6                                                                      ;
+;     -- LPM_WIDTHP                     ; 27                                                                     ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                                               ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                                     ;
+;     -- INPUT_B_IS_CONSTANT            ; YES                                                                    ;
+;     -- USE_EAB                        ; OFF                                                                    ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                                   ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                                     ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                                     ;
+; Entity Instance                       ; top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult1 ;
+;     -- LPM_WIDTHA                     ; 21                                                                     ;
+;     -- LPM_WIDTHB                     ; 7                                                                      ;
+;     -- LPM_WIDTHP                     ; 28                                                                     ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                                               ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                                     ;
+;     -- INPUT_B_IS_CONSTANT            ; YES                                                                    ;
+;     -- USE_EAB                        ; OFF                                                                    ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                                   ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                                     ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                                     ;
+; Entity Instance                       ; top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult2 ;
+;     -- LPM_WIDTHA                     ; 21                                                                     ;
+;     -- LPM_WIDTHB                     ; 7                                                                      ;
+;     -- LPM_WIDTHP                     ; 28                                                                     ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                                               ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                                     ;
+;     -- INPUT_B_IS_CONSTANT            ; YES                                                                    ;
+;     -- USE_EAB                        ; OFF                                                                    ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                                   ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                                     ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                                     ;
++---------------------------------------+------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "LCD1602_controller:u_lcd_controller"                                                                                                                                                      ;
++----------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port           ; Type  ; Severity ; Details                                                                                                                                                                          ;
++----------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; reset          ; Input ; Info     ; Stuck at VCC                                                                                                                                                                     ;
+; ready_i        ; Input ; Info     ; Stuck at VCC                                                                                                                                                                     ;
+; message_select ; Input ; Warning  ; Input port expression (8 bits) is wider than the input port (3 bits) it drives.  The 5 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; memory_select  ; Input ; Warning  ; Input port expression (4 bits) is wider than the input port (3 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; variable_a     ; Input ; Warning  ; Input port expression (8 bits) is wider than the input port (3 bits) it drives.  The 5 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; variable_b     ; Input ; Warning  ; Input port expression (4 bits) is wider than the input port (3 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++----------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "top_module_color:color_sensor|color_sensor3:sensor_inst" ;
++------+-------+----------+-----------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                   ;
++------+-------+----------+-----------------------------------------------------------+
+; rst  ; Input ; Info     ; Stuck at GND                                              ;
++------+-------+----------+-----------------------------------------------------------+
 
 
 +-------------------------------------------------+
@@ -641,43 +855,10 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------+-------+----------+--------------+
 ; Port            ; Type  ; Severity ; Details      ;
 +-----------------+-------+----------+--------------+
-; reset           ; Input ; Info     ; Stuck at GND ;
 ; test            ; Input ; Info     ; Stuck at GND ;
-; color           ; Input ; Info     ; Stuck at GND ;
 ; time_control[1] ; Input ; Info     ; Stuck at VCC ;
 ; time_control[0] ; Input ; Info     ; Stuck at GND ;
-; luz             ; Input ; Info     ; Stuck at VCC ;
 +-----------------+-------+----------+--------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "debounce:db_C"                                                                          ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port     ; Type   ; Severity ; Details                                                                             ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; mode     ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; db_level ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "debounce:db_B"                                                                          ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port     ; Type   ; Severity ; Details                                                                             ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; mode     ; Input  ; Info     ; Stuck at GND                                                                        ;
-; db_level ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "debounce:db_A"                                                                          ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port     ; Type   ; Severity ; Details                                                                             ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; mode     ; Input  ; Info     ; Stuck at GND                                                                        ;
-; db_level ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -685,26 +866,28 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 20                          ;
-; cycloneiii_ff         ; 181                         ;
-;     ENA               ; 14                          ;
-;     ENA SLD           ; 69                          ;
-;     SCLR              ; 32                          ;
-;     plain             ; 66                          ;
-; cycloneiii_lcell_comb ; 535                         ;
-;     arith             ; 192                         ;
-;         1 data inputs ; 3                           ;
-;         2 data inputs ; 130                         ;
-;         3 data inputs ; 59                          ;
-;     normal            ; 343                         ;
-;         0 data inputs ; 20                          ;
-;         1 data inputs ; 10                          ;
-;         2 data inputs ; 56                          ;
-;         3 data inputs ; 73                          ;
-;         4 data inputs ; 184                         ;
+; boundary_port         ; 42                          ;
+; cycloneiii_ff         ; 510                         ;
+;     CLR               ; 8                           ;
+;     ENA               ; 138                         ;
+;     ENA SCLR          ; 90                          ;
+;     SCLR              ; 66                          ;
+;     plain             ; 208                         ;
+; cycloneiii_lcell_comb ; 5162                        ;
+;     arith             ; 1520                        ;
+;         2 data inputs ; 346                         ;
+;         3 data inputs ; 1174                        ;
+;     normal            ; 3642                        ;
+;         0 data inputs ; 83                          ;
+;         1 data inputs ; 32                          ;
+;         2 data inputs ; 159                         ;
+;         3 data inputs ; 692                         ;
+;         4 data inputs ; 2676                        ;
+; cycloneiii_mac_mult   ; 6                           ;
+; cycloneiii_mac_out    ; 6                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 13.90                       ;
-; Average LUT depth     ; 6.82                        ;
+; Max LUT depth         ; 96.60                       ;
+; Average LUT depth     ; 50.28                       ;
 +-----------------------+-----------------------------+
 
 
@@ -713,7 +896,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:04     ;
+; Top            ; 00:00:53     ;
 +----------------+--------------+
 
 
@@ -723,64 +906,63 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Mon Sep  9 09:54:37 2024
+    Info: Processing started: Thu Sep 19 11:47:26 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off top_module -c top_module
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file debounceprueba1.v
-    Info (12023): Found entity 1: debounce File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/debounceprueba1.v Line: 226
+Info (12021): Found 1 design units, including 1 entities, in source file lcd1602_controller.v
+    Info (12023): Found entity 1: LCD1602_controller File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 332
+Warning (10229): Verilog HDL Expression warning at top_module_color.v(18): truncated literal to match 2 bits File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module_color.v Line: 18
+Info (12021): Found 1 design units, including 1 entities, in source file top_module_color.v
+    Info (12023): Found entity 1: top_module_color File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module_color.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file color_sensor3.v
+    Info (12023): Found entity 1: color_sensor3 File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file color_identifier1.v
+    Info (12023): Found entity 1: color_identifier1 File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_identifier1.v Line: 1
+Info (12021): Found 5 design units, including 5 entities, in source file debounceprueba1.v
+    Info (12023): Found entity 1: debounce_better_version File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/debounceprueba1.v Line: 102
+    Info (12023): Found entity 2: clock_enable File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/debounceprueba1.v Line: 113
+    Info (12023): Found entity 3: my_dff_en File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/debounceprueba1.v Line: 122
+    Info (12023): Found entity 4: debounce File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/debounceprueba1.v Line: 226
+    Info (12023): Found entity 5: antirebote File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/debounceprueba1.v Line: 374
 Info (12021): Found 1 design units, including 1 entities, in source file top_module.v
-    Info (12023): Found entity 1: top_module File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 104
+    Info (12023): Found entity 1: top_module File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 227
 Info (12021): Found 1 design units, including 1 entities, in source file fsm_mascota.v
     Info (12023): Found entity 1: fsm_mascota File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file display_dec.v
     Info (12023): Found entity 1: display_dec File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file bcdtosseg.v
     Info (12023): Found entity 1: BCDtoSSeg File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/BCDtoSSeg.v Line: 1
-Warning (10236): Verilog HDL Implicit Net warning at top_module.v(129): created implicit net for "reset" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 129
 Info (12127): Elaborating entity "top_module" for the top level hierarchy
-Info (12128): Elaborating entity "debounce" for hierarchy "debounce:db_A" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 134
-Warning (10230): Verilog HDL assignment warning at debounceprueba1.v(251): truncated value with size 26 to match size of target (23) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/debounceprueba1.v Line: 251
-Warning (10230): Verilog HDL assignment warning at debounceprueba1.v(252): truncated value with size 26 to match size of target (23) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/debounceprueba1.v Line: 252
-Warning (10230): Verilog HDL assignment warning at debounceprueba1.v(274): truncated value with size 26 to match size of target (23) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/debounceprueba1.v Line: 274
-Warning (10230): Verilog HDL assignment warning at debounceprueba1.v(295): truncated value with size 32 to match size of target (23) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/debounceprueba1.v Line: 295
-Warning (10230): Verilog HDL assignment warning at debounceprueba1.v(296): truncated value with size 32 to match size of target (26) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/debounceprueba1.v Line: 296
-Warning (10230): Verilog HDL assignment warning at debounceprueba1.v(323): truncated value with size 32 to match size of target (23) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/debounceprueba1.v Line: 323
-Warning (10230): Verilog HDL assignment warning at debounceprueba1.v(324): truncated value with size 32 to match size of target (26) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/debounceprueba1.v Line: 324
-Info (12128): Elaborating entity "fsm_mascota" for hierarchy "fsm_mascota:fsm" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 199
-Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(97): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 97
-Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(99): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 99
-Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(101): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 101
-Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(103): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 103
-Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(105): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 105
-Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(119): truncated value with size 32 to match size of target (2) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 119
-Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(126): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 126
-Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(140): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 140
+Info (12128): Elaborating entity "antirebote" for hierarchy "antirebote:anti_A" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 295
+Info (12128): Elaborating entity "fsm_mascota" for hierarchy "fsm_mascota:fsm" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 338
+Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(130): truncated value with size 32 to match size of target (2) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 130
+Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(137): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 137
 Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(147): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 147
-Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(148): truncated value with size 32 to match size of target (2) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 148
-Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(150): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 150
-Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(151): truncated value with size 32 to match size of target (2) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 151
 Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(153): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 153
-Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(159): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 159
-Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(161): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 161
-Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(162): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 162
-Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(168): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 168
-Info (10264): Verilog HDL Case Statement information at fsm_mascota.v(137): all case item expressions in this case statement are onehot File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 137
-Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(176): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 176
-Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(177): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 177
-Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(178): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 178
+Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(154): truncated value with size 32 to match size of target (2) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 154
+Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(157): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 157
+Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(159): truncated value with size 32 to match size of target (2) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 159
+Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(165): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 165
+Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(171): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 171
+Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(173): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 173
+Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(174): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 174
 Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(179): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 179
-Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(180): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 180
-Info (10264): Verilog HDL Case Statement information at fsm_mascota.v(175): all case item expressions in this case statement are onehot File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 175
-Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(192): truncated value with size 32 to match size of target (4) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 192
-Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(196): truncated value with size 32 to match size of target (4) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 196
-Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(200): truncated value with size 32 to match size of target (4) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 200
-Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(204): truncated value with size 32 to match size of target (4) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 204
-Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(208): truncated value with size 32 to match size of target (4) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 208
-Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(212): truncated value with size 32 to match size of target (4) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 212
-Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(216): truncated value with size 32 to match size of target (4) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 216
-Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(220): truncated value with size 32 to match size of target (4) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 220
-Info (12128): Elaborating entity "display_dec" for hierarchy "display_dec:display" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 210
+Info (10264): Verilog HDL Case Statement information at fsm_mascota.v(144): all case item expressions in this case statement are onehot File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 144
+Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(186): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 186
+Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(187): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 187
+Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(188): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 188
+Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(189): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 189
+Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(190): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 190
+Info (10264): Verilog HDL Case Statement information at fsm_mascota.v(185): all case item expressions in this case statement are onehot File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 185
+Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(205): truncated value with size 32 to match size of target (4) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 205
+Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(209): truncated value with size 32 to match size of target (4) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 209
+Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(213): truncated value with size 32 to match size of target (4) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 213
+Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(217): truncated value with size 32 to match size of target (4) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 217
+Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(221): truncated value with size 32 to match size of target (4) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 221
+Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(225): truncated value with size 32 to match size of target (4) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 225
+Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(229): truncated value with size 32 to match size of target (4) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 229
+Info (12128): Elaborating entity "display_dec" for hierarchy "display_dec:display" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 349
 Warning (10230): Verilog HDL assignment warning at display_dec.v(41): truncated value with size 32 to match size of target (4) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v Line: 41
 Warning (10230): Verilog HDL assignment warning at display_dec.v(43): truncated value with size 32 to match size of target (4) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v Line: 43
 Warning (10230): Verilog HDL assignment warning at display_dec.v(44): truncated value with size 32 to match size of target (4) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v Line: 44
@@ -789,17 +971,47 @@ Warning (10230): Verilog HDL assignment warning at display_dec.v(47): truncated 
 Warning (10230): Verilog HDL assignment warning at display_dec.v(48): truncated value with size 32 to match size of target (4) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v Line: 48
 Warning (10230): Verilog HDL assignment warning at display_dec.v(49): truncated value with size 32 to match size of target (4) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v Line: 49
 Info (12128): Elaborating entity "BCDtoSSeg" for hierarchy "display_dec:display|BCDtoSSeg:bcdtosseg" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v Line: 17
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "reset" is missing source, defaulting to GND File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 129
+Info (12128): Elaborating entity "top_module_color" for hierarchy "top_module_color:color_sensor" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 359
+Info (12128): Elaborating entity "color_sensor3" for hierarchy "top_module_color:color_sensor|color_sensor3:sensor_inst" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module_color.v Line: 31
+Warning (10230): Verilog HDL assignment warning at color_sensor3.v(56): truncated value with size 21 to match size of target (17) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v Line: 56
+Warning (10230): Verilog HDL assignment warning at color_sensor3.v(82): truncated value with size 32 to match size of target (21) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v Line: 82
+Warning (10230): Verilog HDL assignment warning at color_sensor3.v(87): truncated value with size 32 to match size of target (21) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v Line: 87
+Warning (10230): Verilog HDL assignment warning at color_sensor3.v(92): truncated value with size 32 to match size of target (21) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v Line: 92
+Warning (10230): Verilog HDL assignment warning at color_sensor3.v(97): truncated value with size 32 to match size of target (21) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v Line: 97
+Warning (10230): Verilog HDL assignment warning at color_sensor3.v(103): truncated value with size 32 to match size of target (17) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v Line: 103
+Warning (10230): Verilog HDL assignment warning at color_sensor3.v(104): truncated value with size 32 to match size of target (17) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v Line: 104
+Warning (10230): Verilog HDL assignment warning at color_sensor3.v(105): truncated value with size 32 to match size of target (17) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v Line: 105
+Warning (10230): Verilog HDL assignment warning at color_sensor3.v(143): truncated value with size 17 to match size of target (16) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v Line: 143
+Warning (10230): Verilog HDL assignment warning at color_sensor3.v(144): truncated value with size 17 to match size of target (16) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v Line: 144
+Warning (10230): Verilog HDL assignment warning at color_sensor3.v(145): truncated value with size 17 to match size of target (16) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v Line: 145
+Info (12128): Elaborating entity "color_identifier1" for hierarchy "top_module_color:color_sensor|color_identifier1:identifier_inst" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module_color.v Line: 39
+Info (12128): Elaborating entity "LCD1602_controller" for hierarchy "LCD1602_controller:u_lcd_controller" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 379
+Warning (10850): Verilog HDL warning at LCD1602_controller.v(396): number of words (10478) in memory file does not match the number of elements in the address range [0:5119] File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 396
+Warning (10230): Verilog HDL assignment warning at LCD1602_controller.v(409): truncated value with size 32 to match size of target (20) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 409
+Warning (10230): Verilog HDL assignment warning at LCD1602_controller.v(510): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 510
+Warning (10230): Verilog HDL assignment warning at LCD1602_controller.v(520): truncated value with size 32 to match size of target (6) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 520
+Warning (10230): Verilog HDL assignment warning at LCD1602_controller.v(537): truncated value with size 32 to match size of target (6) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 537
+Warning (10230): Verilog HDL assignment warning at LCD1602_controller.v(547): truncated value with size 32 to match size of target (6) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 547
+Warning (10230): Verilog HDL assignment warning at LCD1602_controller.v(557): truncated value with size 32 to match size of target (6) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 557
+Warning (10030): Net "data_memory.data_a" at LCD1602_controller.v(378) has no driver or initial value, using a default initial value '0' File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 378
+Warning (10030): Net "data_memory.waddr_a" at LCD1602_controller.v(378) has no driver or initial value, using a default initial value '0' File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 378
+Warning (10030): Net "config_memory.data_a" at LCD1602_controller.v(379) has no driver or initial value, using a default initial value '0' File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 379
+Warning (10030): Net "config_memory.waddr_a" at LCD1602_controller.v(379) has no driver or initial value, using a default initial value '0' File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 379
+Warning (10030): Net "data_memory.we_a" at LCD1602_controller.v(378) has no driver or initial value, using a default initial value '0' File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 378
+Warning (10030): Net "config_memory.we_a" at LCD1602_controller.v(379) has no driver or initial value, using a default initial value '0' File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 379
+Info (276014): Found 2 instances of uninferred RAM logic
+    Info (276004): RAM logic "LCD1602_controller:u_lcd_controller|config_memory" is uninferred due to inappropriate RAM size File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 379
+    Info (276007): RAM logic "LCD1602_controller:u_lcd_controller|data_memory" is uninferred due to asynchronous read logic File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 378
+Critical Warning (127005): Memory depth (8192) in the design file differs from memory depth (5120) in the Memory Initialization File "C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/top_module.ram0_LCD1602_controller_4de4d0ca.hdl.mif" -- setting initial value for remaining addresses to 0
 Info (278001): Inferred 8 megafunctions from design logic
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "display_dec:display|Mod0" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v Line: 43
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "display_dec:display|Div0" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v Line: 44
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "display_dec:display|Mod1" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v Line: 44
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "display_dec:display|Div1" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v Line: 45
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "display_dec:display|Mod2" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v Line: 45
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "display_dec:display|Mod3" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v Line: 47
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "display_dec:display|Div2" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v Line: 48
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "display_dec:display|Mod4" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v Line: 48
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "top_module_color:color_sensor|color_sensor3:sensor_inst|Mult0" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v Line: 103
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "top_module_color:color_sensor|color_sensor3:sensor_inst|Div0" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v Line: 103
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "top_module_color:color_sensor|color_sensor3:sensor_inst|Mult1" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v Line: 104
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "top_module_color:color_sensor|color_sensor3:sensor_inst|Div1" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v Line: 104
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "top_module_color:color_sensor|color_sensor3:sensor_inst|Mult2" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v Line: 105
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "top_module_color:color_sensor|color_sensor3:sensor_inst|Div2" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v Line: 105
 Info (12130): Elaborated megafunction instantiation "display_dec:display|lpm_divide:Mod0" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v Line: 43
 Info (12133): Instantiated megafunction "display_dec:display|lpm_divide:Mod0" with the following parameter: File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v Line: 43
     Info (12134): Parameter "LPM_WIDTHN" = "8"
@@ -816,50 +1028,84 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/add_
     Info (12023): Found entity 1: add_sub_7pc File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/add_sub_7pc.tdf Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
     Info (12023): Found entity 1: add_sub_8pc File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/add_sub_8pc.tdf Line: 23
-Info (12130): Elaborated megafunction instantiation "display_dec:display|lpm_divide:Div0" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v Line: 44
-Info (12133): Instantiated megafunction "display_dec:display|lpm_divide:Div0" with the following parameter: File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v Line: 44
-    Info (12134): Parameter "LPM_WIDTHN" = "8"
-    Info (12134): Parameter "LPM_WIDTHD" = "4"
+Info (12130): Elaborated megafunction instantiation "top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult0" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v Line: 103
+Info (12133): Instantiated megafunction "top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult0" with the following parameter: File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v Line: 103
+    Info (12134): Parameter "LPM_WIDTHA" = "21"
+    Info (12134): Parameter "LPM_WIDTHB" = "6"
+    Info (12134): Parameter "LPM_WIDTHP" = "27"
+    Info (12134): Parameter "LPM_WIDTHR" = "27"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "YES"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_9ft.tdf
+    Info (12023): Found entity 1: mult_9ft File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/mult_9ft.tdf Line: 31
+Info (12130): Elaborated megafunction instantiation "top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div0" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v Line: 103
+Info (12133): Instantiated megafunction "top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div0" with the following parameter: File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v Line: 103
+    Info (12134): Parameter "LPM_WIDTHN" = "27"
+    Info (12134): Parameter "LPM_WIDTHD" = "21"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_jhm.tdf
-    Info (12023): Found entity 1: lpm_divide_jhm File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/lpm_divide_jhm.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "display_dec:display|lpm_divide:Div1" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v Line: 45
-Info (12133): Instantiated megafunction "display_dec:display|lpm_divide:Div1" with the following parameter: File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v Line: 45
-    Info (12134): Parameter "LPM_WIDTHN" = "8"
-    Info (12134): Parameter "LPM_WIDTHD" = "7"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_jkm.tdf
+    Info (12023): Found entity 1: lpm_divide_jkm File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/lpm_divide_jkm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_bnh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_bnh File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/sign_div_unsign_bnh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_aaf.tdf
+    Info (12023): Found entity 1: alt_u_div_aaf File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/alt_u_div_aaf.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult1" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v Line: 104
+Info (12133): Instantiated megafunction "top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult1" with the following parameter: File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v Line: 104
+    Info (12134): Parameter "LPM_WIDTHA" = "21"
+    Info (12134): Parameter "LPM_WIDTHB" = "7"
+    Info (12134): Parameter "LPM_WIDTHP" = "28"
+    Info (12134): Parameter "LPM_WIDTHR" = "28"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "YES"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_bft.tdf
+    Info (12023): Found entity 1: mult_bft File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/mult_bft.tdf Line: 31
+Info (12130): Elaborated megafunction instantiation "top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div1" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v Line: 104
+Info (12133): Instantiated megafunction "top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div1" with the following parameter: File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v Line: 104
+    Info (12134): Parameter "LPM_WIDTHN" = "28"
+    Info (12134): Parameter "LPM_WIDTHD" = "21"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_mhm.tdf
-    Info (12023): Found entity 1: lpm_divide_mhm File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/lpm_divide_mhm.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_ekh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_ekh File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/sign_div_unsign_ekh.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_g4f.tdf
-    Info (12023): Found entity 1: alt_u_div_g4f File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/alt_u_div_g4f.tdf Line: 27
-Info (12130): Elaborated megafunction instantiation "display_dec:display|lpm_divide:Mod3" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v Line: 47
-Info (12133): Instantiated megafunction "display_dec:display|lpm_divide:Mod3" with the following parameter: File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v Line: 47
-    Info (12134): Parameter "LPM_WIDTHN" = "8"
-    Info (12134): Parameter "LPM_WIDTHD" = "4"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12130): Elaborated megafunction instantiation "display_dec:display|lpm_divide:Div2" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v Line: 48
-Info (12133): Instantiated megafunction "display_dec:display|lpm_divide:Div2" with the following parameter: File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v Line: 48
-    Info (12134): Parameter "LPM_WIDTHN" = "8"
-    Info (12134): Parameter "LPM_WIDTHD" = "4"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_kkm.tdf
+    Info (12023): Found entity 1: lpm_divide_kkm File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/lpm_divide_kkm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_cnh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_cnh File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/sign_div_unsign_cnh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_caf.tdf
+    Info (12023): Found entity 1: alt_u_div_caf File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/alt_u_div_caf.tdf Line: 27
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (13014): Ignored 78 buffer(s)
+    Info (13019): Ignored 78 SOFT buffer(s)
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "led_s0_s1[0]" is stuck at VCC File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 234
+    Warning (13410): Pin "led_s0_s1[1]" is stuck at VCC File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 234
+    Warning (13410): Pin "led_s0_s1[2]" is stuck at GND File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 234
+    Warning (13410): Pin "lcd_rw" is stuck at GND File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 243
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 41 registers lost all their fanouts during netlist optimizations.
+Info (17049): 26 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/output_files/top_module.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 561 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 4 input pins
-    Info (21059): Implemented 16 output pins
-    Info (21061): Implemented 541 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 48 warnings
-    Info: Peak virtual memory: 4831 megabytes
-    Info: Processing ended: Mon Sep  9 09:55:21 2024
-    Info: Elapsed time: 00:00:44
-    Info: Total CPU time (on all processors): 00:00:51
+Info (21057): Implemented 5297 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 36 output pins
+    Info (21061): Implemented 5246 logic cells
+    Info (21062): Implemented 9 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 64 warnings
+    Info: Peak virtual memory: 4874 megabytes
+    Info: Processing ended: Thu Sep 19 11:48:39 2024
+    Info: Elapsed time: 00:01:13
+    Info: Total CPU time (on all processors): 00:01:40
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/output_files/top_module.map.smsg.
 
 

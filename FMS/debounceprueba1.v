@@ -99,7 +99,7 @@ module debounce (
     end
 endmodule
 */
-/*module debounce_better_version(input pb_1,clk,output pb_out);
+module debounce_better_version(input pb_1,clk,output pb_out);
 wire slow_clk_en;
 wire Q1,Q2,Q2_bar,Q0;
 clock_enable u1(clk,slow_clk_en);
@@ -124,7 +124,7 @@ module my_dff_en(input DFF_CLOCK, clock_enable,D, output reg Q=0);
   if(clock_enable==1) 
            Q <= D;
     end
-endmodule */
+endmodule 
 
 /////////////////////3
 
@@ -239,8 +239,8 @@ module debounce
                wait1 = 2'b11;
 
    // Parámetros para el tiempo de debounce
-   localparam N_NORMAL = 23;       // Tiempo de debounce normal
-   localparam N_LONG = 26;         // Tiempo de debounce largo (5 segundos)
+   localparam N_NORMAL = 20;       // Tiempo de debounce normal
+   localparam N_LONG = 21;         // Tiempo de debounce largo (5 segundos)
 
    // Señales para los contadores y estados
    reg [N_NORMAL-1:0] q_reg_normal, q_next_normal;
@@ -333,3 +333,86 @@ module debounce
    end
 
 endmodule
+//
+//module antirebote (
+//    input boton,
+//    input clk,
+//    output reg botondebounced               
+//);
+//
+//reg previous;
+//reg[24:0] contador;//conteo hasta 1.500.000
+//
+//wire compare;
+//
+//wire buttonneg; //prueba para botones normalmente abiertos
+//initial begin
+//	previous <= 0;
+//	contador <= 0;
+//	botondebounced <= 0;
+//end
+//
+//assign buttonneg = ~boton;
+//
+//assign compare = previous^buttonneg;
+//
+//
+//always @(posedge clk)begin
+//	if(contador == 0)begin
+//		if(compare == 1)begin
+//			previous <= buttonneg;
+//			contador <= 25000000;
+//			botondebounced <= buttonneg;
+//		end
+//	end
+//	else begin
+//		contador <= contador - 1'b1;
+//	end
+//end
+//endmodule
+
+module antirebote (
+    input boton,
+    input clk,
+    output reg botondebounced               
+);
+
+reg previous;
+reg [27:0] contador; // Conteo hasta 1.500.000
+
+wire compare;
+wire buttonneg; // Prueba para botones normalmente abiertos
+reg pulse;      // Nueva señal para generar el pulso de un ciclo
+
+initial begin
+    previous <= 0;
+    contador <= 250000000;
+    botondebounced <= 0;
+    pulse <= 0; // Inicializar la señal de pulso
+end
+
+assign buttonneg = ~boton;
+assign compare = previous ^ buttonneg;
+
+always @(posedge clk) begin
+    if (contador == 0) begin
+        if (compare == 1) begin
+            previous <= buttonneg;
+            contador <= 250000000;
+            pulse <= 1'b1;  // Genera el pulso cuando hay un cambio de estado
+        end else begin
+            pulse <= 1'b0;  // Desactiva el pulso si no hay cambio de estado
+        end
+    end else begin
+        contador <= contador - 1'b1;
+        pulse <= 1'b0;  // Asegura que el pulso se mantenga solo un ciclo
+    end
+end
+
+// Generar la salida botondebounced como un pulso de un ciclo
+always @(posedge clk) begin
+    botondebounced <= pulse;
+end
+
+endmodule
+

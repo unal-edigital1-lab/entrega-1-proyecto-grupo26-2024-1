@@ -1,1 +1,7 @@
 v1
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult0|mult_9ft:auto_generated|mac_out4,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult0|mult_9ft:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult1|mult_bft:auto_generated|mac_out4,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult1|mult_bft:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult2|mult_bft:auto_generated|mac_out4,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult2|mult_bft:auto_generated|mac_out2,

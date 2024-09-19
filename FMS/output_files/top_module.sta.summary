@@ -2,61 +2,109 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1200mV 85C Model Setup 'display_dec:display|cfreq[16]'
-Slack : -13.551
-TNS   : -64.738
-
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -6.127
-TNS   : -530.360
+Slack : -111.177
+TNS   : -6156.312
+
+Type  : Slow 1200mV 85C Model Setup 'LCD1602_controller:u_lcd_controller|clk_16ms'
+Slack : -15.228
+TNS   : -191.004
+
+Type  : Slow 1200mV 85C Model Setup 'display_dec:display|cfreq[16]'
+Slack : -2.956
+TNS   : -18.760
+
+Type  : Slow 1200mV 85C Model Hold 'LCD1602_controller:u_lcd_controller|clk_16ms'
+Slack : 0.433
+TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'clk'
-Slack : 0.434
+Slack : 0.433
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'display_dec:display|cfreq[16]'
-Slack : 0.453
+Slack : 0.452
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'clk'
+Slack : -1.156
+TNS   : -6.383
+
+Type  : Slow 1200mV 85C Model Removal 'clk'
+Slack : 1.136
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
-Slack : -3.000
-TNS   : -248.355
+Slack : -4.000
+TNS   : -939.599
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'LCD1602_controller:u_lcd_controller|clk_16ms'
+Slack : -1.487
+TNS   : -41.636
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'display_dec:display|cfreq[16]'
 Slack : -1.487
 TNS   : -23.792
 
-Type  : Slow 1200mV 0C Model Setup 'display_dec:display|cfreq[16]'
-Slack : -12.402
-TNS   : -58.517
-
 Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -5.556
-TNS   : -479.857
+Slack : -101.003
+TNS   : -5628.044
+
+Type  : Slow 1200mV 0C Model Setup 'LCD1602_controller:u_lcd_controller|clk_16ms'
+Slack : -14.343
+TNS   : -178.495
+
+Type  : Slow 1200mV 0C Model Setup 'display_dec:display|cfreq[16]'
+Slack : -2.719
+TNS   : -16.638
+
+Type  : Slow 1200mV 0C Model Hold 'LCD1602_controller:u_lcd_controller|clk_16ms'
+Slack : 0.382
+TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'clk'
-Slack : 0.384
+Slack : 0.383
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'display_dec:display|cfreq[16]'
-Slack : 0.402
+Slack : 0.401
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'clk'
+Slack : -1.003
+TNS   : -5.089
+
+Type  : Slow 1200mV 0C Model Removal 'clk'
+Slack : 1.035
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
-Slack : -3.000
-TNS   : -248.355
+Slack : -4.000
+TNS   : -937.769
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'LCD1602_controller:u_lcd_controller|clk_16ms'
+Slack : -1.487
+TNS   : -41.636
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'display_dec:display|cfreq[16]'
 Slack : -1.487
 TNS   : -23.792
 
-Type  : Fast 1200mV 0C Model Setup 'display_dec:display|cfreq[16]'
-Slack : -5.322
-TNS   : -21.103
-
 Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -2.010
-TNS   : -130.134
+Slack : -48.173
+TNS   : -2397.652
+
+Type  : Fast 1200mV 0C Model Setup 'LCD1602_controller:u_lcd_controller|clk_16ms'
+Slack : -6.206
+TNS   : -67.195
+
+Type  : Fast 1200mV 0C Model Setup 'display_dec:display|cfreq[16]'
+Slack : -0.882
+TNS   : -2.197
+
+Type  : Fast 1200mV 0C Model Hold 'LCD1602_controller:u_lcd_controller|clk_16ms'
+Slack : 0.179
+TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'clk'
 Slack : 0.179
@@ -66,9 +114,21 @@ Type  : Fast 1200mV 0C Model Hold 'display_dec:display|cfreq[16]'
 Slack : 0.186
 TNS   : 0.000
 
+Type  : Fast 1200mV 0C Model Recovery 'clk'
+Slack : 0.000
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'clk'
+Slack : 0.496
+TNS   : 0.000
+
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -178.982
+TNS   : -568.889
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'LCD1602_controller:u_lcd_controller|clk_16ms'
+Slack : -1.000
+TNS   : -28.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'display_dec:display|cfreq[16]'
 Slack : -1.000
