@@ -358,25 +358,25 @@ module top_module (
         .luz(luz)                 // Salida de luz conectada a la FSM
     );
 	 
-	 //// instancia lcd
-	 LCD1602_controller #(
-        .num_commands(4), 
-        .num_data_all(5120),
-        .num_data_perline(20),
-        .COUNT_MAX(800000)
-    ) u_lcd_controller (
-        .clk(clk),
-        .reset(1'b1),
-        .ready_i(1'b1), 
-        .message_select(fsm_output1),  // Conectado desde la FSM
-		.memory_select(fsm_output2),
-		.variable_a(fsm_output1),
-		.variable_b(fsm_output2),
-        .rs(lcd_rs),
-        .rw(lcd_rw),
-        .enable(lcd_enable),
-        .data(lcd_data)
-    );
+//	 //// instancia lcd
+//	 LCD1602_controller #(
+//        .num_commands(4), 
+//        .num_data_all(5120),
+//        .num_data_perline(20),
+//        .COUNT_MAX(800000)
+//    ) u_lcd_controller (
+//        .clk(clk),
+//        .reset(1'b1),
+//        .ready_i(1'b1), 
+//        .message_select(fsm_output1),  // Conectado desde la FSM
+//		.memory_select(fsm_output2),
+//		.variable_a(fsm_output1),
+//		.variable_b(fsm_output2),
+//        .rs(lcd_rs),
+//        .rw(lcd_rw),
+//        .enable(lcd_enable),
+//        .data(lcd_data)
+//    );
 
 	 
 

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top_module
-Thu Sep 19 11:48:39 2024
+Thu Sep 19 12:47:04 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -14,33 +14,30 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis DSP Block Usage Summary
-  9. State Machine - |top_module|LCD1602_controller:u_lcd_controller|fsm_state
- 10. State Machine - |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|state
- 11. State Machine - |top_module|fsm_mascota:fsm|next_state
- 12. State Machine - |top_module|fsm_mascota:fsm|current_state
- 13. Registers Removed During Synthesis
- 14. General Register Statistics
- 15. Inverted Register Statistics
- 16. Multiplexer Restructuring Statistics (Restructuring Performed)
- 17. Parameter Settings for User Entity Instance: fsm_mascota:fsm
- 18. Parameter Settings for User Entity Instance: LCD1602_controller:u_lcd_controller
- 19. Parameter Settings for Inferred Entity Instance: display_dec:display|lpm_divide:Mod0
- 20. Parameter Settings for Inferred Entity Instance: display_dec:display|lpm_divide:Mod3
- 21. Parameter Settings for Inferred Entity Instance: top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult0
- 22. Parameter Settings for Inferred Entity Instance: top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div0
- 23. Parameter Settings for Inferred Entity Instance: top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult1
- 24. Parameter Settings for Inferred Entity Instance: top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div1
- 25. Parameter Settings for Inferred Entity Instance: top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult2
- 26. Parameter Settings for Inferred Entity Instance: top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div2
- 27. lpm_mult Parameter Settings by Entity Instance
- 28. Port Connectivity Checks: "LCD1602_controller:u_lcd_controller"
- 29. Port Connectivity Checks: "top_module_color:color_sensor|color_sensor3:sensor_inst"
- 30. Port Connectivity Checks: "display_dec:display"
- 31. Port Connectivity Checks: "fsm_mascota:fsm"
- 32. Post-Synthesis Netlist Statistics for Top Partition
- 33. Elapsed Time Per Partition
- 34. Analysis & Synthesis Messages
- 35. Analysis & Synthesis Suppressed Messages
+  9. State Machine - |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|state
+ 10. State Machine - |top_module|fsm_mascota:fsm|next_state
+ 11. State Machine - |top_module|fsm_mascota:fsm|current_state
+ 12. Registers Removed During Synthesis
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Parameter Settings for User Entity Instance: fsm_mascota:fsm
+ 17. Parameter Settings for Inferred Entity Instance: display_dec:display|lpm_divide:Mod0
+ 18. Parameter Settings for Inferred Entity Instance: display_dec:display|lpm_divide:Mod3
+ 19. Parameter Settings for Inferred Entity Instance: top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult0
+ 20. Parameter Settings for Inferred Entity Instance: top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div0
+ 21. Parameter Settings for Inferred Entity Instance: top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult1
+ 22. Parameter Settings for Inferred Entity Instance: top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div1
+ 23. Parameter Settings for Inferred Entity Instance: top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_mult:Mult2
+ 24. Parameter Settings for Inferred Entity Instance: top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div2
+ 25. lpm_mult Parameter Settings by Entity Instance
+ 26. Port Connectivity Checks: "top_module_color:color_sensor|color_sensor3:sensor_inst"
+ 27. Port Connectivity Checks: "display_dec:display"
+ 28. Port Connectivity Checks: "fsm_mascota:fsm"
+ 29. Post-Synthesis Netlist Statistics for Top Partition
+ 30. Elapsed Time Per Partition
+ 31. Analysis & Synthesis Messages
+ 32. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -67,15 +64,15 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Sep 19 11:48:39 2024          ;
+; Analysis & Synthesis Status        ; Successful - Thu Sep 19 12:47:04 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; top_module                                     ;
 ; Top-level Entity Name              ; top_module                                     ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 5,237                                          ;
-;     Total combinational functions  ; 5,156                                          ;
-;     Dedicated logic registers      ; 510                                            ;
-; Total registers                    ; 510                                            ;
+; Total logic elements               ; 3,072                                          ;
+;     Total combinational functions  ; 2,991                                          ;
+;     Dedicated logic registers      ; 462                                            ;
+; Total registers                    ; 462                                            ;
 ; Total pins                         ; 42                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
@@ -186,83 +183,80 @@ https://fpgasoftware.intel.com/eula.
 ;     Processor 2            ;   0.1%      ;
 ;     Processor 3            ;   0.1%      ;
 ;     Processor 4            ;   0.1%      ;
-;     Processor 5            ;   0.1%      ;
-;     Processor 6            ;   0.1%      ;
-;     Processor 7            ;   0.0%      ;
-;     Processor 8            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processors 7-8         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                 ;
-+---------------------------------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path                        ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                      ; Library ;
-+---------------------------------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------+---------+
-; LCD1602_controller.v                                    ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v       ;         ;
-; top_module_color.v                                      ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module_color.v         ;         ;
-; color_sensor3.v                                         ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v            ;         ;
-; color_identifier1.v                                     ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_identifier1.v        ;         ;
-; debounceprueba1.v                                       ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/debounceprueba1.v          ;         ;
-; top_module.v                                            ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v               ;         ;
-; fsm_mascota.v                                           ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v              ;         ;
-; display_dec.v                                           ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v              ;         ;
-; BCDtoSSeg.v                                             ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/BCDtoSSeg.v                ;         ;
-; /users/brayan/desktop/2024-1/digital/lcd/texto/data.txt ; yes             ; Auto-Found File              ; /users/brayan/desktop/2024-1/digital/lcd/texto/data.txt                                           ;         ;
-; lpm_divide.tdf                                          ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/lpm_divide.tdf                                              ;         ;
-; abs_divider.inc                                         ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/abs_divider.inc                                             ;         ;
-; sign_div_unsign.inc                                     ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/sign_div_unsign.inc                                         ;         ;
-; aglobal231.inc                                          ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/aglobal231.inc                                              ;         ;
-; db/lpm_divide_m9m.tdf                                   ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/lpm_divide_m9m.tdf      ;         ;
-; db/sign_div_unsign_bkh.tdf                              ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/sign_div_unsign_bkh.tdf ;         ;
-; db/alt_u_div_a4f.tdf                                    ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/alt_u_div_a4f.tdf       ;         ;
-; db/add_sub_7pc.tdf                                      ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/add_sub_7pc.tdf         ;         ;
-; db/add_sub_8pc.tdf                                      ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/add_sub_8pc.tdf         ;         ;
-; lpm_mult.tdf                                            ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/lpm_mult.tdf                                                ;         ;
-; lpm_add_sub.inc                                         ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/lpm_add_sub.inc                                             ;         ;
-; multcore.inc                                            ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/multcore.inc                                                ;         ;
-; bypassff.inc                                            ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/bypassff.inc                                                ;         ;
-; altshift.inc                                            ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/altshift.inc                                                ;         ;
-; db/mult_9ft.tdf                                         ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/mult_9ft.tdf            ;         ;
-; db/lpm_divide_jkm.tdf                                   ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/lpm_divide_jkm.tdf      ;         ;
-; db/sign_div_unsign_bnh.tdf                              ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/sign_div_unsign_bnh.tdf ;         ;
-; db/alt_u_div_aaf.tdf                                    ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/alt_u_div_aaf.tdf       ;         ;
-; db/mult_bft.tdf                                         ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/mult_bft.tdf            ;         ;
-; db/lpm_divide_kkm.tdf                                   ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/lpm_divide_kkm.tdf      ;         ;
-; db/sign_div_unsign_cnh.tdf                              ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/sign_div_unsign_cnh.tdf ;         ;
-; db/alt_u_div_caf.tdf                                    ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/alt_u_div_caf.tdf       ;         ;
-+---------------------------------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                          ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                      ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------+---------+
+; top_module_color.v               ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module_color.v         ;         ;
+; color_sensor3.v                  ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v            ;         ;
+; color_identifier1.v              ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_identifier1.v        ;         ;
+; debounceprueba1.v                ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/debounceprueba1.v          ;         ;
+; top_module.v                     ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v               ;         ;
+; fsm_mascota.v                    ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v              ;         ;
+; display_dec.v                    ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v              ;         ;
+; BCDtoSSeg.v                      ; yes             ; User Verilog HDL File        ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/BCDtoSSeg.v                ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/lpm_divide.tdf                                              ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/abs_divider.inc                                             ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/sign_div_unsign.inc                                         ;         ;
+; aglobal231.inc                   ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/aglobal231.inc                                              ;         ;
+; db/lpm_divide_m9m.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/lpm_divide_m9m.tdf      ;         ;
+; db/sign_div_unsign_bkh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/sign_div_unsign_bkh.tdf ;         ;
+; db/alt_u_div_a4f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/alt_u_div_a4f.tdf       ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/add_sub_7pc.tdf         ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/add_sub_8pc.tdf         ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/lpm_mult.tdf                                                ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/lpm_add_sub.inc                                             ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/multcore.inc                                                ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/bypassff.inc                                                ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/qu/quartus/libraries/megafunctions/altshift.inc                                                ;         ;
+; db/mult_9ft.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/mult_9ft.tdf            ;         ;
+; db/lpm_divide_jkm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/lpm_divide_jkm.tdf      ;         ;
+; db/sign_div_unsign_bnh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/sign_div_unsign_bnh.tdf ;         ;
+; db/alt_u_div_aaf.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/alt_u_div_aaf.tdf       ;         ;
+; db/mult_bft.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/mult_bft.tdf            ;         ;
+; db/lpm_divide_kkm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/lpm_divide_kkm.tdf      ;         ;
+; db/sign_div_unsign_cnh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/sign_div_unsign_cnh.tdf ;         ;
+; db/alt_u_div_caf.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/alt_u_div_caf.tdf       ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------+---------+
 
 
-+------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                                    ;
-+---------------------------------------------+--------------------------------------------------+
-; Resource                                    ; Usage                                            ;
-+---------------------------------------------+--------------------------------------------------+
-; Estimated Total logic elements              ; 5,237                                            ;
-;                                             ;                                                  ;
-; Total combinational functions               ; 5156                                             ;
-; Logic element usage by number of LUT inputs ;                                                  ;
-;     -- 4 input functions                    ; 2676                                             ;
-;     -- 3 input functions                    ; 1866                                             ;
-;     -- <=2 input functions                  ; 614                                              ;
-;                                             ;                                                  ;
-; Logic elements by mode                      ;                                                  ;
-;     -- normal mode                          ; 3636                                             ;
-;     -- arithmetic mode                      ; 1520                                             ;
-;                                             ;                                                  ;
-; Total registers                             ; 510                                              ;
-;     -- Dedicated logic registers            ; 510                                              ;
-;     -- I/O registers                        ; 0                                                ;
-;                                             ;                                                  ;
-; I/O pins                                    ; 42                                               ;
-;                                             ;                                                  ;
-; Embedded Multiplier 9-bit elements          ; 9                                                ;
-;                                             ;                                                  ;
-; Maximum fan-out node                        ; LCD1602_controller:u_lcd_controller|Selector34~1 ;
-; Maximum fan-out                             ; 759                                              ;
-; Total fan-out                               ; 18895                                            ;
-; Average fan-out                             ; 3.28                                             ;
-+---------------------------------------------+--------------------------------------------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 3,072     ;
+;                                             ;           ;
+; Total combinational functions               ; 2991      ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 881       ;
+;     -- 3 input functions                    ; 1632      ;
+;     -- <=2 input functions                  ; 478       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 1559      ;
+;     -- arithmetic mode                      ; 1432      ;
+;                                             ;           ;
+; Total registers                             ; 462       ;
+;     -- Dedicated logic registers            ; 462       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 42        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 9         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 446       ;
+; Total fan-out                               ; 10629     ;
+; Average fan-out                             ; 2.99      ;
++---------------------------------------------+-----------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -270,28 +264,26 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                       ; Entity Name         ; Library Name ;
 +----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |top_module                                  ; 5156 (0)            ; 510 (0)                   ; 0           ; 9            ; 3       ; 3         ; 42   ; 0            ; |top_module                                                                                                                                                                               ; top_module          ; work         ;
-;    |LCD1602_controller:u_lcd_controller|     ; 2164 (2164)         ; 48 (48)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|LCD1602_controller:u_lcd_controller                                                                                                                                           ; LCD1602_controller  ; work         ;
+; |top_module                                  ; 2991 (0)            ; 462 (0)                   ; 0           ; 9            ; 3       ; 3         ; 42   ; 0            ; |top_module                                                                                                                                                                               ; top_module          ; work         ;
 ;    |antirebote:anti_A|                       ; 67 (67)             ; 31 (31)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|antirebote:anti_A                                                                                                                                                             ; antirebote          ; work         ;
 ;    |antirebote:anti_B|                       ; 67 (67)             ; 31 (31)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|antirebote:anti_B                                                                                                                                                             ; antirebote          ; work         ;
 ;    |antirebote:anti_C|                       ; 67 (67)             ; 31 (31)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|antirebote:anti_C                                                                                                                                                             ; antirebote          ; work         ;
 ;    |antirebote:anti_rst|                     ; 67 (67)             ; 31 (31)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|antirebote:anti_rst                                                                                                                                                           ; antirebote          ; work         ;
-;    |display_dec:display|                     ; 43 (36)             ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display                                                                                                                                                           ; display_dec         ; work         ;
+;    |display_dec:display|                     ; 53 (46)             ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display                                                                                                                                                           ; display_dec         ; work         ;
 ;       |BCDtoSSeg:bcdtosseg|                  ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|display_dec:display|BCDtoSSeg:bcdtosseg                                                                                                                                       ; BCDtoSSeg           ; work         ;
-;    |fsm_mascota:fsm|                         ; 151 (151)           ; 67 (67)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|fsm_mascota:fsm                                                                                                                                                               ; fsm_mascota         ; work         ;
-;    |top_module_color:color_sensor|           ; 2530 (0)            ; 238 (0)                   ; 0           ; 9            ; 3       ; 3         ; 0    ; 0            ; |top_module|top_module_color:color_sensor                                                                                                                                                 ; top_module_color    ; work         ;
+;    |fsm_mascota:fsm|                         ; 141 (141)           ; 67 (67)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|fsm_mascota:fsm                                                                                                                                                               ; fsm_mascota         ; work         ;
+;    |top_module_color:color_sensor|           ; 2529 (0)            ; 238 (0)                   ; 0           ; 9            ; 3       ; 3         ; 0    ; 0            ; |top_module|top_module_color:color_sensor                                                                                                                                                 ; top_module_color    ; work         ;
 ;       |color_identifier1:identifier_inst|    ; 15 (15)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_identifier1:identifier_inst                                                                                                               ; color_identifier1   ; work         ;
-;       |color_sensor3:sensor_inst|            ; 2515 (208)          ; 238 (238)                 ; 0           ; 9            ; 3       ; 3         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst                                                                                                                       ; color_sensor3       ; work         ;
+;       |color_sensor3:sensor_inst|            ; 2514 (208)          ; 238 (238)                 ; 0           ; 9            ; 3       ; 3         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst                                                                                                                       ; color_sensor3       ; work         ;
 ;          |lpm_divide:Div0|                   ; 729 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div0                                                                                                       ; lpm_divide          ; work         ;
 ;             |lpm_divide_jkm:auto_generated|  ; 729 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div0|lpm_divide_jkm:auto_generated                                                                         ; lpm_divide_jkm      ; work         ;
 ;                |sign_div_unsign_bnh:divider| ; 729 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div0|lpm_divide_jkm:auto_generated|sign_div_unsign_bnh:divider                                             ; sign_div_unsign_bnh ; work         ;
 ;                   |alt_u_div_aaf:divider|    ; 729 (728)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div0|lpm_divide_jkm:auto_generated|sign_div_unsign_bnh:divider|alt_u_div_aaf:divider                       ; alt_u_div_aaf       ; work         ;
 ;                      |add_sub_8pc:add_sub_1| ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div0|lpm_divide_jkm:auto_generated|sign_div_unsign_bnh:divider|alt_u_div_aaf:divider|add_sub_8pc:add_sub_1 ; add_sub_8pc         ; work         ;
-;          |lpm_divide:Div1|                   ; 774 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div1                                                                                                       ; lpm_divide          ; work         ;
-;             |lpm_divide_kkm:auto_generated|  ; 774 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div1|lpm_divide_kkm:auto_generated                                                                         ; lpm_divide_kkm      ; work         ;
-;                |sign_div_unsign_cnh:divider| ; 774 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div1|lpm_divide_kkm:auto_generated|sign_div_unsign_cnh:divider                                             ; sign_div_unsign_cnh ; work         ;
-;                   |alt_u_div_caf:divider|    ; 774 (773)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div1|lpm_divide_kkm:auto_generated|sign_div_unsign_cnh:divider|alt_u_div_caf:divider                       ; alt_u_div_caf       ; work         ;
-;                      |add_sub_8pc:add_sub_1| ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div1|lpm_divide_kkm:auto_generated|sign_div_unsign_cnh:divider|alt_u_div_caf:divider|add_sub_8pc:add_sub_1 ; add_sub_8pc         ; work         ;
+;          |lpm_divide:Div1|                   ; 773 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div1                                                                                                       ; lpm_divide          ; work         ;
+;             |lpm_divide_kkm:auto_generated|  ; 773 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div1|lpm_divide_kkm:auto_generated                                                                         ; lpm_divide_kkm      ; work         ;
+;                |sign_div_unsign_cnh:divider| ; 773 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div1|lpm_divide_kkm:auto_generated|sign_div_unsign_cnh:divider                                             ; sign_div_unsign_cnh ; work         ;
+;                   |alt_u_div_caf:divider|    ; 773 (773)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div1|lpm_divide_kkm:auto_generated|sign_div_unsign_cnh:divider|alt_u_div_caf:divider                       ; alt_u_div_caf       ; work         ;
 ;          |lpm_divide:Div2|                   ; 775 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div2                                                                                                       ; lpm_divide          ; work         ;
 ;             |lpm_divide_kkm:auto_generated|  ; 775 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div2|lpm_divide_kkm:auto_generated                                                                         ; lpm_divide_kkm      ; work         ;
 ;                |sign_div_unsign_cnh:divider| ; 775 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|lpm_divide:Div2|lpm_divide_kkm:auto_generated|sign_div_unsign_cnh:divider                                             ; sign_div_unsign_cnh ; work         ;
@@ -323,24 +315,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Dedicated Input Shift Register Chains ; 0           ;
 +---------------------------------------+-------------+
 Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
-
-
-Encoding Type:  One-Hot
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |top_module|LCD1602_controller:u_lcd_controller|fsm_state                                                                                                              ;
-+-------------------+----------------+-------------------+----------------+-------------------+----------------+-------------------+----------------+----------------+-------------------+
-; Name              ; fsm_state.CMD4 ; fsm_state.DATA_3L ; fsm_state.CMD3 ; fsm_state.DATA_2L ; fsm_state.CMD2 ; fsm_state.DATA_1L ; fsm_state.CMD1 ; fsm_state.IDLE ; fsm_state.DATA_4L ;
-+-------------------+----------------+-------------------+----------------+-------------------+----------------+-------------------+----------------+----------------+-------------------+
-; fsm_state.IDLE    ; 0              ; 0                 ; 0              ; 0                 ; 0              ; 0                 ; 0              ; 0              ; 0                 ;
-; fsm_state.CMD1    ; 0              ; 0                 ; 0              ; 0                 ; 0              ; 0                 ; 1              ; 1              ; 0                 ;
-; fsm_state.DATA_1L ; 0              ; 0                 ; 0              ; 0                 ; 0              ; 1                 ; 0              ; 1              ; 0                 ;
-; fsm_state.CMD2    ; 0              ; 0                 ; 0              ; 0                 ; 1              ; 0                 ; 0              ; 1              ; 0                 ;
-; fsm_state.DATA_2L ; 0              ; 0                 ; 0              ; 1                 ; 0              ; 0                 ; 0              ; 1              ; 0                 ;
-; fsm_state.CMD3    ; 0              ; 0                 ; 1              ; 0                 ; 0              ; 0                 ; 0              ; 1              ; 0                 ;
-; fsm_state.DATA_3L ; 0              ; 1                 ; 0              ; 0                 ; 0              ; 0                 ; 0              ; 1              ; 0                 ;
-; fsm_state.CMD4    ; 1              ; 0                 ; 0              ; 0                 ; 0              ; 0                 ; 0              ; 1              ; 0                 ;
-; fsm_state.DATA_4L ; 0              ; 0                 ; 0              ; 0                 ; 0              ; 0                 ; 0              ; 1              ; 1                 ;
-+-------------------+----------------+-------------------+----------------+-------------------+----------------+-------------------+----------------+----------------+-------------------+
 
 
 Encoding Type:  One-Hot
@@ -391,28 +365,24 @@ Encoding Type:  One-Hot
 +--------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+--------------------+
 
 
-+------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                         ;
-+-----------------------------------------------------------------+------------------------------------------+
-; Register name                                                   ; Reason for Removal                       ;
-+-----------------------------------------------------------------+------------------------------------------+
-; LCD1602_controller:u_lcd_controller|fsm_state~2                 ; Lost fanout                              ;
-; LCD1602_controller:u_lcd_controller|fsm_state~3                 ; Lost fanout                              ;
-; LCD1602_controller:u_lcd_controller|fsm_state~4                 ; Lost fanout                              ;
-; top_module_color:color_sensor|color_sensor3:sensor_inst|state~4 ; Lost fanout                              ;
-; top_module_color:color_sensor|color_sensor3:sensor_inst|state~5 ; Lost fanout                              ;
-; fsm_mascota:fsm|next_state~2                                    ; Lost fanout                              ;
-; fsm_mascota:fsm|next_state~3                                    ; Lost fanout                              ;
-; fsm_mascota:fsm|next_state~4                                    ; Lost fanout                              ;
-; fsm_mascota:fsm|current_state~4                                 ; Lost fanout                              ;
-; fsm_mascota:fsm|current_state~5                                 ; Lost fanout                              ;
-; fsm_mascota:fsm|current_state~6                                 ; Lost fanout                              ;
-; LCD1602_controller:u_lcd_controller|counter[0]                  ; Merged with display_dec:display|cfreq[0] ;
-; display_dec:display|cfreq[17..31]                               ; Lost fanout                              ;
-; fsm_mascota:fsm|var_S3[2]                                       ; Stuck at VCC due to stuck port data_in   ;
-; fsm_mascota:fsm|var_S0[2]                                       ; Stuck at VCC due to stuck port data_in   ;
-; Total Number of Removed Registers = 29                          ;                                          ;
-+-----------------------------------------------------------------+------------------------------------------+
++----------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                       ;
++-----------------------------------------------------------------+----------------------------------------+
+; Register name                                                   ; Reason for Removal                     ;
++-----------------------------------------------------------------+----------------------------------------+
+; top_module_color:color_sensor|color_sensor3:sensor_inst|state~4 ; Lost fanout                            ;
+; top_module_color:color_sensor|color_sensor3:sensor_inst|state~5 ; Lost fanout                            ;
+; fsm_mascota:fsm|next_state~2                                    ; Lost fanout                            ;
+; fsm_mascota:fsm|next_state~3                                    ; Lost fanout                            ;
+; fsm_mascota:fsm|next_state~4                                    ; Lost fanout                            ;
+; fsm_mascota:fsm|current_state~4                                 ; Lost fanout                            ;
+; fsm_mascota:fsm|current_state~5                                 ; Lost fanout                            ;
+; fsm_mascota:fsm|current_state~6                                 ; Lost fanout                            ;
+; display_dec:display|cfreq[17..31]                               ; Lost fanout                            ;
+; fsm_mascota:fsm|var_S3[2]                                       ; Stuck at VCC due to stuck port data_in ;
+; fsm_mascota:fsm|var_S0[2]                                       ; Stuck at VCC due to stuck port data_in ;
+; Total Number of Removed Registers = 25                          ;                                        ;
++-----------------------------------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -420,12 +390,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 510   ;
-; Number of registers using Synchronous Clear  ; 156   ;
+; Total registers                              ; 462   ;
+; Number of registers using Synchronous Clear  ; 150   ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 8     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 228   ;
+; Number of registers using Clock Enable       ; 218   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -496,31 +466,27 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                          ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------+
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_module|fsm_mascota:fsm|var_S0[0]                                               ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_module|fsm_mascota:fsm|var_S0[2]                                               ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_module|fsm_mascota:fsm|var_S3[1]                                               ;
-; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |top_module|fsm_mascota:fsm|timer[33]                                               ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |top_module|antirebote:anti_rst|contador[8]                                         ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |top_module|antirebote:anti_A|contador[1]                                           ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |top_module|antirebote:anti_B|contador[14]                                          ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |top_module|antirebote:anti_C|contador[1]                                           ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |top_module|fsm_mascota:fsm|var_S2[0]                                               ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |top_module|fsm_mascota:fsm|timer[4]                                                ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |top_module|antirebote:anti_rst|contador[24]                                        ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |top_module|antirebote:anti_A|contador[24]                                          ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |top_module|antirebote:anti_B|contador[24]                                          ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |top_module|antirebote:anti_C|contador[24]                                          ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |top_module|fsm_mascota:fsm|var_S2[1]                                               ;
 ; 16:1               ; 8 bits    ; 80 LEs        ; 40 LEs               ; 40 LEs                 ; Yes        ; |top_module|display_dec:display|an[1]                                               ;
-; 16:1               ; 4 bits    ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |top_module|display_dec:display|bcd[1]                                              ;
-; 5:1                ; 21 bits   ; 63 LEs        ; 21 LEs               ; 42 LEs                 ; Yes        ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|clear_count[13] ;
-; 6:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |top_module|LCD1602_controller:u_lcd_controller|data_counter[3]                     ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |top_module|fsm_mascota:fsm|var_S1[2]                                               ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_module|LCD1602_controller:u_lcd_controller|data[3]                             ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_module|LCD1602_controller:u_lcd_controller|data[0]                             ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |top_module|fsm_mascota:fsm|var_S4[1]                                               ;
-; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |top_module|antirebote:anti_rst|contador[23]                                        ;
-; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |top_module|antirebote:anti_A|contador[22]                                          ;
-; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |top_module|antirebote:anti_B|contador[7]                                           ;
-; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |top_module|antirebote:anti_C|contador[18]                                          ;
-; 5:1                ; 21 bits   ; 63 LEs        ; 21 LEs               ; 42 LEs                 ; Yes        ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|green_count[1]  ;
-; 5:1                ; 21 bits   ; 63 LEs        ; 21 LEs               ; 42 LEs                 ; Yes        ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|blue_count[14]  ;
-; 5:1                ; 21 bits   ; 63 LEs        ; 21 LEs               ; 42 LEs                 ; Yes        ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|red_count[13]   ;
+; 16:1               ; 4 bits    ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |top_module|display_dec:display|bcd[3]                                              ;
+; 5:1                ; 21 bits   ; 63 LEs        ; 21 LEs               ; 42 LEs                 ; Yes        ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|clear_count[10] ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |top_module|fsm_mascota:fsm|var_S1[1]                                               ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |top_module|fsm_mascota:fsm|var_S4[2]                                               ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |top_module|antirebote:anti_rst|contador[17]                                        ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |top_module|antirebote:anti_A|contador[21]                                          ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |top_module|antirebote:anti_B|contador[21]                                          ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |top_module|antirebote:anti_C|contador[13]                                          ;
+; 5:1                ; 21 bits   ; 63 LEs        ; 21 LEs               ; 42 LEs                 ; Yes        ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|green_count[10] ;
+; 5:1                ; 21 bits   ; 63 LEs        ; 21 LEs               ; 42 LEs                 ; Yes        ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|blue_count[1]   ;
+; 5:1                ; 21 bits   ; 63 LEs        ; 21 LEs               ; 42 LEs                 ; Yes        ; |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|red_count[2]    ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_module|fsm_mascota:fsm|Selector14                                              ;
-; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |top_module|LCD1602_controller:u_lcd_controller|Selector31                          ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------+
 
 
@@ -539,19 +505,6 @@ Encoding Type:  One-Hot
 ; S6             ; 7                                ; Signed Integer  ;
 ; BASE_INTERVAL  ; 11111111111111111111111111111111 ; Unsigned Binary ;
 +----------------+----------------------------------+-----------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: LCD1602_controller:u_lcd_controller ;
-+------------------+--------+------------------------------------------------------+
-; Parameter Name   ; Value  ; Type                                                 ;
-+------------------+--------+------------------------------------------------------+
-; num_commands     ; 4      ; Signed Integer                                       ;
-; num_data_all     ; 5120   ; Signed Integer                                       ;
-; num_data_perline ; 20     ; Signed Integer                                       ;
-; COUNT_MAX        ; 800000 ; Signed Integer                                       ;
-+------------------+--------+------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -817,20 +770,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------------------------------------+------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "LCD1602_controller:u_lcd_controller"                                                                                                                                                      ;
-+----------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port           ; Type  ; Severity ; Details                                                                                                                                                                          ;
-+----------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; reset          ; Input ; Info     ; Stuck at VCC                                                                                                                                                                     ;
-; ready_i        ; Input ; Info     ; Stuck at VCC                                                                                                                                                                     ;
-; message_select ; Input ; Warning  ; Input port expression (8 bits) is wider than the input port (3 bits) it drives.  The 5 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; memory_select  ; Input ; Warning  ; Input port expression (4 bits) is wider than the input port (3 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; variable_a     ; Input ; Warning  ; Input port expression (8 bits) is wider than the input port (3 bits) it drives.  The 5 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; variable_b     ; Input ; Warning  ; Input port expression (4 bits) is wider than the input port (3 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-+----------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
 +-------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "top_module_color:color_sensor|color_sensor3:sensor_inst" ;
 +------+-------+----------+-----------------------------------------------------------+
@@ -867,27 +806,27 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 42                          ;
-; cycloneiii_ff         ; 510                         ;
+; cycloneiii_ff         ; 462                         ;
 ;     CLR               ; 8                           ;
-;     ENA               ; 138                         ;
-;     ENA SCLR          ; 90                          ;
+;     ENA               ; 134                         ;
+;     ENA SCLR          ; 84                          ;
 ;     SCLR              ; 66                          ;
-;     plain             ; 208                         ;
-; cycloneiii_lcell_comb ; 5162                        ;
-;     arith             ; 1520                        ;
-;         2 data inputs ; 346                         ;
-;         3 data inputs ; 1174                        ;
-;     normal            ; 3642                        ;
+;     plain             ; 170                         ;
+; cycloneiii_lcell_comb ; 2997                        ;
+;     arith             ; 1432                        ;
+;         2 data inputs ; 276                         ;
+;         3 data inputs ; 1156                        ;
+;     normal            ; 1565                        ;
 ;         0 data inputs ; 83                          ;
-;         1 data inputs ; 32                          ;
-;         2 data inputs ; 159                         ;
-;         3 data inputs ; 692                         ;
-;         4 data inputs ; 2676                        ;
+;         1 data inputs ; 22                          ;
+;         2 data inputs ; 103                         ;
+;         3 data inputs ; 476                         ;
+;         4 data inputs ; 881                         ;
 ; cycloneiii_mac_mult   ; 6                           ;
 ; cycloneiii_mac_out    ; 6                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 96.60                       ;
-; Average LUT depth     ; 50.28                       ;
+; Average LUT depth     ; 65.30                       ;
 +-----------------------+-----------------------------+
 
 
@@ -896,7 +835,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:53     ;
+; Top            ; 00:00:23     ;
 +----------------+--------------+
 
 
@@ -906,7 +845,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Thu Sep 19 11:47:26 2024
+    Info: Processing started: Thu Sep 19 12:46:22 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off top_module -c top_module
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
@@ -934,6 +873,10 @@ Info (12021): Found 1 design units, including 1 entities, in source file display
 Info (12021): Found 1 design units, including 1 entities, in source file bcdtosseg.v
     Info (12023): Found entity 1: BCDtoSSeg File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/BCDtoSSeg.v Line: 1
 Info (12127): Elaborating entity "top_module" for the top level hierarchy
+Warning (10034): Output port "lcd_data" at top_module.v(241) has no driver File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 241
+Warning (10034): Output port "lcd_rs" at top_module.v(242) has no driver File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 242
+Warning (10034): Output port "lcd_rw" at top_module.v(243) has no driver File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 243
+Warning (10034): Output port "lcd_enable" at top_module.v(245) has no driver File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 245
 Info (12128): Elaborating entity "antirebote" for hierarchy "antirebote:anti_A" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 295
 Info (12128): Elaborating entity "fsm_mascota" for hierarchy "fsm_mascota:fsm" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 338
 Warning (10230): Verilog HDL assignment warning at fsm_mascota.v(130): truncated value with size 32 to match size of target (2) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/fsm_mascota.v Line: 130
@@ -985,24 +928,6 @@ Warning (10230): Verilog HDL assignment warning at color_sensor3.v(143): truncat
 Warning (10230): Verilog HDL assignment warning at color_sensor3.v(144): truncated value with size 17 to match size of target (16) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v Line: 144
 Warning (10230): Verilog HDL assignment warning at color_sensor3.v(145): truncated value with size 17 to match size of target (16) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/color_sensor3.v Line: 145
 Info (12128): Elaborating entity "color_identifier1" for hierarchy "top_module_color:color_sensor|color_identifier1:identifier_inst" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module_color.v Line: 39
-Info (12128): Elaborating entity "LCD1602_controller" for hierarchy "LCD1602_controller:u_lcd_controller" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 379
-Warning (10850): Verilog HDL warning at LCD1602_controller.v(396): number of words (10478) in memory file does not match the number of elements in the address range [0:5119] File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 396
-Warning (10230): Verilog HDL assignment warning at LCD1602_controller.v(409): truncated value with size 32 to match size of target (20) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 409
-Warning (10230): Verilog HDL assignment warning at LCD1602_controller.v(510): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 510
-Warning (10230): Verilog HDL assignment warning at LCD1602_controller.v(520): truncated value with size 32 to match size of target (6) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 520
-Warning (10230): Verilog HDL assignment warning at LCD1602_controller.v(537): truncated value with size 32 to match size of target (6) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 537
-Warning (10230): Verilog HDL assignment warning at LCD1602_controller.v(547): truncated value with size 32 to match size of target (6) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 547
-Warning (10230): Verilog HDL assignment warning at LCD1602_controller.v(557): truncated value with size 32 to match size of target (6) File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 557
-Warning (10030): Net "data_memory.data_a" at LCD1602_controller.v(378) has no driver or initial value, using a default initial value '0' File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 378
-Warning (10030): Net "data_memory.waddr_a" at LCD1602_controller.v(378) has no driver or initial value, using a default initial value '0' File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 378
-Warning (10030): Net "config_memory.data_a" at LCD1602_controller.v(379) has no driver or initial value, using a default initial value '0' File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 379
-Warning (10030): Net "config_memory.waddr_a" at LCD1602_controller.v(379) has no driver or initial value, using a default initial value '0' File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 379
-Warning (10030): Net "data_memory.we_a" at LCD1602_controller.v(378) has no driver or initial value, using a default initial value '0' File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 378
-Warning (10030): Net "config_memory.we_a" at LCD1602_controller.v(379) has no driver or initial value, using a default initial value '0' File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 379
-Info (276014): Found 2 instances of uninferred RAM logic
-    Info (276004): RAM logic "LCD1602_controller:u_lcd_controller|config_memory" is uninferred due to inappropriate RAM size File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 379
-    Info (276007): RAM logic "LCD1602_controller:u_lcd_controller|data_memory" is uninferred due to asynchronous read logic File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/LCD1602_controller.v Line: 378
-Critical Warning (127005): Memory depth (8192) in the design file differs from memory depth (5120) in the Memory Initialization File "C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/top_module.ram0_LCD1602_controller_4de4d0ca.hdl.mif" -- setting initial value for remaining addresses to 0
 Info (278001): Inferred 8 megafunctions from design logic
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "display_dec:display|Mod0" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v Line: 43
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "display_dec:display|Mod3" File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/display_dec.v Line: 47
@@ -1078,29 +1003,38 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/sign
     Info (12023): Found entity 1: sign_div_unsign_cnh File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/sign_div_unsign_cnh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_caf.tdf
     Info (12023): Found entity 1: alt_u_div_caf File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/db/alt_u_div_caf.tdf Line: 27
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (13014): Ignored 78 buffer(s)
     Info (13019): Ignored 78 SOFT buffer(s)
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "led_s0_s1[0]" is stuck at VCC File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 234
     Warning (13410): Pin "led_s0_s1[1]" is stuck at VCC File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 234
     Warning (13410): Pin "led_s0_s1[2]" is stuck at GND File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 234
+    Warning (13410): Pin "lcd_data[0]" is stuck at GND File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 241
+    Warning (13410): Pin "lcd_data[1]" is stuck at GND File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 241
+    Warning (13410): Pin "lcd_data[2]" is stuck at GND File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 241
+    Warning (13410): Pin "lcd_data[3]" is stuck at GND File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 241
+    Warning (13410): Pin "lcd_data[4]" is stuck at GND File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 241
+    Warning (13410): Pin "lcd_data[5]" is stuck at GND File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 241
+    Warning (13410): Pin "lcd_data[6]" is stuck at GND File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 241
+    Warning (13410): Pin "lcd_data[7]" is stuck at GND File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 241
+    Warning (13410): Pin "lcd_rs" is stuck at GND File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 242
     Warning (13410): Pin "lcd_rw" is stuck at GND File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 243
+    Warning (13410): Pin "lcd_enable" is stuck at GND File: C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/top_module.v Line: 245
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 26 registers lost all their fanouts during netlist optimizations.
+Info (17049): 23 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/output_files/top_module.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 5297 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 3123 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 36 output pins
-    Info (21061): Implemented 5246 logic cells
+    Info (21061): Implemented 3072 logic cells
     Info (21062): Implemented 9 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 64 warnings
-    Info: Peak virtual memory: 4874 megabytes
-    Info: Processing ended: Thu Sep 19 11:48:39 2024
-    Info: Elapsed time: 00:01:13
-    Info: Total CPU time (on all processors): 00:01:40
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 63 warnings
+    Info: Peak virtual memory: 4862 megabytes
+    Info: Processing ended: Thu Sep 19 12:47:05 2024
+    Info: Elapsed time: 00:00:43
+    Info: Total CPU time (on all processors): 00:01:09
 
 
 +------------------------------------------+
