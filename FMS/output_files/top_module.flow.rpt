@@ -1,5 +1,9 @@
 Flow report for top_module
+<<<<<<< HEAD
 Thu Sep 19 13:11:11 2024
+=======
+Thu Sep 19 12:48:15 2024
+>>>>>>> c28ea7f1954b67b73999f4df313472ad1c51c50e
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -41,13 +45,18 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Flow Summary                                                                        ;
 +------------------------------------+------------------------------------------------+
+<<<<<<< HEAD
 ; Flow Status                        ; Flow Failed - Thu Sep 19 13:11:11 2024         ;
+=======
+; Flow Status                        ; Successful - Thu Sep 19 12:48:15 2024          ;
+>>>>>>> c28ea7f1954b67b73999f4df313472ad1c51c50e
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; top_module                                     ;
 ; Top-level Entity Name              ; top_module                                     ;
 ; Family                             ; Cyclone IV E                                   ;
 ; Device                             ; EP4CE6E22C8                                    ;
 ; Timing Models                      ; Final                                          ;
+<<<<<<< HEAD
 ; Total logic elements               ; N/A until Partition Merge                      ;
 ;     Total combinational functions  ; N/A until Partition Merge                      ;
 ;     Dedicated logic registers      ; N/A until Partition Merge                      ;
@@ -57,6 +66,17 @@ https://fpgasoftware.intel.com/eula.
 ; Total memory bits                  ; N/A until Partition Merge                      ;
 ; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                      ;
 ; Total PLLs                         ; N/A until Partition Merge                      ;
+=======
+; Total logic elements               ; 3,108 / 6,272 ( 50 % )                         ;
+;     Total combinational functions  ; 3,054 / 6,272 ( 49 % )                         ;
+;     Dedicated logic registers      ; 462 / 6,272 ( 7 % )                            ;
+; Total registers                    ; 462                                            ;
+; Total pins                         ; 42 / 92 ( 46 % )                               ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0 / 276,480 ( 0 % )                            ;
+; Embedded Multiplier 9-bit elements ; 9 / 30 ( 30 % )                                ;
+; Total PLLs                         ; 0 / 2 ( 0 % )                                  ;
+>>>>>>> c28ea7f1954b67b73999f4df313472ad1c51c50e
 +------------------------------------+------------------------------------------------+
 
 
@@ -65,7 +85,11 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
+<<<<<<< HEAD
 ; Start date & time ; 09/19/2024 13:10:57 ;
+=======
+; Start date & time ; 09/19/2024 12:46:23 ;
+>>>>>>> c28ea7f1954b67b73999f4df313472ad1c51c50e
 ; Main task         ; Compilation         ;
 ; Revision Name     ; top_module          ;
 +-------------------+---------------------+
@@ -76,7 +100,11 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
+<<<<<<< HEAD
 ; COMPILER_SIGNATURE_ID               ; 255638739745582.172676945619044        ; --            ; --          ; --                                ;
+=======
+; COMPILER_SIGNATURE_ID               ; 71126642143518.172676798210204         ; --            ; --          ; --                                ;
+>>>>>>> c28ea7f1954b67b73999f4df313472ad1c51c50e
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -105,8 +133,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
+<<<<<<< HEAD
 ; Analysis & Synthesis ; 00:00:15     ; 1.0                     ; 4737 MB             ; 00:00:21                           ;
 ; Total                ; 00:00:15     ; --                      ; --                  ; 00:00:21                           ;
+=======
+; Analysis & Synthesis ; 00:00:41     ; 1.0                     ; 4862 MB             ; 00:01:08                           ;
+; Fitter               ; 00:00:38     ; 1.2                     ; 5892 MB             ; 00:01:14                           ;
+; Assembler            ; 00:00:01     ; 1.0                     ; 4701 MB             ; 00:00:02                           ;
+; Timing Analyzer      ; 00:00:21     ; 3.4                     ; 4837 MB             ; 00:00:22                           ;
+; EDA Netlist Writer   ; 00:00:03     ; 1.0                     ; 4650 MB             ; 00:00:02                           ;
+; Total                ; 00:01:44     ; --                      ; --                  ; 00:02:48                           ;
+>>>>>>> c28ea7f1954b67b73999f4df313472ad1c51c50e
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

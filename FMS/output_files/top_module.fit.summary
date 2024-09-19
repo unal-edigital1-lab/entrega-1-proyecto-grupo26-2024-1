@@ -1,14 +1,14 @@
-Fitter Status : Successful - Thu Sep 19 11:49:47 2024
+Fitter Status : Successful - Thu Sep 19 12:47:44 2024
 Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 Revision Name : top_module
 Top-level Entity Name : top_module
 Family : Cyclone IV E
 Device : EP4CE6E22C8
 Timing Models : Final
-Total logic elements : 5,269 / 6,272 ( 84 % )
-    Total combinational functions : 5,219 / 6,272 ( 83 % )
-    Dedicated logic registers : 510 / 6,272 ( 8 % )
-Total registers : 510
+Total logic elements : 3,108 / 6,272 ( 50 % )
+    Total combinational functions : 3,054 / 6,272 ( 49 % )
+    Dedicated logic registers : 462 / 6,272 ( 7 % )
+Total registers : 462
 Total pins : 42 / 92 ( 46 % )
 Total virtual pins : 0
 Total memory bits : 0 / 276,480 ( 0 % )

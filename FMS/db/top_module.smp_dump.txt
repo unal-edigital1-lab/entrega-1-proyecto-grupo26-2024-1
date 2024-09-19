@@ -1,16 +1,4 @@
 
-State Machine - |top_module|LCD1602_controller:u_lcd_controller|fsm_state
-Name fsm_state.CMD4 fsm_state.DATA_3L fsm_state.CMD3 fsm_state.DATA_2L fsm_state.CMD2 fsm_state.DATA_1L fsm_state.CMD1 fsm_state.IDLE fsm_state.DATA_4L 
-fsm_state.IDLE 0 0 0 0 0 0 0 0 0 
-fsm_state.CMD1 0 0 0 0 0 0 1 1 0 
-fsm_state.DATA_1L 0 0 0 0 0 1 0 1 0 
-fsm_state.CMD2 0 0 0 0 1 0 0 1 0 
-fsm_state.DATA_2L 0 0 0 1 0 0 0 1 0 
-fsm_state.CMD3 0 0 1 0 0 0 0 1 0 
-fsm_state.DATA_3L 0 1 0 0 0 0 0 1 0 
-fsm_state.CMD4 1 0 0 0 0 0 0 1 0 
-fsm_state.DATA_4L 0 0 0 0 0 0 0 1 1 
-
 State Machine - |top_module|top_module_color:color_sensor|color_sensor3:sensor_inst|state
 Name state.S_CLEAR state.S_BLUE state.S_GREEN state.000 state.S_NORMALIZE 
 state.000 0 0 0 0 0 
