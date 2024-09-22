@@ -1,0 +1,2 @@
+Warning (10268): Verilog HDL information at lcd1602_controller.v(425): always construct contains both blocking and non-blocking assignments File: C:/Users/Brayan/Desktop/2024-1/digital/LCD/texto/lcd1602_controller.v Line: 425
+Warning (10268): Verilog HDL information at lcd1602_controller.v(453): always construct contains both blocking and non-blocking assignments File: C:/Users/Brayan/Desktop/2024-1/digital/LCD/texto/lcd1602_controller.v Line: 453

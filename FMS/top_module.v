@@ -223,13 +223,19 @@ endmodule
 //
 //endmodule
 /////////////////////////////////////top con color 
-
+//`include "fsm_mascota.v"
+//`include "display_dec.v"
+//`include "debounceprueba1.v"
+//`include "LCD1602_controller.v"
+//`include "top_module_color.v"
 module top_module (
     input clk,         // Reloj
     input rst,         // Reset
     input A,           // Entrada para la FSM
     input B,           // Entrada para la FSM
     input C,           // Entrada para la FSM
+    input test,
+    input [1:0]time_control,
     input sensor_out,  // Entrada del sensor de color TCS3200
 	output [2:0] led_s0_s1,   // control led y s0 s1
 	output [1:0] s2_s3,
@@ -241,16 +247,19 @@ module top_module (
 	output [7:0] lcd_data,
     output lcd_rs,
     output lcd_rw,
+	 output db_B_level,
+	 output db_A_level,
     output lcd_enable
-);
+	 //
+	);
 
     // Señales para conectar las salidas de la FSM con las entradas del display
     wire [7:0] fsm_output1;  // Salida de 8 bits de la FSM
     wire [3:0] fsm_output2;  // Salida de 4 bits de la FSM
 
     // Señales para la salida del anti-rebote
-    wire db_A_level, db_A_tick;
-    wire db_B_level, db_B_tick;
+    wire db_A_tick;
+    wire db_B_tick;
     wire db_C_level, db_C_tick;
     wire db_rst_level, db_rst_tick;
 
@@ -259,24 +268,24 @@ module top_module (
     //wire [2:0] led_s0_s1;
 
     // Instanciar el módulo debounce para el botón A
-//    debounce db_A (
-//        .clk(clk),
-//        .reset(rst),
-//        .sw(A),
-//        .mode(1'b0),
-//        .db_level(db_A_level),
-//        .db_tick(db_A_tick)
-//    );
+    debounce db_A (
+        .clk(clk),
+        .reset(1'b1),
+        .sw(~A),
+        .mode(1'b0),
+        .db_level(db_A_level),
+        .db_tick(db_A_tick)
+    );
 //
-//    // Instanciar el módulo debounce para el botón B
-//    debounce db_B (
-//        .clk(clk),
-//        .reset(rst),
-//        .sw(B),
-//        .mode(1'b0),
-//        .db_level(db_B_level),
-//        .db_tick(db_B_tick)
-//    );
+    // Instanciar el módulo debounce para el botón B
+    debounce db_B (
+        .clk(clk),
+        .reset(1'b1),
+        .sw(~B),
+        .mode(1'b0),
+        .db_level(db_B_level),
+        .db_tick(db_B_tick)
+    );
 
     // Instanciar el módulo debounce para el botón C
 //    debounce db_C (
@@ -288,50 +297,50 @@ module top_module (
 //        .db_tick(db_C_tick)
 //    );
 
-		antirebote anti_A(
-		.boton(A),
-		.clk(clk),
-		.botondebounced(db_A_tick)
-		);
-		
-		antirebote anti_B(
-		.boton(B),
-		.clk(clk),
-		.botondebounced(db_B_tick)
-		);
+//		antirebote anti_A(
+//		.boton(A),
+//		.clk(clk),
+//		.botondebounced(db_A_tick)
+//		);
+//		
+//		antirebote anti_B(
+//		.boton(B),
+//		.clk(clk),
+//		.botondebounced(db_B_tick)
+//		);
 		
 		antirebote anti_C(
-		.boton(C),
+		.boton(~C),
 		.clk(clk),
 		.botondebounced(db_C_tick)
 		);
 		//rst
-		antirebote anti_rst(
-		.boton(rst),
-		.clk(clk),
-		.botondebounced(db_rst_tick)
-		);
+//		antirebote anti_rst(
+//		.boton(rst),
+//		.clk(clk),
+//		.botondebounced(db_rst_tick)
+//		);
 		
     // Debounce para el reset
-//    debounce db_rst (
-//        .clk(clk),
-//        .reset(rst),
-//        .sw(rst),
-//        .mode(1'b1),
-//        .db_level(db_rst_level),
-//        .db_tick(db_rst_tick)
-//    );
+    debounce db_rst (
+        .clk(clk),
+        .reset(1'b1),
+        .sw(~rst),
+        .mode(1'b0),
+        .db_level(db_rst_level),
+        .db_tick(db_rst_tick)
+    );
 
     // Instancia de la FSM
     fsm_mascota fsm (
         .clk(clk),
-        .reset(db_rst_tick),
+        .reset(~db_rst_tick),
         .A(db_A_tick),  // Conectar la salida del debounce A a la entrada A de la FSM
         .B(db_B_tick),  // Conectar la salida del debounce B a la entrada B de la FSM
         .C(db_C_tick),  // Conectar la salida del debounce C a la entrada C de la FSM
-        .test(1'b0),    
+        .test(test),    
         .color(color),   // Conectar la salida del sensor de color a la entrada de color de la FSM
-        .time_control(2'b10),
+        .time_control(time_control),
         .luz(luz),       // Conectar la salida luz del sensor de color a la entrada luz de la FSM
         .output1(fsm_output1),
         .output2(fsm_output2)
@@ -340,7 +349,7 @@ module top_module (
     // Instancia del módulo de visualización
     display_dec display (
         .clk(clk),
-        .rst(1'b0),
+        .rst(1'b1),
         .numA(fsm_output1),
         .numB({4'b0000, fsm_output2}),
         .sseg(sseg),
@@ -358,25 +367,25 @@ module top_module (
         .luz(luz)                 // Salida de luz conectada a la FSM
     );
 	 
-//	 //// instancia lcd
-//	 LCD1602_controller #(
-//        .num_commands(4), 
-//        .num_data_all(5120),
-//        .num_data_perline(20),
-//        .COUNT_MAX(800000)
-//    ) u_lcd_controller (
-//        .clk(clk),
-//        .reset(1'b1),
-//        .ready_i(1'b1), 
-//        .message_select(fsm_output1),  // Conectado desde la FSM
-//		.memory_select(fsm_output2),
-//		.variable_a(fsm_output1),
-//		.variable_b(fsm_output2),
-//        .rs(lcd_rs),
-//        .rw(lcd_rw),
-//        .enable(lcd_enable),
-//        .data(lcd_data)
-//    );
+	 //// instancia lcd
+	 LCD1602_controller #(
+        .num_commands(4), 
+        .num_data_all(5120),
+        .num_data_perline(20),
+        .COUNT_MAX(10)
+    ) u_lcd_controller (
+        .clk(clk),
+        .reset(~db_rst_tick),
+        .ready_i(1'b1), 
+        .message_select(fsm_output1),  // Conectado desde la FSM
+		.memory_select(fsm_output2),
+		.variable_a(fsm_output1),
+		.variable_b(fsm_output2),
+        .rs(lcd_rs),
+        .rw(lcd_rw),
+        .enable(lcd_enable),
+        .data(lcd_data)
+    );
 
 	 
 

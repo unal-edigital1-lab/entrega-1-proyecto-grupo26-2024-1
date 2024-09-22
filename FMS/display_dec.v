@@ -1,4 +1,4 @@
-//`timescale 1ns / 1ps
+`timescale 1ns / 1ps
 //`include "BCDtoSSeg.v"
 module display_dec(
 	//ENTRADAS
@@ -24,7 +24,7 @@ assign enable = cfreq[16];
 assign led =enable;
 
 always @(posedge clk) begin // ACTIVA EL BLOQUE CUANDO HAY UN FRANCO DE SUBIDA 
-  if(rst==1) begin
+  if(rst==0) begin
 		cfreq <= 0;
 	end else begin
 		cfreq <=cfreq+1;
@@ -34,7 +34,7 @@ end
 
 reg [3:0] count =0;
 always @(posedge enable) begin // se activa el bloque cuando se tiene un fraco de subida
-		if(rst==1) begin // si reset esta activo apaga todos los segmentos del display
+		if(rst==0) begin // si reset esta activo apaga todos los segmentos del display
 			count<= 0;
 			an<=8'b11111111; 
 		end else begin 

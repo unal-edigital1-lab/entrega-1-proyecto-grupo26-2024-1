@@ -411,7 +411,7 @@ always @(posedge clk) begin
 end
 
 // Máquina de estados principal
-always @(posedge clk_16ms) begin
+always @(posedge clk) begin
     if(reset == 0) begin
         fsm_state <= IDLE;
         //configuracion_ready <= 0; // Resetear la configuración
@@ -421,7 +421,7 @@ always @(posedge clk_16ms) begin
 end
 
 // Lógica para la selección del punto de inicio según el mensaje y la memoria
-always @(*) begin
+always @(posedge clk_16ms) begin
     case (message_select)
         3'b000: start_address <= 0;    // Mensaje 1
         3'b001: start_address <= 80;   // Mensaje 2
@@ -450,6 +450,7 @@ end
 
 // Trancisiones de la Máquina de estados
 always @(*) begin
+
     case(fsm_state)
         IDLE: begin
             next <= (ready_i)? CMD1 : IDLE;

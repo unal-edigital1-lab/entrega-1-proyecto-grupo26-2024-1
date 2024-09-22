@@ -28,14 +28,15 @@ module color_sensor3(
     localparam LUZ_THRESHOLD = 29'd100; // Umbral para la medición de luz
 
     // FSM para cambiar entre los filtros de color o medición de luz clara
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk) begin
+        if (~rst) begin
             state <= S_RED;
             s2_s3 <= 2'b00;
             time_counter <= 0;
             sensor_out_prev <= 0;
             clear_value <= 0;
-        end else begin
+        end
+		  else begin
             if (time_counter >= TIME_LIMIT) begin
                 time_counter <= 0; // Reiniciar contador de tiempo
 
@@ -68,8 +69,8 @@ module color_sensor3(
     end
 
     // Contadores para cada componente de color y luz (solo flancos de subida)
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk) begin
+        if (~rst) begin
             red_count <= 0;
             green_count <= 0;
             blue_count <= 0;
@@ -123,8 +124,8 @@ module color_sensor3(
     end
 
     // Comparación del valor de luz y asignación de la salida luz
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk) begin
+        if (~rst) begin
             luz <= 0;
         end else if (clear_value > LUZ_THRESHOLD) begin
             luz <= 1'b0;  // Activar si la luz es mayor al umbral
@@ -134,8 +135,8 @@ module color_sensor3(
     end
 
     // Asignar las salidas normalizadas solo en el estado de normalización
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk) begin
+        if (~rst) begin
             red_norm <= 0;
             green_norm <= 0;
             blue_norm <= 0;

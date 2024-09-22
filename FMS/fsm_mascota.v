@@ -29,21 +29,24 @@ module fsm_mascota(
     parameter S5 = 6;//tieso 
     parameter S6 = 7;//mimir
     reg [2:0] current_state;
-	 reg [2:0] next_state = 3'b110;
+	 reg [2:0] next_state;
     reg [2:0] var_S0, var_S1, var_S2, var_S3, var_S4;
 
     // Temporizador y parámetros de decremento
     reg [33:0] timer;
     reg [1:0] dzzzd;
     reg [33:0] decrement_interval;
+    //parameter BASE_INTERVAL = 32'd31; /// TESTBENCH
     parameter BASE_INTERVAL = 32'd4294967295;  // Intervalo base para disminuir variables 4294967295 para 80 seg
+    reg decremento;
 
     reg [1:0] comida_color = 2'b00;
-//	 initial begin 
-//	 current_state <= 0;
-//	 timer <= 0;
-//	 dzzzd <= 0;
-//	 end 
+	initial begin 
+    next_state <= 0;   
+	 current_state <= 0;
+	//timer <= 0;
+	 dzzzd <= 0;
+	 end 
 
 
     // Ajuste del intervalo de tiempo según time_control //se desplaza un bit a la derecha en cada caso lo que 
@@ -58,9 +61,9 @@ module fsm_mascota(
     end
 
     // Registro de estado
-    always @(posedge clk or posedge reset) begin
-        if (reset)
-				current_state <= INIT;
+    always @(posedge clk) begin
+        if (reset == 0)
+			current_state <= INIT;
         else
             current_state <= next_state;
     end
@@ -70,62 +73,60 @@ module fsm_mascota(
     assign vida_prom = (var_S0 + var_S1 + var_S2 + var_S3 + var_S4);
 
     // Lógica combinacional para transiciones de estado
-    always @(posedge clk) begin
+    always @(*) begin
         case (current_state)
             INIT: next_state = (A || B || C) ? S0 : INIT;
-            S0: next_state = (vida_prom < 5 && test == 0) ? S5 : (A ? S1 : (C ? S4 : S0));  // Transición a S5 si promedio < 1
-            S1: next_state = (vida_prom < 5 && test == 0) ? S5 : (A ? S2 : (C ? S0 : S1));  // Transición a S5 si promedio < 1
-            S2: next_state = (vida_prom < 5 && test == 0) ? S5 : (B && luz ? S6 : (A ? S3 : (C ? S1 : S2)));  // Transición a S5 si promedio < 1
-            S3: next_state = (vida_prom < 5 && test == 0) ? S5 : (A ? S4 : (C ? S2 : S3));  // Transición a S5 si promedio < 1
-            S4: next_state = (vida_prom < 5 && test == 0) ? S5 : (A ? S0 : (C ? S3 : S4));  // Transición a S5 si promedio < 1
-            S5: next_state = reset ? INIT : S5;  // El estado S5 podría ser un estado final o de alarma
+            S0: next_state = (vida_prom < 5 && test == 0) ? S5 : (A ? S1 : (C ? S4 : S0));  // Transición a S5 si promedio < 5
+            S1: next_state = (vida_prom < 5 && test == 0) ? S5 : (A ? S2 : (C ? S0 : S1));  // Transición a S5 si promedio < 5
+            S2: next_state = (vida_prom < 5 && test == 0) ? S5 : (B && luz ? S6 : (A ? S3 : (C ? S1 : S2)));  // Transición a S5 si promedio < 5
+            S3: next_state = (vida_prom < 5 && test == 0) ? S5 : (A ? S4 : (C ? S2 : S3));  // Transición a S5 si promedio < 5
+            S4: next_state = (vida_prom < 5 && test == 0) ? S5 : (A ? S0 : (C ? S3 : S4));  // Transición a S5 si promedio < 5
             S6: next_state = (A || C || var_S2 == 7 || luz == 0) ? S2 : S6;  // Transición de regreso a S2 desde S6
-            default: next_state = INIT;  // Valor por defecto en caso de un estado no definido
+//            default: next_state = INIT;  // Valor por defecto en caso de un estado no definido
         endcase
     end
 
-
-	 // Modificación de variables por estado
 always @(posedge clk) begin
-    if (current_state == INIT) begin
-        // Inicialización de las variables en el estado INIT
+        if (timer < decrement_interval)begin
+            timer = timer + 1;
+            decremento = 1'b0 ;
+        end
+        else begin 
+        timer <= 0 ;
+        decremento = 1'b1 ;
+        end  
+end 
+	 // Modificación de variables por estado
+always @(negedge clk) begin// Inicialización de las variables en el estado INIT
+    if (next_state == INIT) begin
         var_S0 <= 3'd5;
         var_S1 <= 3'd5;
         var_S2 <= 3'd5;
         var_S3 <= 3'd5;
         var_S4 <= 3'd5;
-        timer <= 0;
-    end
-    else if (current_state != S6 && INIT)begin
+        //timer <= 0;
+    end 
+
+    if (next_state != S6 && next_state != INIT)begin
         // Incrementar el temporizador en cada ciclo de reloj
-        if (timer < decrement_interval)begin
-            timer <= timer + 1;
-		end
-        //reduccion de variables con el tiempo
-        else begin
-            timer <= 0;  // Reinicia el temporizador cuando alcanza el intervalo
+        if (decremento == 1 && test == 0)begin
             // Reducir las variables cuando el temporizador alcanza el intervalo
-                if (var_S0 > 0) begin
-                    var_S0 <= var_S0 - 1;end
-                if (var_S1 > 0)begin 
-                    var_S1 <= var_S1 - 1;end
-                if (var_S2 > 0)begin 
-                    var_S2 <= var_S2 - 1;end
-                if (var_S3 > 0)begin 
-                    var_S3 <= var_S3 - 1;end
-                if (var_S4 > 0)begin 
-                    var_S4 <= var_S4 - 1;end            
-					end 
-		end
+            if (var_S0 > 0) begin
+                var_S0 <= var_S0 - 1;end
+            if (var_S1 > 0)begin 
+                var_S1 <= var_S1 - 1;end
+            if (var_S2 > 0)begin 
+                var_S2 <= var_S2 - 1;end
+            if (var_S3 > 0)begin 
+                var_S3 <= var_S3 - 1;end
+            if (var_S4 > 0)begin 
+                var_S4 <= var_S4 - 1;end            
+		end 
+	end
+
     /// estado 6
-    else begin
-        // Incrementar el temporizador en cada ciclo de reloj
-        if (timer < decrement_interval)begin
-            timer <= timer + 1;
-        end
-        //aumento de variables con el tiempo
-        else begin
-            timer <= 0;  // Reinicia el temporizador cuando alcanza el intervalo
+    if (next_state == S6) begin
+        if(decremento == 1)begin
             if(dzzzd < 3)begin
                 dzzzd <= dzzzd + 1;
                 end
@@ -138,10 +139,11 @@ always @(posedge clk) begin
             end
         end         
     end
+
         // Modificación de variables con la entrada B
     if (B) begin
         if(test == 0)begin
-            case (current_state)
+            case (next_state)
                 S0 : begin
 					if(var_S0 < 7)begin
                     var_S0 <= var_S0 + 1;
@@ -182,7 +184,7 @@ always @(posedge clk) begin
             endcase 
         end 
 		else begin
-            case (current_state)
+            case (next_state)
                 S0: var_S0 <= var_S0 + 1;
                 S1: var_S1 <= var_S1 + 1;
                 S2: var_S2 <= var_S2 + 1;
@@ -195,7 +197,7 @@ end
 
     // Lógica para las salidas
     always @(*) begin
-        case (current_state)
+        case (next_state)
             INIT:begin
                 output1 <= 0;
                 output2 <= 0;
