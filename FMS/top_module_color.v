@@ -1,5 +1,5 @@
 //`include "color_sensor3.v"
-//`include "color_identifier.v"
+//`include "color_identifier1.v"
 
 module top_module_color(
     input clk,            // Reloj principal
@@ -20,7 +20,7 @@ module top_module_color(
     // Instancia del módulo color_sensor
     color_sensor3 sensor_inst (
         .clk(clk),
-        .rst(1'b0),
+        .rst(1'b1),
         .sensor_out(sensor_out),
         .s2_s3(s2_s3),            // Señal de control S2-S3 conectada al sensor
         //.mode(mode),

@@ -1,0 +1,912 @@
+Analysis & Synthesis report for lcd1602_cust_char
+Thu Sep 12 10:27:19 2024
+Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |lcd1602_cust_char|create_char_task
+  9. State Machine - |lcd1602_cust_char|fsm_state
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |lcd1602_cust_char
+ 14. Post-Synthesis Netlist Statistics for Top Partition
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
+ 17. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Sep 12 10:27:19 2024          ;
+; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
+; Revision Name                      ; lcd1602_cust_char                              ;
+; Top-level Entity Name              ; lcd1602_cust_char                              ;
+; Family                             ; Cyclone IV E                                   ;
+; Total logic elements               ; 163                                            ;
+;     Total combinational functions  ; 163                                            ;
+;     Dedicated logic registers      ; 60                                             ;
+; Total registers                    ; 60                                             ;
+; Total pins                         ; 14                                             ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE6E22C8        ;                    ;
+; Top-level entity name                                            ; lcd1602_cust_char  ; lcd1602_cust_char  ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 8           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 8           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-8         ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                       ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                         ; Library ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------+---------+
+; lcd1602_cust_char.v              ; yes             ; User Verilog HDL File  ; C:/Users/Brayan/Desktop/2024-1/digital/LCD/caracteres_especiales/lcd1602_cust_char.v ;         ;
+; prueba.txt                       ; yes             ; Auto-Found File        ; C:/Users/Brayan/Desktop/2024-1/digital/LCD/caracteres_especiales/prueba.txt          ;         ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary            ;
++---------------------------------------------+----------+
+; Resource                                    ; Usage    ;
++---------------------------------------------+----------+
+; Estimated Total logic elements              ; 163      ;
+;                                             ;          ;
+; Total combinational functions               ; 163      ;
+; Logic element usage by number of LUT inputs ;          ;
+;     -- 4 input functions                    ; 97       ;
+;     -- 3 input functions                    ; 31       ;
+;     -- <=2 input functions                  ; 35       ;
+;                                             ;          ;
+; Logic elements by mode                      ;          ;
+;     -- normal mode                          ; 138      ;
+;     -- arithmetic mode                      ; 25       ;
+;                                             ;          ;
+; Total registers                             ; 60       ;
+;     -- Dedicated logic registers            ; 60       ;
+;     -- I/O registers                        ; 0        ;
+;                                             ;          ;
+; I/O pins                                    ; 14       ;
+;                                             ;          ;
+; Embedded Multiplier 9-bit elements          ; 0        ;
+;                                             ;          ;
+; Maximum fan-out node                        ; clk_16ms ;
+; Maximum fan-out                             ; 41       ;
+; Total fan-out                               ; 726      ;
+; Average fan-out                             ; 2.89     ;
++---------------------------------------------+----------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                            ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name       ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------------+--------------+
+; |lcd1602_cust_char         ; 163 (163)           ; 60 (60)                   ; 0           ; 0            ; 0       ; 0         ; 14   ; 0            ; |lcd1602_cust_char  ; lcd1602_cust_char ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |lcd1602_cust_char|create_char_task                                                                                                         ;
++---------------------------------+----------------------------+-----------------------------+------------------------------+---------------------------------+
+; Name                            ; create_char_task.WRITE_LCD ; create_char_task.SET_CURSOR ; create_char_task.WRITE_CHARS ; create_char_task.SET_CGRAM_ADDR ;
++---------------------------------+----------------------------+-----------------------------+------------------------------+---------------------------------+
+; create_char_task.SET_CGRAM_ADDR ; 0                          ; 0                           ; 0                            ; 0                               ;
+; create_char_task.WRITE_CHARS    ; 0                          ; 0                           ; 1                            ; 1                               ;
+; create_char_task.SET_CURSOR     ; 0                          ; 1                           ; 0                            ; 1                               ;
+; create_char_task.WRITE_LCD      ; 1                          ; 0                           ; 0                            ; 1                               ;
++---------------------------------+----------------------------+-----------------------------+------------------------------+---------------------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |lcd1602_cust_char|fsm_state                                                                                                                                              ;
++--------------------------------+--------------------------------+---------------------------+------------------------+---------------------------+-----------------------+----------------+
+; Name                           ; fsm_state.SET_CURSOR_AND_WRITE ; fsm_state.CLEAR_COUNTERS1 ; fsm_state.CREATE_CHARS ; fsm_state.CLEAR_COUNTERS0 ; fsm_state.INIT_CONFIG ; fsm_state.IDLE ;
++--------------------------------+--------------------------------+---------------------------+------------------------+---------------------------+-----------------------+----------------+
+; fsm_state.IDLE                 ; 0                              ; 0                         ; 0                      ; 0                         ; 0                     ; 0              ;
+; fsm_state.INIT_CONFIG          ; 0                              ; 0                         ; 0                      ; 0                         ; 1                     ; 1              ;
+; fsm_state.CLEAR_COUNTERS0      ; 0                              ; 0                         ; 0                      ; 1                         ; 0                     ; 1              ;
+; fsm_state.CREATE_CHARS         ; 0                              ; 0                         ; 1                      ; 0                         ; 0                     ; 1              ;
+; fsm_state.CLEAR_COUNTERS1      ; 0                              ; 1                         ; 0                      ; 0                         ; 0                     ; 1              ;
+; fsm_state.SET_CURSOR_AND_WRITE ; 1                              ; 0                         ; 0                      ; 0                         ; 0                     ; 1              ;
++--------------------------------+--------------------------------+---------------------------+------------------------+---------------------------+-----------------------+----------------+
+
+
++----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                               ;
++-----------------------------------------+----------------------------------------+
+; Register name                           ; Reason for Removal                     ;
++-----------------------------------------+----------------------------------------+
+; data_memory[63][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[63][1]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[63][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[63][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[63][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[63][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[63][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[63][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[62][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[62][1]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[62][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[62][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[62][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[62][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[62][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[62][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[61][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[61][1]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[61][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[61][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[61][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[61][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[61][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[61][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[60][0]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[60][1]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[60][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[60][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[60][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[60][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[60][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[60][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[59][0]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[59][1]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[59][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[59][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[59][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[59][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[59][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[59][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[58][0]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[58][1]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[58][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[58][3]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[58][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[58][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[58][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[58][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[57][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[57][1]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[57][2]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[57][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[57][4]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[57][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[57][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[57][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[56][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[56][1]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[56][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[56][3]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[56][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[56][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[56][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[56][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[55][0]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[55][1]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[55][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[55][3]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[55][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[55][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[55][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[55][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[54][0]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[54][1]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[54][2]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[54][3]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[54][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[54][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[54][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[54][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[53][0]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[53][1]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[53][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[53][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[53][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[53][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[53][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[53][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[52][0]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[52][1]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[52][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[52][3]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[52][4]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[52][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[52][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[52][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[51][0]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[51][1]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[51][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[51][3]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[51][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[51][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[51][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[51][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[50][0]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[50][1]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[50][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[50][3]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[50][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[50][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[50][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[50][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[49][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[49][1]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[49][2]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[49][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[49][4]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[49][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[49][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[49][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[48][0]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[48][1]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[48][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[48][3]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[48][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[48][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[48][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[48][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[47][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[47][1]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[47][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[47][3]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[47][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[47][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[47][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[47][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[46][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[46][1]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[46][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[46][3]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[46][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[46][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[46][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[46][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[45][0]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[45][1]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[45][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[45][3]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[45][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[45][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[45][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[45][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[44][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[44][1]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[44][2]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[44][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[44][4]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[44][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[44][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[44][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[43][0]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[43][1]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[43][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[43][3]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[43][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[43][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[43][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[43][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[42][0]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[42][1]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[42][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[42][3]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[42][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[42][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[42][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[42][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[41][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[41][1]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[41][2]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[41][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[41][4]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[41][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[41][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[41][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[40][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[40][1]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[40][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[40][3]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[40][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[40][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[40][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[40][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[39][0]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[39][1]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[39][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[39][3]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[39][4]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[39][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[39][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[39][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[38][0]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[38][1]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[38][2]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[38][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[38][4]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[38][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[38][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[38][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[37][0]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[37][1]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[37][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[37][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[37][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[37][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[37][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[37][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[36][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[36][1]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[36][2]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[36][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[36][4]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[36][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[36][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[36][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[35][0]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[35][1]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[35][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[35][3]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[35][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[35][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[35][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[35][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[34][0]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[34][1]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[34][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[34][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[34][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[34][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[34][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[34][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[33][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[33][1]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[33][2]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[33][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[33][4]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[33][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[33][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[33][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[32][0]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[32][1]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[32][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[32][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[32][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[32][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[32][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[32][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[31][0]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[31][1]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[31][2]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[31][3]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[31][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[31][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[31][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[31][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[30][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[30][1]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[30][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[30][3]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[30][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[30][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[30][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[30][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[29][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[29][1]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[29][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[29][3]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[29][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[29][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[29][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[29][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[28][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[28][1]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[28][2]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[28][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[28][4]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[28][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[28][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[28][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[27][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[27][1]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[27][2]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[27][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[27][4]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[27][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[27][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[27][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[26][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[26][1]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[26][2]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[26][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[26][4]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[26][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[26][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[26][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[25][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[25][1]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[25][2]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[25][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[25][4]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[25][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[25][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[25][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[24][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[24][1]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[24][2]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[24][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[24][4]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[24][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[24][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[24][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[23][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[23][1]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[23][2]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[23][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[23][4]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[23][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[23][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[23][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[22][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[22][1]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[22][2]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[22][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[22][4]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[22][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[22][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[22][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[21][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[21][1]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[21][2]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[21][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[21][4]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[21][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[21][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[21][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[20][0]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[20][1]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[20][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[20][3]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[20][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[20][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[20][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[20][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[19][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[19][1]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[19][2]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[19][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[19][4]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[19][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[19][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[19][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[18][0]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[18][1]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[18][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[18][3]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[18][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[18][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[18][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[18][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[17][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[17][1]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[17][2]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[17][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[17][4]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[17][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[17][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[17][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[16][0]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[16][1]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[16][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[16][3]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[16][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[16][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[16][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[16][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[15][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[15][1]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[15][2]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[15][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[15][4]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[15][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[15][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[15][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[14][0]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[14][1]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[14][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[14][3]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[14][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[14][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[14][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[14][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[13][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[13][1]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[13][2]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[13][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[13][4]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[13][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[13][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[13][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[12][0]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[12][1]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[12][2]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[12][3]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[12][4]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[12][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[12][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[12][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[11][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[11][1]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[11][2]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[11][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[11][4]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[11][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[11][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[11][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[10][0]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[10][1]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[10][2]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[10][3]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[10][4]                      ; Stuck at VCC due to stuck port data_in ;
+; data_memory[10][5]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[10][6]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[10][7]                      ; Stuck at GND due to stuck port data_in ;
+; data_memory[9][0]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[9][1]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[9][2]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[9][3]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[9][4]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[9][5]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[9][6]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[9][7]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[8][0]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[8][1]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[8][2]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[8][3]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[8][4]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[8][5]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[8][6]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[8][7]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[7][0]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[7][1]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[7][2]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[7][3]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[7][4]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[7][5]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[7][6]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[7][7]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[6][0]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[6][1]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[6][2]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[6][3]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[6][4]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[6][5]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[6][6]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[6][7]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[5][0]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[5][1]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[5][2]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[5][3]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[5][4]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[5][5]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[5][6]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[5][7]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[4][0]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[4][1]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[4][2]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[4][3]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[4][4]                       ; Stuck at VCC due to stuck port data_in ;
+; data_memory[4][5]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[4][6]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[4][7]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[3][0]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[3][1]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[3][2]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[3][3]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[3][4]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[3][5]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[3][6]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[3][7]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[2][0]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[2][1]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[2][2]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[2][3]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[2][4]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[2][5]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[2][6]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[2][7]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[1][0]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[1][1]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[1][2]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[1][3]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[1][4]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[1][5]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[1][6]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[1][7]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[0][0]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[0][1]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[0][2]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[0][3]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[0][4]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[0][5]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[0][6]                       ; Stuck at GND due to stuck port data_in ;
+; data_memory[0][7]                       ; Stuck at GND due to stuck port data_in ;
+; create_char_task~6                      ; Lost fanout                            ;
+; create_char_task~7                      ; Lost fanout                            ;
+; fsm_state~2                             ; Lost fanout                            ;
+; fsm_state~3                             ; Lost fanout                            ;
+; fsm_state~4                             ; Lost fanout                            ;
+; fsm_state~5                             ; Lost fanout                            ;
+; Total Number of Removed Registers = 518 ;                                        ;
++-----------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 60    ;
+; Number of registers using Synchronous Clear  ; 24    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 9     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
+; 8:1                ; 4 bits    ; 20 LEs        ; 4 LEs                ; 16 LEs                 ; Yes        ; |lcd1602_cust_char|cgram_addrs_counter[1] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |lcd1602_cust_char|char_counter           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |lcd1602_cust_char ;
++-----------------+--------+--------------------------------------------------------+
+; Parameter Name  ; Value  ; Type                                                   ;
++-----------------+--------+--------------------------------------------------------+
+; num_commands    ; 3      ; Signed Integer                                         ;
+; num_data_all    ; 64     ; Signed Integer                                         ;
+; char_data       ; 8      ; Signed Integer                                         ;
+; num_cgram_addrs ; 8      ; Signed Integer                                         ;
+; COUNT_MAX       ; 800000 ; Signed Integer                                         ;
++-----------------+--------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 14                          ;
+; cycloneiii_ff         ; 60                          ;
+;     ENA               ; 9                           ;
+;     SCLR              ; 24                          ;
+;     plain             ; 27                          ;
+; cycloneiii_lcell_comb ; 164                         ;
+;     arith             ; 25                          ;
+;         2 data inputs ; 24                          ;
+;         3 data inputs ; 1                           ;
+;     normal            ; 139                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 9                           ;
+;         3 data inputs ; 30                          ;
+;         4 data inputs ; 97                          ;
+;                       ;                             ;
+; Max LUT depth         ; 6.00                        ;
+; Average LUT depth     ; 3.79                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+    Info: Processing started: Thu Sep 12 10:27:05 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lcd1602_cust_char -c lcd1602_cust_char
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file lcd1602_cust_char.v
+    Info (12023): Found entity 1: lcd1602_cust_char File: C:/Users/Brayan/Desktop/2024-1/digital/LCD/caracteres_especiales/lcd1602_cust_char.v Line: 1
+Info (12127): Elaborating entity "lcd1602_cust_char" for the top level hierarchy
+Warning (10850): Verilog HDL warning at lcd1602_cust_char.v(85): number of words (411) in memory file does not match the number of elements in the address range [0:63] File: C:/Users/Brayan/Desktop/2024-1/digital/LCD/caracteres_especiales/lcd1602_cust_char.v Line: 85
+Warning (10230): Verilog HDL assignment warning at lcd1602_cust_char.v(109): truncated value with size 32 to match size of target (20) File: C:/Users/Brayan/Desktop/2024-1/digital/LCD/caracteres_especiales/lcd1602_cust_char.v Line: 109
+Warning (10850): Verilog HDL warning at lcd1602_cust_char.v(159): number of words (411) in memory file does not match the number of elements in the address range [0:63] File: C:/Users/Brayan/Desktop/2024-1/digital/LCD/caracteres_especiales/lcd1602_cust_char.v Line: 159
+Warning (10230): Verilog HDL assignment warning at lcd1602_cust_char.v(172): truncated value with size 32 to match size of target (3) File: C:/Users/Brayan/Desktop/2024-1/digital/LCD/caracteres_especiales/lcd1602_cust_char.v Line: 172
+Warning (10230): Verilog HDL assignment warning at lcd1602_cust_char.v(197): truncated value with size 32 to match size of target (7) File: C:/Users/Brayan/Desktop/2024-1/digital/LCD/caracteres_especiales/lcd1602_cust_char.v Line: 197
+Warning (10230): Verilog HDL assignment warning at lcd1602_cust_char.v(201): truncated value with size 32 to match size of target (4) File: C:/Users/Brayan/Desktop/2024-1/digital/LCD/caracteres_especiales/lcd1602_cust_char.v Line: 201
+Warning (10230): Verilog HDL assignment warning at lcd1602_cust_char.v(203): truncated value with size 32 to match size of target (4) File: C:/Users/Brayan/Desktop/2024-1/digital/LCD/caracteres_especiales/lcd1602_cust_char.v Line: 203
+Info (10264): Verilog HDL Case Statement information at lcd1602_cust_char.v(188): all case item expressions in this case statement are onehot File: C:/Users/Brayan/Desktop/2024-1/digital/LCD/caracteres_especiales/lcd1602_cust_char.v Line: 188
+Warning (10230): Verilog HDL assignment warning at lcd1602_cust_char.v(218): truncated value with size 32 to match size of target (8) File: C:/Users/Brayan/Desktop/2024-1/digital/LCD/caracteres_especiales/lcd1602_cust_char.v Line: 218
+Warning (10230): Verilog HDL assignment warning at lcd1602_cust_char.v(228): truncated value with size 32 to match size of target (4) File: C:/Users/Brayan/Desktop/2024-1/digital/LCD/caracteres_especiales/lcd1602_cust_char.v Line: 228
+Info (10264): Verilog HDL Case Statement information at lcd1602_cust_char.v(215): all case item expressions in this case statement are onehot File: C:/Users/Brayan/Desktop/2024-1/digital/LCD/caracteres_especiales/lcd1602_cust_char.v Line: 215
+Warning (10230): Verilog HDL assignment warning at lcd1602_cust_char.v(239): truncated value with size 32 to match size of target (1) File: C:/Users/Brayan/Desktop/2024-1/digital/LCD/caracteres_especiales/lcd1602_cust_char.v Line: 239
+Warning (10030): Net "config_memory.data_a" at lcd1602_cust_char.v(59) has no driver or initial value, using a default initial value '0' File: C:/Users/Brayan/Desktop/2024-1/digital/LCD/caracteres_especiales/lcd1602_cust_char.v Line: 59
+Warning (10030): Net "config_memory.waddr_a" at lcd1602_cust_char.v(59) has no driver or initial value, using a default initial value '0' File: C:/Users/Brayan/Desktop/2024-1/digital/LCD/caracteres_especiales/lcd1602_cust_char.v Line: 59
+Warning (10030): Net "cgram_addrs.data_a" at lcd1602_cust_char.v(60) has no driver or initial value, using a default initial value '0' File: C:/Users/Brayan/Desktop/2024-1/digital/LCD/caracteres_especiales/lcd1602_cust_char.v Line: 60
+Warning (10030): Net "cgram_addrs.waddr_a" at lcd1602_cust_char.v(60) has no driver or initial value, using a default initial value '0' File: C:/Users/Brayan/Desktop/2024-1/digital/LCD/caracteres_especiales/lcd1602_cust_char.v Line: 60
+Warning (10030): Net "config_memory.we_a" at lcd1602_cust_char.v(59) has no driver or initial value, using a default initial value '0' File: C:/Users/Brayan/Desktop/2024-1/digital/LCD/caracteres_especiales/lcd1602_cust_char.v Line: 59
+Warning (10030): Net "cgram_addrs.we_a" at lcd1602_cust_char.v(60) has no driver or initial value, using a default initial value '0' File: C:/Users/Brayan/Desktop/2024-1/digital/LCD/caracteres_especiales/lcd1602_cust_char.v Line: 60
+Info (276014): Found 2 instances of uninferred RAM logic
+    Info (276004): RAM logic "cgram_addrs" is uninferred due to inappropriate RAM size File: C:/Users/Brayan/Desktop/2024-1/digital/LCD/caracteres_especiales/lcd1602_cust_char.v Line: 60
+    Info (276004): RAM logic "config_memory" is uninferred due to inappropriate RAM size File: C:/Users/Brayan/Desktop/2024-1/digital/LCD/caracteres_especiales/lcd1602_cust_char.v Line: 59
+Critical Warning (127005): Memory depth (4) in the design file differs from memory depth (3) in the Memory Initialization File "C:/Users/Brayan/Desktop/2024-1/digital/LCD/caracteres_especiales/db/lcd1602_cust_char.ram0_lcd1602_cust_char_f95500f6.hdl.mif" -- setting initial value for remaining addresses to 0
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "rw" is stuck at GND File: C:/Users/Brayan/Desktop/2024-1/digital/LCD/caracteres_especiales/lcd1602_cust_char.v Line: 10
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 6 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/Brayan/Desktop/2024-1/digital/LCD/caracteres_especiales/output_files/lcd1602_cust_char.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 179 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 11 output pins
+    Info (21061): Implemented 165 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 20 warnings
+    Info: Peak virtual memory: 4805 megabytes
+    Info: Processing ended: Thu Sep 12 10:27:19 2024
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:31
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/Brayan/Desktop/2024-1/digital/LCD/caracteres_especiales/output_files/lcd1602_cust_char.map.smsg.
+
+

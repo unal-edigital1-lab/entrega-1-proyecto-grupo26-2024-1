@@ -134,9 +134,9 @@ VCCIO4                       : 62        : power  :                   : 2.5V    
 GND                          : 63        : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 64        :        :                   :         : 4         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 65        :        :                   :         : 4         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : 66        :        :                   :         : 4         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : 67        :        :                   :         : 4         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : 68        :        :                   :         : 4         :                
+time_control[1]              : 66        : input  : 2.5 V             :         : 4         : Y              
+time_control[0]              : 67        : input  : 2.5 V             :         : 4         : Y              
+test                         : 68        : input  : 2.5 V             :         : 4         : Y              
 color[2]                     : 69        : output : 2.5 V             :         : 4         : Y              
 color[1]                     : 70        : output : 2.5 V             :         : 4         : Y              
 color[0]                     : 71        : output : 2.5 V             :         : 4         : Y              
@@ -144,8 +144,8 @@ led                          : 72        : output : 2.5 V             :         
 RESERVED_INPUT_WITH_WEAK_PULLUP : 73        :        :                   :         : 5         :                
 luz                          : 74        : output : 2.5 V             :         : 5         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : 75        :        :                   :         : 5         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : 76        :        :                   :         : 5         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : 77        :        :                   :         : 5         :                
+db_B_level                   : 76        : output : 2.5 V             :         : 5         : Y              
+db_A_level                   : 77        : output : 2.5 V             :         : 5         : Y              
 VCCINT                       : 78        : power  :                   : 1.2V    :           :                
 GND                          : 79        : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 80        :        :                   :         : 5         :                

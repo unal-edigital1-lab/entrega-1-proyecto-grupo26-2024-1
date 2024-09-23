@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sun Sep 22 02:04:14 2024
+Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+Revision Name : lcd1602_text
+Top-level Entity Name : LCD1602_controller
+Family : Cyclone IV E
+Total logic elements : 2,167
+    Total combinational functions : 2,167
+    Dedicated logic registers : 49
+Total registers : 49
+Total pins : 26
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
