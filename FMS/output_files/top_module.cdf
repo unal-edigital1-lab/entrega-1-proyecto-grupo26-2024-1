@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE6E22) Path("C:/Users/Brayan/Documents/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/output_files/") File("top_module.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE6E22) Path("C:/Users/ThinkPad/OneDrive/Documentos/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/output_files/") File("top_module.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

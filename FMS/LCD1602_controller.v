@@ -393,7 +393,7 @@ initial begin
     clk_16ms <= 0;
     counter <= 0;
     configuracion_ready <= 0;
-    $readmemh("C:/Users/Brayan/Desktop/2024-1/digital/LCD/texto/data.txt", data_memory);    
+    $readmemh("C:/Users/ThinkPad/OneDrive/Documentos/GitHub/entrega-1-proyecto-grupo26-2024-1/FMS/data.txt", data_memory);    
     config_memory[0] <= LINES2_MATRIX5x8_MODE8bit;
     config_memory[1] <= SHIFT_CURSOR_RIGHT;
     config_memory[2] <= DISPON_CURSOROFF;
