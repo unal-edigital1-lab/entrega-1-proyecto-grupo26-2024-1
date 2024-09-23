@@ -147,6 +147,7 @@ Los pines de esta pantalla son los siguientes:
 
 #### 3.1.2 Maquina de estados
 
+
 Se cuentan con 5 estados principales cada uno correspondiente a uno de los estados de nuestra mascota la transición entre cada uno estará dada por la señal selec_menu dada por los el controlador de botones al usuario presionar el boton derecho el valor de selec_menu aumenta en uno haciendo la transición al estado siguiente cuando llega al 5 estado se debe enviar una señal al controlador para reiniciar el valor de selec_menu y volver al estado de felicidad que seria la pantalla por defecto.
 
 Para el proceso de visualización se tienen dos señales: display_menu (que cambia según la pantalla que se visite) y display_valor (que cambia en función del valor del estado). Con la primera señal se indica el archivo que debe leer el módulo de visualización, en el cual se encuentran las diferentes caras de nuestra mascota. La cara que se verá en cada caso la determina la señal display_valor.
