@@ -15,7 +15,7 @@ module top_module(
     wire [15:0] red_norm, green_norm, blue_norm;
 
     // Señales de control LED siempre en 00
-    assign led_s0_s1 = 2'b110;
+    assign led_s0_s1 = 2'b111;
 
     // Instancia del módulo color_sensor
     color_sensor3 sensor_inst (

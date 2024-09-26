@@ -1,0 +1,262 @@
+//PRUEBA CONTROLADOR DE TIEMPO Y CONTADOR DE TIEMPO 
+
+// `timescale 1ns / 1ps
+// `include "fsm_mascota.v"
+// module tb_fsm_mascota();
+// 
+//     // Registros y cables para conectar al DUT (Design Under Test)
+//     reg clk;
+//     reg reset;
+//     reg A;
+//     reg B;
+//     reg C;
+//     reg [1:0] time_control;
+//     wire [7:0] output1;
+//     wire [3:0] output2;
+// 
+//     // Instancia del DUT
+//     fsm_mascota uut (
+//         .clk(clk),
+//         .reset(reset),
+//         .A(A),
+//         .B(B),
+//         .C(C),
+//         .time_control(time_control),
+//         .output1(output1),
+//         .output2(output2)
+//     );
+// 
+//     // Generación de reloj
+//     initial begin
+//         clk = 0;
+//         forever #5 clk = ~clk;  // Periodo de 10 unidades de tiempo
+//     end
+// 
+//     // Secuencia de prueba
+//     initial begin
+//         // Configuración inicial
+//         reset = 0;
+//         A = 0;
+//         B = 0;
+//         C = 0;
+//         time_control = 2'b11;  // Intervalo de tiempo base
+//         #15 reset = 0;
+// 
+//         // Setear las variables a su máximo valor
+//         uut.var_S0 = 3'h7;
+//         uut.var_S1 = 3'h7;
+//         uut.var_S2 = 3'h7;
+//         uut.var_S3 = 3'h7;
+//         uut.var_S4 = 3'h7;
+// 
+//         // Esperar un tiempo para observar el decremento
+//         #1000;
+// 
+//         #10;
+//         reset = 1;
+//         #10;
+//         reset = 0;
+// 
+//         // Cambiar el control de tiempo para ver un decremento más rápido
+//         time_control = 2'b01;
+//         
+//         uut.var_S0 = 3'h7;
+//         uut.var_S1 = 3'h7;
+//         uut.var_S2 = 3'h7;
+//         uut.var_S3 = 3'h7;
+//         uut.var_S4 = 3'h7;
+//         #500;
+//         // Cambiar el control de tiempo para ver un decremento más lento
+//         time_control = 2'b10;
+// 
+//         #10;
+//         reset = 1;
+//         #10;
+//         reset = 0;
+//         
+//         uut.var_S0 = 3'h7;
+//         uut.var_S1 = 3'h7;
+//         uut.var_S2 = 3'h7;
+//         uut.var_S3 = 3'h7;
+//         uut.var_S4 = 3'h7;
+//         #1000;
+//         // Finalizar simulación
+//         $stop;
+//     end
+// 
+//     // Monitor para observar los cambios en las variables
+//     initial begin
+//         $monitor("Time: %0d, State: %0d, Output1: %0h, Output2: %0d, Var_S0: %0h, Var_S1: %0h, Var_S2: %0h, Var_S3: %0h, Var_S4: %0h", 
+//                  $time, uut.current_state, output1, output2, uut.var_S0, uut.var_S1, uut.var_S2, uut.var_S3, uut.var_S4);
+//     end
+// initial begin: TEST_CASE
+//         $dumpfile("fsm_mascota_tb.vcd");
+//         $dumpvars(-1,uut);
+//         #(180000) $finish;
+// 		
+//     end
+// endmodule
+
+
+//PRUEBA CAMBIO DE ESTADO Y AUMENTO CON SOLO B
+`include "fsm_mascota.v"
+ module tb_fsm_mascota;
+
+    // Declaración de señales para la FSM
+    reg clk;
+    reg reset;
+    reg A;
+    reg B;
+    reg C;
+    wire [7:0] output1;
+    wire [3:0] output2;
+
+    // Instanciación de la FSM
+    fsm_mascota uut (.clk(clk),  .reset(reset), .A(A), .B(B), .C(C), .output1(output1), .output2(output2));
+
+    // Generación del reloj (clock)
+    always #5 clk = ~clk;
+    // Procedimiento inicial para configurar y ejecutar las pruebas
+    initial begin
+        // Inicialización de las señales
+        clk = 0;
+        reset = 0;
+        A = 0;
+        B = 0;
+        C = 0;
+
+
+        // Reset de la FSM
+        reset = 0;      // Activa el reset
+        #10;
+        reset = 1;      // Desactiva el reset
+
+        // Esperar un ciclo de reloj
+        #30;
+
+        // Probar transición de estado S0 a S1
+        A = 1;          // Activa la entrada A para pasar al siguiente estado
+        #10;
+        A = 0;          // Desactiva la entrada A
+        #30;
+
+        // Modificar variable en estado S1
+        B = 1;          // Activa la entrada B para modificar la variable del estado S1
+        #10;
+        B = 0;          // Desactiva la entrada B
+        #30;
+        B = 1;          // Activa la entrada B para modificar la variable del estado S4
+        #10;
+        B = 0;          // Desactiva la entrada B
+        #30;
+         B = 1;          // Activa la entrada B para modificar la variable del estado S4
+        #10;
+        B = 0;          // Desactiva la entrada B
+        #30;
+        B = 1;          // Activa la entrada B para modificar la variable del estado S4
+        #10;
+        B = 0;          // Desactiva la entrada B
+        #30;
+
+        // Probar transición de estado S1 a S2
+        A = 1;          // Activa la entrada A para pasar al siguiente estado
+        #10;
+        A = 0;          // Desactiva la entrada A
+        #30;
+
+        // Modificar variable en estado S2
+        B = 1;          // Activa la entrada B para modificar la variable del estado S2
+        #10;
+        B = 0;          // Desactiva la entrada B
+        #30;
+
+        // Probar transición de estado S2 a S3
+        A = 1;          // Activa la entrada A para pasar al siguiente estado
+        #10;
+        A = 0;          // Desactiva la entrada A
+        #30;
+
+        // Modificar variable en estado S3
+        B = 1;          // Activa la entrada B para modificar la variable del estado S3
+        #10;
+        B = 0;          // Desactiva la entrada B
+        #30;
+
+        // Probar transición de estado S3 a S4
+        A = 1;          // Activa la entrada A para pasar al siguiente estado
+        #10;
+        A = 0;          // Desactiva la entrada A
+        #30;
+
+        // Modificar variable en estado S4
+        B = 1;          // Activa la entrada B para modificar la variable del estado S4
+        #10;
+        B = 0;          // Desactiva la entrada B
+        #30;
+         B = 1;          // Activa la entrada B para modificar la variable del estado S4
+        #10;
+        B = 0;          // Desactiva la entrada B
+        #30;
+         B = 1;          // Activa la entrada B para modificar la variable del estado S4
+        #10;
+        B = 0;          // Desactiva la entrada B
+        #30;
+
+        // Probar transición de estado S4 a S0 (ciclo completo)
+        A = 1;          // Activa la entrada A para regresar al estado inicial
+        #10;
+        A = 0;          // Desactiva la entrada A
+        #30;
+
+// Modificar variable en estado S0
+        B = 1;          // Activa la entrada B para modificar la variable del estado S4
+        #10;
+        B = 0;          // Desactiva la entrada B
+        #30;
+        B = 1;          // Activa la entrada B para modificar la variable del estado S4
+        #10;
+        B = 0;          // Desactiva la entrada B
+        #30;
+        B = 1;          // Activa la entrada B para modificar la variable del estado S4
+        #10;
+        B = 0;          // Desactiva la entrada B
+        #30;
+        //prueba C
+        C = 1;          // Activa la entrada C para regresar en los estados
+        #10;
+        C = 0;          // Desactiva la entrada C
+        #30;
+        C = 1;          // Activa la entrada C para regresar en los estados
+        #10;
+        C = 0;          // Desactiva la entrada C
+        #30;
+        C = 1;          // Activa la entrada C para regresar en los estados
+        #10;
+        C = 0;          // Desactiva la entrada C
+        #30;
+        C = 1;          // Activa la entrada C para regresar en los estados
+        #10;
+        C = 0;          // Desactiva la entrada C
+        #30;
+        C = 1;          // Activa la entrada C para regresar en los estados
+        #10;
+        C = 0;          // Desactiva la entrada C
+        #30;                                
+        //prueba reset 
+        reset = 0;
+        #10
+        reset = 1;
+        #30;
+        // Finalización de la simulación
+        $stop;
+    end
+    initial begin: TEST_CASE
+        $dumpfile("fsm_mascota_tb.vcd");
+        $dumpvars(-1,uut);
+        #(1000) $finish;
+		
+    end
+
+
+endmodule
+ 

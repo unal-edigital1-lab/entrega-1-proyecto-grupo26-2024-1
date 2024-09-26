@@ -31,7 +31,7 @@ module top_module_color(
     );
 
     // Instancia del módulo color_identifier
-    color_identifier1 identifier_inst (
+    color_identifier identifier_inst (
         .red_norm(red_norm),
         .green_norm(green_norm),
         .blue_norm(blue_norm),

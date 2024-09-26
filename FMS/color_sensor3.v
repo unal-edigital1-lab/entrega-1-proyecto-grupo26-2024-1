@@ -9,14 +9,14 @@ module color_sensor3(
     output reg [1:0] s2_s3 // Señales de control del sensor (S2 y S3)
 );
 
-    reg [20:0] red_count = 0;
-    reg [20:0] green_count = 0;
-    reg [20:0] blue_count = 0;
-    reg [20:0] clear_count = 0;
+    reg [17:0] red_count = 0;
+    reg [17:0] green_count = 0;
+    reg [17:0] blue_count = 0;
+    reg [17:0] clear_count = 0;
     reg [2:0] state = 0;
     reg [31:0] time_counter = 0;  // Contador de tiempo en cada estado
-    reg [16:0] red_value, green_value, blue_value;  // Valores temporales
-    reg [16:0] clear_value; // Valor temporal para la luz
+    reg [17:0] red_value, green_value, blue_value;  // Valores temporales
+    reg [17:0] clear_value; // Valor temporal para la luz
     reg sensor_out_prev;  // Registro para detectar flancos de subida
 
     localparam S_RED = 2'b00;
@@ -24,7 +24,7 @@ module color_sensor3(
     localparam S_BLUE = 2'b10;
     localparam S_CLEAR = 2'b11;
     localparam S_NORMALIZE = 3'b100;  // Estado para la normalización
-    localparam TIME_LIMIT = 32'd5000000; // Duración en cada estado (ajustable)
+    localparam TIME_LIMIT = 23'd5000000; // Duración en cada estado (ajustable)
     localparam LUZ_THRESHOLD = 29'd100; // Umbral para la medición de luz
 
     // FSM para cambiar entre los filtros de color o medición de luz clara
@@ -101,9 +101,9 @@ module color_sensor3(
                 S_NORMALIZE: begin
                     // Guardar los valores normalizados una vez completadas las lecturas
                     if (clear_count > 0) begin
-                        red_value <= (red_count * 55) / clear_count;
-                        green_value <= (green_count * 105) / clear_count;
-                        blue_value <= (blue_count * 105) / clear_count;
+                        red_value <= (red_count * 23) / clear_count;
+                        green_value <= (green_count * 90) / clear_count;
+                        blue_value <= (blue_count * 80) / clear_count;
                     end else begin
                         red_value <= 0;
                         green_value <= 0;
