@@ -1,227 +1,81 @@
-//// Verilog code for button debouncing on FPGA
-//// Debouncing module without creating another clock domain
-//// by using clock enable signal with two modes
-//
-//// D-flip-flop with clock enable signal for debouncing module 
-//module my_dff_en(input DFF_CLOCK, clock_enable, D, output reg Q = 0);
-//    always @ (posedge DFF_CLOCK) begin
-//        if(clock_enable == 1)  // Solo actualiza Q cuando el reloj lento está habilitado
-//            Q <= D;
-//    end
-//endmodule
-//
-//// Slow clock enable for debouncing button with two modes
-//module clock_enable(
-//    input Clk_50M,
-//    input mode_select,          // Señal de selección de modo
-//    output slow_clk_en);
-//
-//    reg [33:0] counter = 0;     // Contador para dividir la frecuencia del reloj
-//    reg [33:0] counter_limit = 0;   // Límite del contador dependiendo del modo
-//
-//    always @(posedge Clk_50M) begin
-//        if (mode_select)
-//            counter_limit <= 2500000; // Modo 1: Contador más largo (2.5 ms para FPGA)
-//        else
-//            counter_limit <= 25000000;     // Modo 2: Contador más corto (útil para simulación)
-//
-//        counter <= (counter >= counter_limit) ? 0 : counter + 1;
-//    end
-//
-//    // Genera la señal de habilitación de reloj lento cuando el contador alcanza el límite
-//    assign slow_clk_en = (counter == counter_limit) ? 1'b1 : 1'b0;
-//endmodule 
-//
-//// debounce module to filter out the button bouncing effect
-//module debounce_better_version(input pb_1, clk, mode_select, output pb_out);
-//    wire slow_clk_en;
-//    wire Q1, Q2, Q2_bar, Q0;
-//
-//    // Instancia del módulo clock_enable para generar la señal de habilitación del reloj lento
-//    clock_enable u1(clk, mode_select, slow_clk_en);
-//
-//    // Tres flip-flops tipo D con habilitación de reloj para almacenar el estado del botón
-//    my_dff_en d0(clk, slow_clk_en, pb_1, Q0);
-//    my_dff_en d1(clk, slow_clk_en, Q0, Q1);
-//    my_dff_en d2(clk, slow_clk_en, Q1, Q2);
-//
-//    // Genera la señal invertida de Q2
-//    assign Q2_bar = ~Q2;
-//
-//    // Salida debounced del botón (solo se activa cuando Q1 está alto y Q2 está bajo)
-//    assign pb_out = Q1 & Q2_bar;
-//endmodule
-
-
-//////////////////////////////////
-
-/*
-module debounce (
-    input wire clk,        // Reloj del sistema
-    input wire rst,        // Reset asíncrono
-    input wire btn_in,     // Entrada del botón (sin filtrar)
-    output reg btn_out     // Salida debounced
-);
-    // Parámetros de temporización
-    parameter CNT_WIDTH = 26;     // Ancho del contador
-    parameter DEBOUNCE_PERIOD = 26'd50000000; // Tiempo de debounce en ciclos de reloj (ajustar según la frecuencia del reloj)
-
-    reg [CNT_WIDTH-1:0] debounce_counter = 0; // Contador de debounce
-    reg btn_reg1 = 0;    // Primer registro del botón
-    reg btn_reg2 = 0;    // Segundo registro del botón
-    reg btn_stable = 0;  // Estado estable del botón
-
-    // Registro del botón y conteo
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
-            btn_reg1 <= 0;
-            btn_reg2 <= 0;
-            debounce_counter <= 0;
-            btn_stable <= 0;
-        end else begin
-            btn_reg1 <= btn_in;
-            btn_reg2 <= btn_reg1;
-            
-            if (btn_reg1 == btn_reg2) begin
-                // Si el botón está estable
-                if (debounce_counter < DEBOUNCE_PERIOD) begin
-                    debounce_counter <= debounce_counter + 1;
-                end else begin
-                    btn_stable <= btn_reg2;
-                end
-            end else begin
-                // Reiniciar el contador si el botón cambia
-                debounce_counter <= 0;
-            end
-            
-            btn_out <= btn_stable;
-        end
-    end
-endmodule
-*/
-//module debounce_better_version(input pb_1,clk,output pb_out);
-//wire slow_clk_en;
-//wire Q1,Q2,Q2_bar,Q0;
-//clock_enable u1(clk,slow_clk_en);
-//my_dff_en d0(clk,slow_clk_en,pb_1,Q0);
-//my_dff_en d1(clk,slow_clk_en,Q0,Q1);
-//my_dff_en d2(clk,slow_clk_en,Q1,Q2);
-//assign Q2_bar = ~Q2;
-//assign pb_out = Q1 & Q2_bar;
-//endmodule
-//// Slow clock enable for debouncing button 
-//module clock_enable(input Clk_100M,output slow_clk_en);
-//    reg [26:0]counter=0;
-//    always @(posedge Clk_100M)
-//    begin
-//       counter <= (counter>=24999999)?0:counter+1;
-//    end
-//    assign slow_clk_en = (counter == 24999999)?1'b1:1'b0;
-//endmodule
-//// D-flip-flop with clock enable signal for debouncing module 
-//module my_dff_en(input DFF_CLOCK, clock_enable,D, output reg Q=0);
-//    always @ (posedge DFF_CLOCK) begin
-//  if(clock_enable==1) 
-//           Q <= D;
-//    end
-//endmodule 
-
-/////////////////////3
-
-//module debounce
+//module debounce1 
 //   (
-//    input wire clk, reset,
-//    input wire sw,
-//    output reg db_level, db_tick
+//    input wire clk, reset,  // Señal de reloj y reset
+//    input wire sw,           // Entrada del botón o switch a debouncing
+//    input wire mode,         // Selección de modo: normal o largo
+//    output reg db_level,     // Salida de nivel estabilizado
+//    output reg db_tick       // Salida de pulso cuando se detecta un cambio de estado
 //   );
 //
-//   // symbolic state declaration
+//   // Parámetros para los estados de la FSM
 //   localparam  [1:0]
-//               zero  = 2'b00,
-//               wait0 = 2'b01,
-//               one   = 2'b10,
-//               wait1 = 2'b11;
+//               zero  = 2'b00,  // Estado inicial, botón suelto
+//               wait1 = 2'b01,  // Espera para confirmar que el botón ha sido presionado
+//               one   = 2'b10,  // Estado botón presionado
+//               wait0 = 2'b11;  // Espera para confirmar que el botón ha sido soltado
 //
-//   // number of counter bits (2^N * 20ns = 40ms)
-//   localparam N = 22;  // Ajustar para el tiempo deseado
+//   // Parámetro para el tamaño del contador ajustable
+//   // Se utiliza un solo contador que se ajusta en función del modo
+//   reg [22:0] q_reg, q_next;  // Contador de 23 bits, suficiente para manejar ambos tiempos
+//   wire [22:0] count_max = (mode ? 23'd23 : 23'd21);  // Selección del tiempo de debounce según el modo
+//   reg [1:0] state_reg, state_next;  // Registro y siguiente estado de la FSM
 //
-//   // signal declaration
-//   reg [N-1:0] q_reg, q_next;
-//   reg [1:0] state_reg, state_next;
-//
-//   // body
-//   always @(posedge clk or posedge reset)
-//   begin
-//      if (reset)
-//      begin
-//         state_reg <= zero;
-//         q_reg <= 0;
-//      end
-//      else
-//      begin
-//         state_reg <= state_next;
-//         q_reg <= q_next;
+//   // Bloque de control de la FSM y el contador
+//   always @(posedge clk or negedge reset) begin
+//      if (!reset) begin
+//         state_reg <= zero;   // Reset del estado a 'zero'
+//         q_next <= 0;          // Reset del contador
+//      end else begin
+//         state_reg <= state_next;  // Actualización del estado
+//          q_next <= q_reg ;          // Actualización del contador
 //      end
 //   end
 //
-//   always @*
-//   begin
-//      state_next = state_reg;
-//      q_next = q_reg;
-//      db_tick = 1'b0;
+//   // Lógica combinacional para el siguiente estado y el contador
+//   always @(*) begin
+//      q_next = q_reg;       // Inicializa el siguiente valor del contador
+//      state_next = state_reg;  // Inicializa el siguiente estado
+//      db_tick = 1'b0;       // Inicializa el tick a 0 por defecto
+//
 //      case (state_reg)
-//         zero:
-//            begin
-//               db_level = 1'b0;
-//               if (sw)
-//               begin
-//                  state_next = wait1;
-//                  q_next = {N{1'b1}}; // load 1..1
-//               end
+//         zero: begin
+//            db_level = 1'b0;  // Salida de nivel bajo (botón no presionado)
+//            if (sw) begin
+//               state_next = wait1;  // Cambio de estado cuando se detecta un cambio de 'sw'
+//               q_next = count_max;  // Reinicia el contador al máximo valor
+//               q_reg =count_max;
 //            end
-//         wait1:
-//            begin
-//               db_level = 1'b0;
-//               if (sw)
-//               begin
-//                  q_next = q_reg - 1;
-//                  if (q_next==0)
-//                  begin
-//                     state_next = one;
-//                     db_tick = 1'b1;
-//                  end
-//               end
-//               else
-//                  state_next = zero;
+//         end
+//         wait1: begin
+//            db_level = 1'b0;  // Salida de nivel bajo durante la espera
+//            if (sw && q_reg > 0)
+//               q_next = q_reg - 1;  // Decrementa el contador mientras 'sw' sigue activo
+//            else if (q_reg == 0) begin
+//               state_next = one;    // Si el contador llega a 0, confirma el cambio de estado
+//               db_tick = 1'b1;      // Genera un tick indicando el cambio de estado
 //            end
-//         one:
-//            begin
-//               db_level = 1'b1;
-//               if (~sw)
-//               begin
-//                  state_next = wait0;
-//                  q_next = {N{1'b1}}; // load 1..1
-//               end
+//            else
+//               state_next = zero;   // Si 'sw' se desactiva, regresa a 'zero'
+//         end
+//         one: begin
+//            db_level = 1'b1;  // Salida de nivel alto (botón presionado)
+//            if (!sw) begin
+//               state_next = wait0;  // Cambio de estado cuando 'sw' se suelta
+//               q_next = count_max;  // Reinicia el contador
 //            end
-//         wait0:
-//            begin
-//               db_level = 1'b1;
-//               if (~sw)
-//               begin
-//                  q_next = q_reg - 1;
-//                  if (q_next==0)
-//                     state_next = zero;
-//               end
-//               else
-//                  state_next = one;
-//            end
-//         default: state_next = zero;
+//         end
+//         wait0: begin
+//            db_level = 1'b1;  // Mantiene el nivel alto durante la espera
+//            if (!sw && q_reg > 0)
+//               q_next = q_reg - 1;  // Decrementa el contador mientras 'sw' sigue inactivo
+//            else if (q_reg == 0)
+//               state_next = zero;   // Si el contador llega a 0, confirma el regreso al estado 'zero'
+//         end
+//         default: state_next = zero;  // Estado por defecto (cubre posibles errores)
 //      endcase
 //   end
 //
 //endmodule
-
-///////////////////////////////////////////////////////////////
 
 module debounce
    (
@@ -243,7 +97,7 @@ module debounce
    // Parámetros para el tiempo de debounce
    //localparam N_NORMAL = 4;
    localparam N_NORMAL = 21;       // Tiempo de debounce normal
-   localparam N_LONG = 23;         // Tiempo de debounce largo (5 segundos)
+   localparam N_LONG = 20;         // Tiempo de debounce largo (5 segundos)
 
    // Señales para los contadores y estados
    reg [N_NORMAL-1:0] q_reg_normal, q_next_normal;
@@ -258,18 +112,18 @@ module debounce
    always @(posedge clk)
    begin
       if (reset == 0) begin
-         state_reg <= zero;
-         q_reg_normal <= count_normal;
-         q_reg_long <= count_normal;
+         state_reg = zero;
+         q_reg_normal = count_normal;
+         q_reg_long = count_normal;
       end
       else begin
-         state_reg <= state_next;
-         q_reg_normal <= (mode ? q_reg_normal : count_next_normal);
-         q_reg_long <= (mode ? count_next_normal : q_reg_long);
+         state_reg = state_next;
+         q_reg_normal = (mode ? q_reg_normal : count_next_normal);
+         q_reg_long = (mode ? count_next_normal : q_reg_long);
       end
    end
 
-   always @*
+   always @(*)
    begin
       state_next = state_reg;
       q_next_normal = (mode ? q_reg_long : q_reg_normal);
@@ -302,13 +156,15 @@ module debounce
                   end
                end
                else
-                  state_next = zero;
+					begin
+                  state_next = zero;end
             end
          one:
             begin
                db_level = 1'b1;
-               if (sw==0)
+               if (~sw)
                begin
+                  //state_next = zero;
                   state_next = wait0;
                   if (mode)
                      q_next_long = {N_LONG{1'b1}}; // Contador largo para 5 segundos
@@ -319,103 +175,67 @@ module debounce
          wait0:
             begin
                db_level = 1'b1;
-               if (sw==0)
+               if (~sw)
                begin
                   q_next_normal = q_reg_normal - 1;
                   q_next_long = q_reg_long - 1;
                   if (count_normal == 0)
                      state_next = zero;
                end
-               else
+               else begin
                   state_next = one;
-            end
+            end 
+				end
          default: state_next = zero;
       endcase
    end
 
 endmodule
-//
-//module antirebote (
-//    input boton,
-//    input clk,
-//    output reg botondebounced               
-//);
-//
-//reg previous;
-//reg[24:0] contador;//conteo hasta 1.500.000
-//
-//wire compare;
-//
-//wire buttonneg; //prueba para botones normalmente abiertos
-//initial begin
-//	previous <= 0;
-//	contador <= 0;
-//	botondebounced <= 0;
-//end
-//
-//assign buttonneg = ~boton;
-//
-//assign compare = previous^buttonneg;
-//
-//
-//always @(posedge clk)begin
-//	if(contador == 0)begin
-//		if(compare == 1)begin
-//			previous <= buttonneg;
-//			contador <= 25000000;
-//			botondebounced <= buttonneg;
-//		end
-//	end
-//	else begin
-//		contador <= contador - 1'b1;
-//	end
-//end
-//endmodule
 
-module antirebote (
-    input boton,
-    input clk,
-    output reg botondebounced               
-);
-
-reg previous;
-reg [27:0] contador; // Conteo hasta 1.500.000
-
-wire compare;
-wire buttonneg; // Prueba para botones normalmente abiertos
-reg pulse;      // Nueva señal para generar el pulso de un ciclo
-
-initial begin
-    previous <= 1;
-    //contador <= 10; //para testbench
-    contador <= 25000000;
-    botondebounced <= 0;
-    pulse <= 0; // Inicializar la señal de pulso
-end
-
-assign buttonneg = ~boton;
-assign compare = previous ^ buttonneg;
-
-always @(posedge clk) begin
-    if (contador == 0) begin
-        if (compare == 1) begin
-            previous <= buttonneg;
-            contador <= 10; //para testbench
-            contador <= 25000000; // para uso normal 
-            pulse <= 1'b1;  // Genera el pulso cuando hay un cambio de estado
-        end else begin
-            pulse <= 1'b0;  // Desactiva el pulso si no hay cambio de estado
-        end
-    end else begin
-        contador <= contador - 1'b1;
-        pulse <= 1'b0;  // Asegura que el pulso se mantenga solo un ciclo
+// Módulo D-flip-flop con habilitación de reloj
+module my_dff_en(input DFF_CLOCK, clock_enable, D, output reg Q = 0);
+    always @ (posedge DFF_CLOCK) begin
+        if(clock_enable == 1)
+            Q <= D;
     end
-end
+endmodule
 
-// Generar la salida botondebounced como un pulso de un ciclo
-always @(posedge clk) begin
-    botondebounced <= pulse;
-end
+// Módulo de generación de habilitación de reloj lento
+module clock_enable(
+    input Clk_50M,
+    input mode_select,
+    output slow_clk_en);
 
+    reg [25:0] counter = 0;
+    reg [25:0] counter_limit = 0;
+
+    always @(posedge Clk_50M) begin
+        if (mode_select)
+            counter_limit <= 125000; // Modo largo (2.5 ms)
+        else
+            counter_limit <= 5000000;  // Modo corto (simulación rápida)
+        counter <= (counter >= counter_limit) ? 0 : counter + 1;
+    end
+    assign slow_clk_en = (counter == counter_limit) ? 1'b1 : 1'b0;
+endmodule
+
+// Módulo antirrebote (debounce)
+module debounce_better_version(input pb_1, clk, mode_select, output pb_out);
+    wire slow_clk_en;
+    wire Q1, Q2, Q2_bar, Q0;
+
+    // Generar la señal de habilitación de reloj lento
+    clock_enable u1(clk, mode_select, slow_clk_en);
+
+    // Tres flip-flops D para almacenar el estado del botón
+    my_dff_en d0(clk, slow_clk_en, pb_1, Q0);
+    my_dff_en d1(clk, slow_clk_en, Q0, Q1);
+    my_dff_en d2(clk, slow_clk_en, Q1, Q2);
+
+    // Invertir la salida del tercer flip-flop
+    assign Q2_bar = ~Q2;
+
+    // La salida solo es alta si el botón ha sido presionado sin rebote
+    assign pb_out = Q1 & Q2_bar & slow_clk_en;
 endmodule
 

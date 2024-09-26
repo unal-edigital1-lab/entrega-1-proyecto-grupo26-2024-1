@@ -239,7 +239,8 @@ module debounce
                wait1 = 2'b11;
 
    // Parámetros para el tiempo de debounce
-   localparam N_NORMAL = 23;       // Tiempo de debounce normal
+   localparam N_NORMAL = 4;
+   //localparam N_NORMAL = 23;       // Tiempo de debounce normal
    localparam N_LONG = 26;         // Tiempo de debounce largo (5 segundos)
 
    // Señales para los contadores y estados

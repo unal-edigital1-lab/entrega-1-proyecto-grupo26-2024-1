@@ -6,9 +6,9 @@ module color_identifier1(
 );
 
     // Define los umbrales para cada componente de color
-    localparam RED_THRESHOLD   = 16'd45;  // Ajusta el umbral según sea necesario
-    localparam GREEN_THRESHOLD = 16'd35;  // Ajusta el umbral según sea necesario
-    localparam BLUE_THRESHOLD  = 16'd40;  // Ajusta el umbral según sea necesario
+    localparam RED_THRESHOLD   = 16'd20;  // Ajusta el umbral según sea necesario
+    localparam GREEN_THRESHOLD = 16'd30;  // Ajusta el umbral según sea necesario
+    localparam BLUE_THRESHOLD  = 16'd30;  // Ajusta el umbral según sea necesario
 
     always @(*) begin
         // Inicializa el color a 0 (todo apagado)

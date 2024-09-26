@@ -100,9 +100,9 @@ module color_sensor3(
                 S_NORMALIZE: begin
                     // Guardar los valores normalizados una vez completadas las lecturas
                     if (clear_count > 0) begin
-                        red_value <= (red_count * 100) / clear_count;
-                        green_value <= (green_count * 131) / clear_count;
-                        blue_value <= (blue_count * 130) / clear_count;
+                        red_value <= (red_count * 35) / clear_count;
+                        green_value <= (green_count * 100) / clear_count;
+                        blue_value <= (blue_count * 90) / clear_count;
                     end else begin
                         red_value <= 0;
                         green_value <= 0;
